@@ -1,19 +1,19 @@
 
 # Table of Contents
 
-1.  [Nord and Solarized-light themes](#orgcdbb7c8)
-    1.  [Dependency](#orge1e4610)
-    2.  [Switch](#org86f7ae4)
-    3.  [Shot](#orgff31e72)
-    4.  [<code>[%]</code>](#orgceb65ac)
+1.  [Nord and Solarized-light themes](#org95eb076)
+    1.  [Dependency](#org09e8b14)
+    2.  [Switch](#orgb6fe951)
+    3.  [Shot](#org4ef7dbe)
+    4.  [TODO](#org5bc1197)
 
 
-<a id="orgcdbb7c8"></a>
+<a id="org95eb076"></a>
 
 # Nord and Solarized-light themes
 
 
-<a id="orge1e4610"></a>
+<a id="org09e8b14"></a>
 
 ## Dependency
 
@@ -35,7 +35,7 @@
     -   sublime
 
 
-<a id="org86f7ae4"></a>
+<a id="orgb6fe951"></a>
 
 ## Switch
 
@@ -44,7 +44,7 @@ You can use the &rsquo;switch&rsquo; script to switch between the two themes.
 You can view more details in itself.
 
 
-<a id="orgff31e72"></a>
+<a id="org4ef7dbe"></a>
 
 ## Shot
 
@@ -53,9 +53,9 @@ You can view more details in itself.
 ![img](./shot/Solar.png)
 
 
-<a id="orgceb65ac"></a>
+<a id="org5bc1197"></a>
 
-## TODO <code>[%]</code>
+## TODO
 
 -   [ ] Auto switch theme according to Time
 -   [ ] Auto switch theme according to Backlight
