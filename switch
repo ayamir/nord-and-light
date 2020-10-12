@@ -1,0 +1,69 @@
+#!/bin/bash
+
+if [ $1 == "s" ]
+then
+    # Wallpaper
+    feh --bg-fill /home/mir/Pictures/Background/solarized-light.jpg
+    # Polybar
+    cp ~/.config/bspwm/polybar/colors-solar ~/.config/bspwm/polybar/colors
+    sh ~/.config/bspwm/bin/bspbar
+    # Dunst
+    cp ~/.config/dunst/dunstrc-solar ~/.config/dunst/dunstrc
+    killall dunst
+    dunst &
+    # alacritty
+    cp ~/.config/alacritty/alacritty-solar.yml ~/.config/alacritty/alacritty.yml
+    # Global theme
+    sed -i "s/Nordic-master/Solarized-Light/g" ~/.gtkrc-2.0
+    sed -i "s/Nordic-master/Solarized-Light/g" ~/.config/gtk-3.0/settings.ini
+    # Rofi
+    sed -i "s/sh ~\/.config\/bspwm\/rofi\/bin\/launcher/rofi -show drun/g" ~/.config/sxhkd/sxhkdrc
+    pkill -USR1 -x sxhkd
+    # Vim
+    sed -i "s/nord/solarized/g" ~/.vimrc
+    # Emacs
+    sed -i "s/nord/solarized-light/g" ~/.doom.d/config.el
+    sh ~/.emacs.d/bin/doom sync -e
+    # Code
+    sed -i "s/Nord/Solarized Light/g" ~/.config/Code/User/settings.json
+    # Sublime
+    sed -i "s/Nord\/Nord.sublime-color-scheme/Solarized Color Scheme\/Solarized (light).sublime-color-scheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+    # Fcitx
+    sed -i "s/nord-dark/nord-light/g" ~/.config/fcitx/conf/fcitx-classic-ui.config
+    fcitx -r
+    # Zathura
+    cp ~/.config/zathura/zathurarc-solar ~/.config/zathura/zathurarc
+elif [ $1 == "n" ]
+then
+    # Wallpaper
+    feh --bg-fill /home/mir/Pictures/Background/nord-arch.png
+    # Polybar 
+    cp ~/.config/bspwm/polybar/colors-nord ~/.config/bspwm/polybar/colors
+    sh ~/.config/bspwm/bin/bspbar
+    # Dunst
+    cp ~/.config/dunst/dunstrc-nord ~/.config/dunst/dunstrc
+    killall dunst
+    dunst &
+    # Alacritty
+    cp ~/.config/alacritty/alacritty-nord.yml ~/.config/alacritty/alacritty.yml
+    # Global theme
+    sed -i 's/Solarized-Light/Nordic-master/g' ~/.gtkrc-2.0
+    sed -i "s/Solarized-Light/Nordic-master/g" ~/.config/gtk-3.0/settings.ini
+    # Rofi
+    sed -i "s/rofi -show drun/sh ~\/.config\/bspwm\/rofi\/bin\/launcher/g" ~/.config/sxhkd/sxhkdrc
+    pkill -USR1 -x sxhkd
+    # Vim
+    sed -i 's/solarized/nord/g' ~/.vimrc
+    # Emacs
+    sed -i 's/solarized-light/nord/g' ~/.doom.d/config.el
+    sh ~/.emacs.d/bin/doom sync -e
+    # Code
+    sed -i "s/Solarized Light/Nord/g" ~/.config/Code/User/settings.json
+    # Sublime
+    sed -i "s/Solarized Color Scheme\/Solarized (light).sublime-color-scheme/Nord\/Nord.sublime-color-scheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+    # Fcitx
+    sed -i "s/nord-ligth/nord-dark/g" ~/.config/fcitx/conf/fcitx-classic-ui.config
+    fcitx -r
+    # Zathura
+    cp ~/.config/zathura/zathurarc-nord ~/.config/zathura/zathurarc
+fi
