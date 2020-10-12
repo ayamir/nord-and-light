@@ -1,0 +1,22 @@
+* Nord and Solarized-light themes
+** Dependency
+- Must
+  + feh
+  + dunst
+  + alacritty
+  + rofi
+  + zathura
+  + nord and solarized-light global GTK2/3 theme
+    [[https://www.gnome-look.org/p/1267246/]][Nord theme]
+    [[https://www.gnome-look.org/p/1309911/]][Solarized Light theme]
+- Optional
+  + vim
+  + doom emacs
+  + vscode
+  + sublime
+** Switch
+You can use the 'switch' script to switch between the two themes
+You can view more details in itself
+** Shot
+[[file:./shot/Nord.png]]
+[[file:./shot/Solar.png]]
