@@ -17,10 +17,12 @@ then
     sed -i "s/Nordic-master/Solarized-Light/g" ~/.gtkrc-2.0
     sed -i "s/Nordic-master/Solarized-Light/g" ~/.config/gtk-3.0/settings.ini
     # Rofi
-    sed -i "s/sh ~\/.config\/bspwm\/rofi\/bin\/launcher/rofi -show drun/g" ~/.config/sxhkd/sxhkdrc
-    pkill -USR1 -x sxhkd
+    sed -i "s/nord/solar/g" ~/.config/rofi/config.rasi
     # Vim
     sed -i "s/nord/solarized/g" ~/.vimrc
+    # Neovim
+    sed -i "s/nord/Neosolarized/g" ~/.SpaceVim.d/init.toml
+    sed -i "s/dark/light/g" ~/.SpaceVim.d/init.toml
     # Emacs
     sed -i "s/nord/solarized-light/g" ~/.doom.d/config.el
     sh ~/.emacs.d/bin/doom sync -e
@@ -50,10 +52,12 @@ then
     sed -i 's/Solarized-Light/Nordic-master/g' ~/.gtkrc-2.0
     sed -i "s/Solarized-Light/Nordic-master/g" ~/.config/gtk-3.0/settings.ini
     # Rofi
-    sed -i "s/rofi -show drun/sh ~\/.config\/bspwm\/rofi\/bin\/launcher/g" ~/.config/sxhkd/sxhkdrc
-    pkill -USR1 -x sxhkd
+    sed -i "s/solar/nord/g" ~/.config/rofi/config.rasi
     # Vim
     sed -i 's/solarized/nord/g' ~/.vimrc
+    # Neovim
+    sed -i "s/NeoSolarized/nord/g" ~/.SpaceVim.d/init.toml
+    sed -i "s/light/dark/g" ~/.SpaceVim.d/init.toml
     # Emacs
     sed -i 's/solarized-light/nord/g' ~/.doom.d/config.el
     sh ~/.emacs.d/bin/doom sync -e
@@ -62,7 +66,7 @@ then
     # Sublime
     sed -i "s/Solarized Color Scheme\/Solarized (light).sublime-color-scheme/Nord\/Nord.sublime-color-scheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Fcitx
-    sed -i "s/nord-ligth/nord-dark/g" ~/.config/fcitx/conf/fcitx-classic-ui.config
+    sed -i "s/nord-light/nord-dark/g" ~/.config/fcitx/conf/fcitx-classic-ui.config
     fcitx -r
     # Zathura
     cp ~/.config/zathura/zathurarc-nord ~/.config/zathura/zathurarc
