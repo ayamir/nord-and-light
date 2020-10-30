@@ -1,26 +1,35 @@
 
 # Table of Contents
 
-1.  [Nord and Customized-light themes](#orgc041830)
-    1.  [Dependency](#org78de2ea)
-        1.  [Must](#orgbcff967)
-        2.  [Optional](#org6db2458)
-    2.  [Switch](#orgdbbc52f)
-    3.  [Shot](#org53ad731)
-    4.  [TODO](#org56bc0b8)
+1.  [Nord and Customized-light themes](#orgffd48b7)
+    1.  [Switch](#org1a26eaa)
+    2.  [Dependency](#org3b28879)
+        1.  [Must](#org8d48938)
+        2.  [Optional](#org0fec776)
+    3.  [Shot](#org29c1ce6)
+    4.  [TODO](#org139b418)
 
 
-<a id="orgc041830"></a>
+<a id="orgffd48b7"></a>
 
 # Nord and Customized-light themes
 
 
-<a id="org78de2ea"></a>
+<a id="org1a26eaa"></a>
+
+## Switch
+
+You can use the &rsquo;switch&rsquo; script to switch between the two themes.
+
+You can view more details in itself.
+
+
+<a id="org3b28879"></a>
 
 ## Dependency
 
 
-<a id="orgbcff967"></a>
+<a id="org8d48938"></a>
 
 ### Must
 
@@ -32,7 +41,7 @@
 -   nord and a customized light(called AWEL-Lumine) global GTK2/3 theme
 
 
-<a id="org6db2458"></a>
+<a id="org0fec776"></a>
 
 ### Optional
 
@@ -66,16 +75,7 @@
         OneHalfLight theme
 
 
-<a id="orgdbbc52f"></a>
-
-## Switch
-
-You can use the &rsquo;switch&rsquo; script to switch between the two themes.
-
-You can view more details in itself.
-
-
-<a id="org53ad731"></a>
+<a id="org29c1ce6"></a>
 
 ## Shot
 
@@ -84,7 +84,7 @@ You can view more details in itself.
 ![img](./shot/light.png)
 
 
-<a id="org56bc0b8"></a>
+<a id="org139b418"></a>
 
 ## TODO
 

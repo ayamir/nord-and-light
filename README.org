@@ -1,4 +1,9 @@
 * Nord and Customized-light themes
+** Switch
+You can use the 'switch' script to switch between the two themes.
+
+You can view more details in itself.
+
 ** Dependency
 *** Must
   + feh
@@ -37,10 +42,6 @@
       
       OneHalfLight theme
       
-** Switch
-You can use the 'switch' script to switch between the two themes.
-
-You can view more details in itself.
 
 ** Shot
 [[file:./shot/dark.png]]
