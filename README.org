@@ -1,8 +1,8 @@
 * Nord and Customized-light themes
-** Switch
-You can use the 'switch' script to switch between the two themes.
+** Shot
+[[file:./shot/dark.png]]
 
-You can view more details in itself.
+[[file:./shot/light.png]]
 
 ** Dependency
 *** Must
@@ -42,11 +42,10 @@ You can view more details in itself.
       
       OneHalfLight theme
       
+** Switch
+You can use the 'switch' script to switch between the two themes.
 
-** Shot
-[[file:./shot/dark.png]]
-
-[[file:./shot/light.png]]
+You can view more details in itself.
 
 ** TODO
 - [ ] Auto switch theme according to Time
