@@ -45,6 +45,8 @@
 ** Switch
 You can use the 'switch' script to switch between the two themes.
 
+In my case, I put it in `~/.local/bin/`
+
 You can view more details in itself.
 
 ** TODO

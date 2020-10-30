@@ -1,21 +1,21 @@
 
 # Table of Contents
 
-1.  [Nord and Customized-light themes](#org361ff69)
-    1.  [Shot](#orgf3d4d6d)
-    2.  [Dependency](#orgfca8ed0)
-        1.  [Must](#orga50f3c2)
-        2.  [Optional](#orge891e5c)
-    3.  [Switch](#org298a1d2)
-    4.  [TODO](#org2f9a652)
+1.  [Nord and Customized-light themes](#org2fa0784)
+    1.  [Shot](#orge744832)
+    2.  [Dependency](#org800d237)
+        1.  [Must](#org0185cd4)
+        2.  [Optional](#org749dc5a)
+    3.  [Switch](#orgba39bea)
+    4.  [TODO](#orgaf89f47)
 
 
-<a id="org361ff69"></a>
+<a id="org2fa0784"></a>
 
 # Nord and Customized-light themes
 
 
-<a id="orgf3d4d6d"></a>
+<a id="orge744832"></a>
 
 ## Shot
 
@@ -24,12 +24,12 @@
 ![img](./shot/light.png)
 
 
-<a id="orgfca8ed0"></a>
+<a id="org800d237"></a>
 
 ## Dependency
 
 
-<a id="orga50f3c2"></a>
+<a id="org0185cd4"></a>
 
 ### Must
 
@@ -41,7 +41,7 @@
 -   nord and a customized light(called AWEL-Lumine) global GTK2/3 theme
 
 
-<a id="orge891e5c"></a>
+<a id="org749dc5a"></a>
 
 ### Optional
 
@@ -75,16 +75,18 @@
         OneHalfLight theme
 
 
-<a id="org298a1d2"></a>
+<a id="orgba39bea"></a>
 
 ## Switch
 
 You can use the &rsquo;switch&rsquo; script to switch between the two themes.
 
+In my case, I put it in \`~/.local/bin/\`
+
 You can view more details in itself.
 
 
-<a id="org2f9a652"></a>
+<a id="orgaf89f47"></a>
 
 ## TODO
 
