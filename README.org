@@ -1,30 +1,42 @@
-* Nord and Solarized-light themes
+* Nord and Customized-light themes
 ** Dependency
-- Must
+*** Must
   + feh
   + dunst
   + alacritty
   + rofi
   + zathura
-  + nord and solarized-light global GTK2/3 theme
-   
-    [[https://www.gnome-look.org/p/1267246/]][Nord theme]
-
-    [[https://www.gnome-look.org/p/1309911/]][Solarized Light theme]
-- Optional
+  + nord and a customized light(called AWEL-Lumine) global GTK2/3 theme
+*** Optional
   + vim
+    - Dark
+      Nord vim theme and Nord airline theme
+    - Light
+      One vim theme and silver airline theme
   + doom emacs
+    - Dark
+      doom-nord theme
+    - Light
+      doom-nord-light theme
   + vscode
+    - Dark
+      Nord theme
+    - Light
+      Atom one light theme
   + sublime
+    - Dark
+      Nord theme
+    - Light
+      OneHalfLight theme
 ** Switch
 You can use the 'switch' script to switch between the two themes.
 
 You can view more details in itself.
 
 ** Shot
-[[file:./shot/Nord.png]]
+[[file:./shot/dark.png]]
 
-[[file:./shot/Solar.png]]
+[[file:./shot/light.png]]
 
 ** TODO
 - [ ] Auto switch theme according to Time

@@ -6,6 +6,6 @@ configuration {
 	font: "SFNS Display 14";
 	show-icons: true;
 	icon-theme: "papirus";
-	theme: "~/.config/rofi/Nord.rasi";
+	theme: "~/.config/rofi/light.rasi";
 	display-drun: "App";
 }
