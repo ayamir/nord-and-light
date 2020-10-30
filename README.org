@@ -10,24 +10,33 @@
 *** Optional
   + vim
     - Dark
+      
       Nord vim theme and Nord airline theme
     - Light
+      
       One vim theme and silver airline theme
   + doom emacs
     - Dark
+      
       doom-nord theme
     - Light
+      
       doom-nord-light theme
   + vscode
     - Dark
+      
       Nord theme
     - Light
+      
       Atom one light theme
   + sublime
     - Dark
+      
       Nord theme
     - Light
+      
       OneHalfLight theme
+      
 ** Switch
 You can use the 'switch' script to switch between the two themes.
 
