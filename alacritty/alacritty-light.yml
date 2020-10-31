@@ -99,7 +99,7 @@ font:
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
     family: Fira Code
-    # Fira Code
+    # JetBrainsMono Nerd Font
     # The `style` can be specified to pick a specific face.
     style: Bold
 
@@ -110,7 +110,7 @@ font:
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
     family: Fira Code
-    # Fira Code
+    # JetBrainsMono Nerd Font
     # The `style` can be specified to pick a specific face.
     style: Italic
 
@@ -167,9 +167,9 @@ colors:
   normal:
     black: '#3B4252'
     red: '#BF616A'
-    green: '#789f00'
+    green: '#A3BE8C'
     yellow: '#EBCB8B'
-    blue: '#51AFEF'
+    blue: '#81A1C1'
     magenta: '#B48EAD'
     cyan: '#88C0D0'
     white: '#ECEFF4'
