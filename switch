@@ -3,7 +3,7 @@
 if [ $1 == "l" ]
 then
     # Wallpaper
-    feh --bg-fill ~/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
+    feh --bg-fill /home/mir/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
     # Polybar
     cp ~/.config/bspwm/polybar/colors-light ~/.config/bspwm/polybar/colors
     sh ~/.config/bspwm/bin/bspbar
@@ -11,8 +11,10 @@ then
     cp ~/.config/dunst/dunstrc-light ~/.config/dunst/dunstrc
     killall dunst
     dunst &
-    # alacritty
+    # Alacritty
     cp ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
+    # Kitty
+    sed -i "s/nord/polar/g" ~/.config/kitty/kitty.conf
     # Global theme
     sed -i "s/Nord/AWEL-Lumine/g" ~/.gtkrc-2.0
     sed -i "s/Nord/AWEL-Lumine/g" ~/.config/gtk-3.0/settings.ini
@@ -33,7 +35,7 @@ then
 elif [ $1 == "n" ]
 then
     # Wallpaper
-    feh --bg-fill ~/Pictures/Anime/ETUFu1PU8AAiTvH.jpg
+    feh --bg-fill /home/mir/Pictures/Anime/ETUFu1PU8AAiTvH.jpg
     # Polybar 
     cp ~/.config/bspwm/polybar/colors-nord ~/.config/bspwm/polybar/colors
     sh ~/.config/bspwm/bin/bspbar
@@ -43,6 +45,8 @@ then
     dunst &
     # Alacritty
     cp ~/.config/alacritty/alacritty-nord.yml ~/.config/alacritty/alacritty.yml
+    # Kitty
+    sed -i "s/polar/nord/g" ~/.config/kitty/kitty.conf
     # Global theme
     sed -i 's/AWEL-Lumine/Nord/g' ~/.gtkrc-2.0
     sed -i "s/AWEL-Lumine/Nord/g" ~/.config/gtk-3.0/settings.ini
