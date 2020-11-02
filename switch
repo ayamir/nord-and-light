@@ -2,6 +2,8 @@
 
 if [ $1 == "l" ]
 then
+    # Firefox
+    cp -vr ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
     feh --bg-fill /home/mir/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
     # Polybar
@@ -34,6 +36,8 @@ then
     cp ~/.config/zathura/zathurarc-light ~/.config/zathura/zathurarc
 elif [ $1 == "n" ]
 then
+    # Firefox
+    cp -vr ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
     feh --bg-fill /home/mir/Pictures/Anime/ETUFu1PU8AAiTvH.jpg
     # Polybar 

@@ -4,6 +4,10 @@
 
 [[file:./shot/light.png]]
 
+file:./shot/nord-firefox.png
+
+file:./shot/light-firefox.png
+
 ** Dependency
 *** Must
   + feh

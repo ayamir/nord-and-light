@@ -1,21 +1,21 @@
 
 # Table of Contents
 
-1.  [Nord and Customized-light themes](#org2fa0784)
-    1.  [Shot](#orge744832)
-    2.  [Dependency](#org800d237)
-        1.  [Must](#org0185cd4)
-        2.  [Optional](#org749dc5a)
-    3.  [Switch](#orgba39bea)
-    4.  [TODO](#orgaf89f47)
+1.  [Nord and Customized-light themes](#org71093ae)
+    1.  [Shot](#orgeb8ea9c)
+    2.  [Dependency](#org9dc4f35)
+        1.  [Must](#org5651661)
+        2.  [Optional](#orga088eca)
+    3.  [Switch](#orgf34a8c2)
+    4.  [TODO](#org24cb862)
 
 
-<a id="org2fa0784"></a>
+<a id="org71093ae"></a>
 
 # Nord and Customized-light themes
 
 
-<a id="orge744832"></a>
+<a id="orgeb8ea9c"></a>
 
 ## Shot
 
@@ -23,13 +23,17 @@
 
 ![img](./shot/light.png)
 
+![img](./shot/nord-firefox.png)
 
-<a id="org800d237"></a>
+![img](./shot/light-firefox.png)
+
+
+<a id="org9dc4f35"></a>
 
 ## Dependency
 
 
-<a id="org0185cd4"></a>
+<a id="org5651661"></a>
 
 ### Must
 
@@ -41,7 +45,7 @@
 -   nord and a customized light(called AWEL-Lumine) global GTK2/3 theme
 
 
-<a id="org749dc5a"></a>
+<a id="orga088eca"></a>
 
 ### Optional
 
@@ -75,7 +79,7 @@
         OneHalfLight theme
 
 
-<a id="orgba39bea"></a>
+<a id="orgf34a8c2"></a>
 
 ## Switch
 
@@ -86,7 +90,7 @@ In my case, I put it in \`~/.local/bin/\`
 You can view more details in itself.
 
 
-<a id="orgaf89f47"></a>
+<a id="org24cb862"></a>
 
 ## TODO
 
