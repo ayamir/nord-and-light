@@ -1,24 +1,24 @@
 
 # Table of Contents
 
-1.  [Nord and Customized-light themes](#org347d400)
-    1.  [Shot](#org753cc0a)
-    2.  [Dependency](#org3de952e)
-        1.  [Must](#orgef234ca)
-        2.  [Optional](#org9454135)
-    3.  [Switch](#org174cf5e)
-    4.  [About Firefox](#org33b10cc)
-        1.  [Prerequisites](#orgc6bd6b6)
-        2.  [Installation](#orgc971d25)
-    5.  [TODO](#orgb851d31)
+1.  [Nord and Customized-light themes](#org1e722a8)
+    1.  [Shot](#orgc6a5330)
+    2.  [Dependency](#org72a2739)
+        1.  [Must](#orgc07c424)
+        2.  [Optional](#org0c1d80f)
+    3.  [Switch](#orgc1284e9)
+    4.  [About Firefox](#org1f5a1f7)
+        1.  [Prerequisites](#org63a70ca)
+        2.  [Installation](#org46efab5)
+    5.  [TODO](#orgec8c868)
 
 
-<a id="org347d400"></a>
+<a id="org1e722a8"></a>
 
 # Nord and Customized-light themes
 
 
-<a id="org753cc0a"></a>
+<a id="orgc6a5330"></a>
 
 ## Shot
 
@@ -31,12 +31,12 @@
 ![img](./shot/light-firefox.png)
 
 
-<a id="org3de952e"></a>
+<a id="org72a2739"></a>
 
 ## Dependency
 
 
-<a id="orgef234ca"></a>
+<a id="orgc07c424"></a>
 
 ### Must
 
@@ -48,7 +48,7 @@
 -   nord and a customized light(called AWEL-Lumine) global GTK2/3 theme
 
 
-<a id="org9454135"></a>
+<a id="org0c1d80f"></a>
 
 ### Optional
 
@@ -89,7 +89,7 @@
         OneHalfLight theme
 
 
-<a id="org174cf5e"></a>
+<a id="orgc1284e9"></a>
 
 ## Switch
 
@@ -100,12 +100,12 @@ In my case, I put it in \`~/.local/bin/\`
 You can view more details in itself.
 
 
-<a id="org33b10cc"></a>
+<a id="org1f5a1f7"></a>
 
 ## About Firefox
 
 
-<a id="orgc6bd6b6"></a>
+<a id="org63a70ca"></a>
 
 ### Prerequisites
 
@@ -122,7 +122,7 @@ You can view more details in itself.
     2.  Enable the Default theme if not already enabled
 
 
-<a id="orgc971d25"></a>
+<a id="org46efab5"></a>
 
 ### Installation
 
@@ -132,8 +132,15 @@ You can view more details in itself.
 
 3.  cp chrome/ dir to your firefox user directory.
 
+4.  for the web page&rsquo;s nord theme
+    1.  add a addon called \`Midnight Lizard\`
+    
+    2.  add Nord theme to it&rsquo;s color schemes
+    
+    3.  apply Nord theme
 
-<a id="orgb851d31"></a>
+
+<a id="orgec8c868"></a>
 
 ## TODO
 

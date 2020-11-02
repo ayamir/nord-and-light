@@ -81,6 +81,13 @@ You can view more details in itself.
 
 3. cp chrome/ dir to your firefox user directory.
 
+4. for the web page's nord theme
+   a. add a addon called `Midnight Lizard`
+
+   b. add Nord theme to it's color schemes
+
+   c. apply Nord theme
+      
 ** TODO
 - [ ] Auto switch theme according to Time
 - [ ] Auto switch theme according to Backlight
