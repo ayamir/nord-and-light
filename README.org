@@ -17,6 +17,13 @@ file:./shot/light-firefox.png
   + zathura
   + nord and a customized light(called AWEL-Lumine) global GTK2/3 theme
 *** Optional
+  + firefox
+    - Dark
+      
+      Costomized Nord theme follow Nord palette
+    - Light
+
+      Costomized light theme follow Nord/Snow palette
   + vim
     - Dark
       
@@ -45,13 +52,34 @@ file:./shot/light-firefox.png
     - Light
       
       OneHalfLight theme
-      
+            
 ** Switch
 You can use the 'switch' script to switch between the two themes.
 
 In my case, I put it in `~/.local/bin/`
 
 You can view more details in itself.
+
+** About Firefox
+*** Prerequisites
++ Verify that the user stylesheets (userChrome) option is enabled:
+  a. Go to the address `about:config` in Firefox
+     
+  b. Search for `toolkit.legacyUserProfileCustomizations.stylesheets`
+     
+  c. Confirm the option is set to true
+
++ Make sure that you have the Default theme enabled
+  a. Go to the address about:addons
+     
+  b. Enable the Default theme if not already enabled
+
+*** Installation
+1. You should find you user directory. In my case, it's `~/.mozilla/firefox/3ccio4xn.default-nightly/`
+   
+2. Backup your old config if you have.
+
+3. cp chrome/ dir to your firefox user directory.
 
 ** TODO
 - [ ] Auto switch theme according to Time
