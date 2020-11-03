@@ -11,13 +11,13 @@
   /* Hide scrollbar */
 
   :root{
-    scrollbar-width: none !important;
+    scrollbar-width: right !important;
   }
 
 
   @-moz-document url(about:privatebrowsing) {
 
   :root{
-    scrollbar-width: none !important;
+    scrollbar-width: right !important;
   }
   }

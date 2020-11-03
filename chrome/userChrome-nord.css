@@ -75,7 +75,7 @@
 }
 
 .tab-close-button {
- display: none !important;
+ display: right !important;
 }
 
 .tab-text {
