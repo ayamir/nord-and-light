@@ -1,42 +1,42 @@
 
 # Table of Contents
 
-1.  [Nord and Customized-light themes](#org1e722a8)
-    1.  [Shot](#orgc6a5330)
-    2.  [Dependency](#org72a2739)
-        1.  [Must](#orgc07c424)
-        2.  [Optional](#org0c1d80f)
-    3.  [Switch](#orgc1284e9)
-    4.  [About Firefox](#org1f5a1f7)
-        1.  [Prerequisites](#org63a70ca)
-        2.  [Installation](#org46efab5)
-    5.  [TODO](#orgec8c868)
+1.  [Nord and Customized-light themes](#org6587a46)
+    1.  [Shot](#org75a64eb)
+    2.  [Dependency](#org1e764a1)
+        1.  [Must](#org5bae1f8)
+        2.  [Optional](#org96830fb)
+    3.  [Switch](#orgdafca48)
+    4.  [About Firefox](#org1b766d3)
+        1.  [Prerequisites](#org2c08fcf)
+        2.  [Installation](#org2d8d7dc)
+    5.  [TODO](#org42d17d8)
 
 
-<a id="org1e722a8"></a>
+<a id="org6587a46"></a>
 
 # Nord and Customized-light themes
 
 
-<a id="orgc6a5330"></a>
+<a id="org75a64eb"></a>
 
 ## Shot
 
-![img](./shot/dark.png)
+![img](./Pictures/shot/dark.png)
 
-![img](./shot/light.png)
+![img](./Pictures/shot/light.png)
 
-![img](./shot/nord-firefox.png)
+![img](./Pictures/shot/nord-firefox.png)
 
-![img](./shot/light-firefox.png)
+![img](./Pictures/shot/light-firefox.png)
 
 
-<a id="org72a2739"></a>
+<a id="org1e764a1"></a>
 
 ## Dependency
 
 
-<a id="orgc07c424"></a>
+<a id="org5bae1f8"></a>
 
 ### Must
 
@@ -48,7 +48,7 @@
 -   nord and a customized light(called AWEL-Lumine) global GTK2/3 theme
 
 
-<a id="org0c1d80f"></a>
+<a id="org96830fb"></a>
 
 ### Optional
 
@@ -89,7 +89,7 @@
         OneHalfLight theme
 
 
-<a id="orgc1284e9"></a>
+<a id="orgdafca48"></a>
 
 ## Switch
 
@@ -100,12 +100,12 @@ In my case, I put it in \`~/.local/bin/\`
 You can view more details in itself.
 
 
-<a id="org1f5a1f7"></a>
+<a id="org1b766d3"></a>
 
 ## About Firefox
 
 
-<a id="org63a70ca"></a>
+<a id="org2c08fcf"></a>
 
 ### Prerequisites
 
@@ -122,7 +122,7 @@ You can view more details in itself.
     2.  Enable the Default theme if not already enabled
 
 
-<a id="org46efab5"></a>
+<a id="org2d8d7dc"></a>
 
 ### Installation
 
@@ -140,7 +140,7 @@ You can view more details in itself.
     3.  apply Nord theme
 
 
-<a id="orgec8c868"></a>
+<a id="org42d17d8"></a>
 
 ## TODO
 

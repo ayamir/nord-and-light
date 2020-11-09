@@ -1,12 +1,12 @@
 * Nord and Customized-light themes
 ** Shot
-[[file:./shot/dark.png]]
+[[file:./Pictures/shot/dark.png]]
 
-[[file:./shot/light.png]]
+[[file:./Pictures/shot/light.png]]
 
-file:./shot/nord-firefox.png
+file:./Pictures/shot/nord-firefox.png
 
-file:./shot/light-firefox.png
+file:./Pictures/shot/light-firefox.png
 
 ** Dependency
 *** Must
