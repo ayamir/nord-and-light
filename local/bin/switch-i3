@@ -17,6 +17,10 @@ then
     cp ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
     # Kitty
     sed -i "s/nord/polar/g" ~/.config/kitty/kitty.conf
+    # i3
+    cp ~/.config/i3/config ~/.config/i3/config.old
+    cp ~/.config/i3/config-light ~/.config/i3/config
+    i3-msg restart
     # Global theme
     sed -i "s/Nord/AWEL-Lumine/g" ~/.gtkrc-2.0
     sed -i "s/Nord/AWEL-Lumine/g" ~/.config/gtk-3.0/settings.ini
@@ -52,6 +56,10 @@ then
     cp ~/.config/alacritty/alacritty-nord.yml ~/.config/alacritty/alacritty.yml
     # Kitty
     sed -i "s/polar/nord/g" ~/.config/kitty/kitty.conf
+    # i3
+    cp ~/.config/i3/config ~/.config/i3/config.old
+    cp ~/.config/i3/config-nord ~/.config/i3/config
+    i3-msg restart
     # Global theme
     sed -i 's/AWEL-Lumine/Nord/g' ~/.gtkrc-2.0
     sed -i "s/AWEL-Lumine/Nord/g" ~/.config/gtk-3.0/settings.ini
