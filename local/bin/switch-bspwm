@@ -20,6 +20,10 @@ then
     # Global theme
     sed -i "s/Nord/AWEL-Lumine/g" ~/.gtkrc-2.0
     sed -i "s/Nord/AWEL-Lumine/g" ~/.config/gtk-3.0/settings.ini
+    # Spotify
+    sed -i "s/Nord/Light/g" ~/.config/spicetify/config.ini
+    sed -i "s/nord/light/g" ~/.config/spicetify/config.ini
+    /home/mir/spicetify-cli/spicetify apply
     # Rofi
     sed -i "s/nord/light/g" ~/.config/rofi/config.rasi
     cp ~/.config/bspwm/rofi/themes/colors-light.rasi ~/.config/bspwm/rofi/themes/colors.rasi
@@ -55,6 +59,10 @@ then
     # Global theme
     sed -i 's/AWEL-Lumine/Nord/g' ~/.gtkrc-2.0
     sed -i "s/AWEL-Lumine/Nord/g" ~/.config/gtk-3.0/settings.ini
+    # Spotify
+    sed -i "s/Light/Nord/g" ~/.config/spicetify/config.ini
+    sed -i "s/light/nord/g" ~/.config/spicetify/config.ini
+    /home/mir/spicetify-cli/spicetify apply
     # Rofi
     sed -i "s/light/nord/g" ~/.config/rofi/config.rasi
     cp ~/.config/bspwm/rofi/themes/colors-nord.rasi ~/.config/bspwm/rofi/themes/colors.rasi
