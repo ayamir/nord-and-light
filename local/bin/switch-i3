@@ -6,9 +6,6 @@ then
     cp -vr ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
     feh --bg-fill /home/mir/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
-    # Polybar
-    cp ~/.config/i3/polybar/colors-light ~/.config/i3/polybar/colors
-    sh ~/.config/i3/bin/i3bar
     # Dunst
     cp ~/.config/dunst/dunstrc-light ~/.config/dunst/dunstrc
     killall dunst
@@ -18,9 +15,11 @@ then
     # Kitty
     sed -i "s/nord/polar/g" ~/.config/kitty/kitty.conf
     # i3
-    cp ~/.config/i3/config ~/.config/i3/config.old
-    cp ~/.config/i3/config-light ~/.config/i3/config
+    sed -i "s/4C566A/ECEFF4/g" ~/.config/i3/config
     i3-msg restart
+    # Polybar
+    cp ~/.config/i3/polybar/colors-light ~/.config/i3/polybar/colors
+    sh ~/.config/i3/bin/i3bar
     # Global theme
     sed -i "s/Nord/AWEL-Lumine/g" ~/.gtkrc-2.0
     sed -i "s/Nord/AWEL-Lumine/g" ~/.config/gtk-3.0/settings.ini
@@ -31,7 +30,7 @@ then
     sed -i "s/colorscheme nord/colorscheme one/g" ~/.vimrc
     sed -i 's/airline_theme=\"nord\"/airline_theme=\"silver\"/g' ~/.vimrc
     # Emacs
-    sed -i "s/doom-nord/doom-nord-light/g" ~/.doom.d/config.el
+    sed -i "s/doom-nord)/doom-nord-light)/g" ~/.doom.d/config.el
     sh ~/.emacs.d/bin/doom sync
     # Code
     sed -i "s/Nord/Atom One Light/g" ~/.config/Code/User/settings.json
@@ -45,9 +44,6 @@ then
     cp -vr ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
     feh --bg-fill /home/mir/Pictures/Anime/ETUFu1PU8AAiTvH.jpg
-    # Polybar 
-    cp ~/.config/i3/polybar/colors-nord ~/.config/i3/polybar/colors
-    sh ~/.config/i3/bin/i3bar
     # Dunst
     cp ~/.config/dunst/dunstrc-nord ~/.config/dunst/dunstrc
     killall dunst
@@ -57,9 +53,11 @@ then
     # Kitty
     sed -i "s/polar/nord/g" ~/.config/kitty/kitty.conf
     # i3
-    cp ~/.config/i3/config ~/.config/i3/config.old
-    cp ~/.config/i3/config-nord ~/.config/i3/config
+    sed -i "s/ECEFF4/4C566A/g" ~/.config/i3/config
     i3-msg restart
+    # Polybar 
+    cp ~/.config/i3/polybar/colors-nord ~/.config/i3/polybar/colors
+    sh ~/.config/i3/bin/i3bar
     # Global theme
     sed -i 's/AWEL-Lumine/Nord/g' ~/.gtkrc-2.0
     sed -i "s/AWEL-Lumine/Nord/g" ~/.config/gtk-3.0/settings.ini
@@ -70,7 +68,7 @@ then
     sed -i 's/colorscheme one/colorscheme nord/g' ~/.vimrc
     sed -i 's/airline_theme=\"silver\"/airline_theme=\"nord\"/g' ~/.vimrc
     # Emacs
-    sed -i 's/doom-nord-light/doom-nord/g' ~/.doom.d/config.el
+    sed -i 's/doom-nord-light)/doom-nord)/g' ~/.doom.d/config.el
     sh ~/.emacs.d/bin/doom sync
     # Code
     sed -i "s/Atom One Light/Nord/g" ~/.config/Code/User/settings.json

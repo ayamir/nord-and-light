@@ -27,7 +27,7 @@ then
     sed -i "s/colorscheme nord/colorscheme one/g" ~/.vimrc
     sed -i 's/airline_theme=\"nord\"/airline_theme=\"silver\"/g' ~/.vimrc
     # Emacs
-    sed -i "s/doom-nord/doom-nord-light/g" ~/.doom.d/config.el
+    sed -i "s/doom-nord)/doom-nord-light)/g" ~/.doom.d/config.el
     sh ~/.emacs.d/bin/doom sync
     # Code
     sed -i "s/Nord/Atom One Light/g" ~/.config/Code/User/settings.json
@@ -62,7 +62,7 @@ then
     sed -i 's/colorscheme one/colorscheme nord/g' ~/.vimrc
     sed -i 's/airline_theme=\"silver\"/airline_theme=\"nord\"/g' ~/.vimrc
     # Emacs
-    sed -i 's/doom-nord-light/doom-nord/g' ~/.doom.d/config.el
+    sed -i 's/doom-nord-light)/doom-nord)/g' ~/.doom.d/config.el
     sh ~/.emacs.d/bin/doom sync
     # Code
     sed -i "s/Atom One Light/Nord/g" ~/.config/Code/User/settings.json
