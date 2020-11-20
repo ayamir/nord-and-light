@@ -3,7 +3,8 @@
 if [ $1 == "l" ]
 then
     # Firefox
-    cp -vr ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
+    cp ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome-light.css ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome.css
+    cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
     feh --bg-fill /home/mir/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
     # Dunst
@@ -30,6 +31,9 @@ then
     # Rofi
     sed -i "s/nord/light/g" ~/.config/rofi/config.rasi
     cp ~/.config/bspwm/rofi/themes/colors-light.rasi ~/.config/bspwm/rofi/themes/colors.rasi
+    # Qv2ray
+    sed -i 's/"useDarkTrayIcon": false/"useDarkTrayIcon": true/g' ~/.config/qv2ray/Qv2ray.conf
+    sed -i 's/"useDarkTheme": false/"useDarkTheme": true/g' ~/.config/qv2ray/Qv2ray.conf
     # Vim
     sed -i "s/colorscheme nord/colorscheme one/g" ~/.vimrc
     sed -i 's/airline_theme=\"nord\"/airline_theme=\"silver\"/g' ~/.vimrc
@@ -38,6 +42,12 @@ then
     sh ~/.emacs.d/bin/doom sync
     # Code
     sed -i "s/Nord/Atom One Light/g" ~/.config/Code/User/settings.json
+    # Goland
+    sed -i "s/Nord/Polar/g" ~/.config/JetBrains/GoLand2020.2/options/colors.scheme.xml
+    # CLion
+    sed -i "s/Nord/Polar/g" ~/.config/JetBrains/CLion2020.2/options/colors.scheme.xml
+    # CLion
+    sed -i "s/Nord/Polar/g" ~/.config/JetBrains/IntelliJIdea2020.2/options/colors.scheme.xml
     # Sublime
     sed -i "s/Nord\/Nord.sublime-color-scheme/One Half Color Schemes\/OneHalfLight.tmTheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
@@ -45,9 +55,10 @@ then
 elif [ $1 == "n" ]
 then
     # Firefox
-    cp -vr ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
+    cp ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome-nord.css ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome.css
+    cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
-    feh --bg-fill /home/mir/Pictures/Anime/ETUFu1PU8AAiTvH.jpg
+    feh --bg-fill /home/mir/Pictures/Nord/ign-0001.png
     # Dunst
     cp ~/.config/dunst/dunstrc-nord ~/.config/dunst/dunstrc
     killall dunst
@@ -72,6 +83,9 @@ then
     # Rofi
     sed -i "s/light/nord/g" ~/.config/rofi/config.rasi
     cp ~/.config/bspwm/rofi/themes/colors-nord.rasi ~/.config/bspwm/rofi/themes/colors.rasi
+    # Qv2ray
+    sed -i 's/"useDarkTrayIcon": true/"useDarkTrayIcon": false/g' ~/.config/qv2ray/Qv2ray.conf
+    sed -i 's/"useDarkTheme": true/"useDarkTheme": false/g' ~/.config/qv2ray/Qv2ray.conf
     # Vim
     sed -i 's/colorscheme one/colorscheme nord/g' ~/.vimrc
     sed -i 's/airline_theme=\"silver\"/airline_theme=\"nord\"/g' ~/.vimrc
@@ -80,6 +94,12 @@ then
     sh ~/.emacs.d/bin/doom sync
     # Code
     sed -i "s/Atom One Light/Nord/g" ~/.config/Code/User/settings.json
+    # Goland
+    sed -i "s/Polar/Nord/g" ~/.config/JetBrains/GoLand2020.2/options/colors.scheme.xml
+    # CLion
+    sed -i "s/Polar/Nord/g" ~/.config/JetBrains/CLion2020.2/options/colors.scheme.xml
+    # CLion
+    sed -i "s/Polar/Nord/g" ~/.config/JetBrains/IntelliJIdea2020.2/options/colors.scheme.xml
     # Sublime
     sed -i "s/One Half Color Schemes\/OneHalfLight.tmTheme/Nord\/Nord.sublime-color-scheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
