@@ -1,24 +1,24 @@
 
 # Table of Contents
 
-1.  [Nord and Customized-light themes](#org6587a46)
-    1.  [Shot](#org75a64eb)
-    2.  [Dependency](#org1e764a1)
-        1.  [Must](#org5bae1f8)
-        2.  [Optional](#org96830fb)
-    3.  [Switch](#orgdafca48)
-    4.  [About Firefox](#org1b766d3)
-        1.  [Prerequisites](#org2c08fcf)
-        2.  [Installation](#org2d8d7dc)
-    5.  [TODO](#org42d17d8)
+1.  [Nord and Customized-light themes](#orga92410c)
+    1.  [Shot](#org6ecd7c5)
+    2.  [Dependency](#org5114522)
+        1.  [Must](#org8050841)
+        2.  [Optional](#orge85932f)
+    3.  [Switch](#org3d0cd34)
+    4.  [About Firefox](#org56ea59c)
+        1.  [Prerequisites](#orgb2ce2d0)
+        2.  [Installation](#org5951695)
+    5.  [TODO](#orgfec7e81)
 
 
-<a id="org6587a46"></a>
+<a id="orga92410c"></a>
 
 # Nord and Customized-light themes
 
 
-<a id="org75a64eb"></a>
+<a id="org6ecd7c5"></a>
 
 ## Shot
 
@@ -31,12 +31,12 @@
 ![img](./Pictures/shot/light-firefox.png)
 
 
-<a id="org1e764a1"></a>
+<a id="org5114522"></a>
 
 ## Dependency
 
 
-<a id="org5bae1f8"></a>
+<a id="org8050841"></a>
 
 ### Must
 
@@ -45,10 +45,13 @@
 -   alacritty
 -   rofi
 -   zathura
--   nord and a customized light(called AWEL-Lumine) global GTK2/3 theme
+-   Global GTK2/3 theme
+    -   [Nordic](https://www.gnome-look.org/p/1267246/)
+    
+    -   [Orchis-light](https://www.gnome-look.org/p/1357889/)
 
 
-<a id="org96830fb"></a>
+<a id="orge85932f"></a>
 
 ### Optional
 
@@ -89,7 +92,7 @@
         OneHalfLight theme
 
 
-<a id="orgdafca48"></a>
+<a id="org3d0cd34"></a>
 
 ## Switch
 
@@ -100,12 +103,12 @@ In my case, I put it in \`~/.local/bin/\`
 You can view more details in itself.
 
 
-<a id="org1b766d3"></a>
+<a id="org56ea59c"></a>
 
 ## About Firefox
 
 
-<a id="org2c08fcf"></a>
+<a id="orgb2ce2d0"></a>
 
 ### Prerequisites
 
@@ -122,7 +125,7 @@ You can view more details in itself.
     2.  Enable the Default theme if not already enabled
 
 
-<a id="org2d8d7dc"></a>
+<a id="org5951695"></a>
 
 ### Installation
 
@@ -140,7 +143,7 @@ You can view more details in itself.
     3.  apply Nord theme
 
 
-<a id="org42d17d8"></a>
+<a id="orgfec7e81"></a>
 
 ## TODO
 
