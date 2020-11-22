@@ -18,8 +18,8 @@ then
     # Kitty
     sed -i "s/nord/polar/g" ~/.config/kitty/kitty.conf
     # Global theme
-    sed -i "s/Nord/AWEL-Lumine/g" ~/.gtkrc-2.0
-    sed -i "s/Nord/AWEL-Lumine/g" ~/.config/gtk-3.0/settings.ini
+    sed -i "s/Nord/Orchis-light/g" ~/.gtkrc-2.0
+    sed -i "s/Nord/Orchis-light/g" ~/.config/gtk-3.0/settings.ini
     # Spotify
     sed -i "s/Nord/Light/g" ~/.config/spicetify/config.ini
     sed -i "s/nord/light/g" ~/.config/spicetify/config.ini
@@ -57,8 +57,8 @@ then
     # Kitty
     sed -i "s/polar/nord/g" ~/.config/kitty/kitty.conf
     # Global theme
-    sed -i 's/AWEL-Lumine/Nord/g' ~/.gtkrc-2.0
-    sed -i "s/AWEL-Lumine/Nord/g" ~/.config/gtk-3.0/settings.ini
+    sed -i 's/Orchis-light/Nord/g' ~/.gtkrc-2.0
+    sed -i "s/Orchis-light/Nord/g" ~/.config/gtk-3.0/settings.ini
     # Spotify
     sed -i "s/Light/Nord/g" ~/.config/spicetify/config.ini
     sed -i "s/light/nord/g" ~/.config/spicetify/config.ini
