@@ -8,7 +8,7 @@
   --mff-sidebar-color: #ECEFF4;
   --mff-tab-border-radius: 0px;
   --mff-tab-color: #E5E9F0;
-  --mff-tab-font-family: "Noto Sans CJK SC", sans;
+  --mff-tab-font-family: "Sarasc UI SC", sans;
   --mff-tab-font-size: 11pt;
   --mff-tab-font-weight: 400;
   --mff-tab-height: 32px;
@@ -17,11 +17,11 @@
   --mff-tab-soundplaying-bg: #B48EAD;
   --mff-urlbar-color: #88C0D0;
   --mff-urlbar-focused-color: #D8DEE9;
-  --mff-urlbar-font-family: "Noto Sans CJK SC", serif;
+  --mff-urlbar-font-family: "Sarasc UI SC", serif;
   --mff-urlbar-font-size: 12pt;
   --mff-urlbar-font-weight: 700;
   --mff-urlbar-results-color: #D8DEE9;
-  --mff-urlbar-results-font-family: "Sarasa Mono SC Nerd", serif;
+  --mff-urlbar-results-font-family: "Sarasa UI SC", serif;
   --mff-urlbar-results-font-size: 12pt;
   --mff-urlbar-results-font-weight: 700;
   --mff-urlbar-results-url-color: #88C0D0;
