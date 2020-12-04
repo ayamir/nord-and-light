@@ -9,6 +9,10 @@ then
     feh --bg-fill /home/mir/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
     # Xmobar
     sed -i "s/2E3440/D8DEE9/g" ~/.config/xmobar/xmobarrc0
+    sed -i "s/ECEFF4/3B4252/g" ~/.config/xmobar/xmobarrc0
+    # Trayer
+    killall -o 1s trayer
+    nohup trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --transparent true --alpha 0 --tint 0xD8DEE9  --height 22 &
     # Xmonad
     sed -i "s/D8DEE9/2E3440/g" ~/.xmonad/xmonad.hs
     sed -i "s/3B4252/ECEFF4/g" ~/.xmonad/xmonad.hs
@@ -16,7 +20,6 @@ then
     # Dunst
     cp ~/.config/dunst/dunstrc-light ~/.config/dunst/dunstrc
     killall dunst
-    dunst &
     # Alacritty
     cp ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
     # Kitty
@@ -37,12 +40,15 @@ then
     # Emacs
     sed -i "s/doom-nord)/doom-nord-light)/g" ~/.doom.d/config.el
     sh ~/.emacs.d/bin/doom sync
+    emacsclient -e '(kill-emacs)'
     # Code
     sed -i "s/Nord/Atom One Light/g" ~/.config/Code/User/settings.json
     # Sublime
     sed -i "s/Nord\/Nord.sublime-color-scheme/One Half Color Schemes\/OneHalfLight.tmTheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
     cp ~/.config/zathura/zathurarc-light ~/.config/zathura/zathurarc
+    # Daemons
+    sh ~/.local/bin/startdaemon
 elif [ $1 == "n" ]
 then
     # Firefox
@@ -52,6 +58,10 @@ then
     feh --bg-fill /home/mir/Pictures/Nord/ign-0001.png
     # Xmobar
     sed -i "s/D8DEE9/2E3440/g" ~/.config/xmobar/xmobarrc0
+    sed -i "s/3B4252/ECEFF4/g" ~/.config/xmobar/xmobarrc0
+    # Trayer
+    killall -o 1s trayer
+    trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --transparent true --alpha 0 --tint 0x2E3440  --height 22 &
     # Xmonad
     sed -i "s/2E3440/D8DEE9/g" ~/.xmonad/xmonad.hs
     sed -i "s/ECEFF4/3B4252/g" ~/.xmonad/xmonad.hs
@@ -59,7 +69,6 @@ then
     # Dunst
     cp ~/.config/dunst/dunstrc-nord ~/.config/dunst/dunstrc
     killall dunst
-    dunst &
     # Alacritty
     cp ~/.config/alacritty/alacritty-nord.yml ~/.config/alacritty/alacritty.yml
     # Kitty
@@ -80,10 +89,13 @@ then
     # Emacs
     sed -i 's/doom-nord-light)/doom-nord)/g' ~/.doom.d/config.el
     sh ~/.emacs.d/bin/doom sync
+    emacsclient -e '(kill-emacs)'
     # Code
     sed -i "s/Atom One Light/Nord/g" ~/.config/Code/User/settings.json
     # Sublime
     sed -i "s/One Half Color Schemes\/OneHalfLight.tmTheme/Nord\/Nord.sublime-color-scheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
     cp ~/.config/zathura/zathurarc-nord ~/.config/zathura/zathurarc
+    # Daemons
+    sh ~/.local/bin/startdaemon
 fi

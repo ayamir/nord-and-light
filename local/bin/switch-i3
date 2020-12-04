@@ -10,7 +10,6 @@ then
     # Dunst
     cp ~/.config/dunst/dunstrc-light ~/.config/dunst/dunstrc
     killall dunst
-    dunst &
     # Alacritty
     cp ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
     # Kitty
@@ -40,18 +39,21 @@ then
     # Emacs
     sed -i "s/doom-nord)/doom-nord-light)/g" ~/.doom.d/config.el
     sh ~/.emacs.d/bin/doom sync
+    emacsclient -e '(kill-emacs)'
     # Code
     sed -i "s/Nord/Atom One Light/g" ~/.config/Code/User/settings.json
     # Goland
     sed -i "s/Nord/Polar/g" ~/.config/JetBrains/GoLand2020.2/options/colors.scheme.xml
     # CLion
     sed -i "s/Nord/Polar/g" ~/.config/JetBrains/CLion2020.2/options/colors.scheme.xml
-    # CLion
+    # Idea
     sed -i "s/Nord/Polar/g" ~/.config/JetBrains/IntelliJIdea2020.2/options/colors.scheme.xml
     # Sublime
     sed -i "s/Nord\/Nord.sublime-color-scheme/One Half Color Schemes\/OneHalfLight.tmTheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
     cp ~/.config/zathura/zathurarc-light ~/.config/zathura/zathurarc
+    # Daemons
+    sh ~/.local/bin/startdaemon
 elif [ $1 == "n" ]
 then
     # Firefox
@@ -92,6 +94,7 @@ then
     # Emacs
     sed -i 's/doom-nord-light)/doom-nord)/g' ~/.doom.d/config.el
     sh ~/.emacs.d/bin/doom sync
+    emacsclient -e '(kill-emacs)'
     # Code
     sed -i "s/Atom One Light/Nord/g" ~/.config/Code/User/settings.json
     # Goland
@@ -104,4 +107,6 @@ then
     sed -i "s/One Half Color Schemes\/OneHalfLight.tmTheme/Nord\/Nord.sublime-color-scheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
     cp ~/.config/zathura/zathurarc-nord ~/.config/zathura/zathurarc
+    # Daemons
+    sh ~/.local/bin/startdaemon
 fi

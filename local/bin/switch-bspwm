@@ -3,7 +3,8 @@
 if [ $1 == "l" ]
 then
     # Firefox
-    cp -vr ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
+    cp ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome-light.css ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome.css
+    cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
     feh --bg-fill /home/mir/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
     # Polybar
@@ -33,18 +34,22 @@ then
     # Emacs
     sed -i "s/doom-nord)/doom-nord-light)/g" ~/.doom.d/config.el
     sh ~/.emacs.d/bin/doom sync
+    emacsclient -e '(kill-emacs)'
     # Code
     sed -i "s/Nord/Atom One Light/g" ~/.config/Code/User/settings.json
     # Sublime
     sed -i "s/Nord\/Nord.sublime-color-scheme/One Half Color Schemes\/OneHalfLight.tmTheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
     cp ~/.config/zathura/zathurarc-light ~/.config/zathura/zathurarc
+    # Daemons
+    sh ~/.local/bin/startdaemon
 elif [ $1 == "n" ]
 then
     # Firefox
-    cp -vr ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
+    cp ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome-nord.css ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome.css
+    cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
-    feh --bg-fill /home/mir/Pictures/Anime/ETUFu1PU8AAiTvH.jpg
+    feh --bg-fill /home/mir/Pictures/Nord/ign-0001.png
     # Polybar 
     cp ~/.config/bspwm/polybar/colors-nord ~/.config/bspwm/polybar/colors
     sh ~/.config/bspwm/bin/bspbar
@@ -72,10 +77,13 @@ then
     # Emacs
     sed -i 's/doom-nord-light)/doom-nord)/g' ~/.doom.d/config.el
     sh ~/.emacs.d/bin/doom sync
+    emacsclient -e '(kill-emacs)'
     # Code
     sed -i "s/Atom One Light/Nord/g" ~/.config/Code/User/settings.json
     # Sublime
     sed -i "s/One Half Color Schemes\/OneHalfLight.tmTheme/Nord\/Nord.sublime-color-scheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
     cp ~/.config/zathura/zathurarc-nord ~/.config/zathura/zathurarc
+    # Daemons
+    sh ~/.local/bin/startdaemon
 fi
