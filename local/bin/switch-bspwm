@@ -18,6 +18,8 @@ then
     cp ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
     # Kitty
     sed -i "s/nord/polar/g" ~/.config/kitty/kitty.conf
+    # Fish
+    fish -c light
     # Global theme
     sed -i "s/Nord/Orchis-light/g" ~/.gtkrc-2.0
     sed -i "s/Nord/Orchis-light/g" ~/.config/gtk-3.0/settings.ini
@@ -61,6 +63,8 @@ then
     cp ~/.config/alacritty/alacritty-nord.yml ~/.config/alacritty/alacritty.yml
     # Kitty
     sed -i "s/polar/nord/g" ~/.config/kitty/kitty.conf
+    # Fish
+    fish -c nord
     # Global theme
     sed -i 's/Orchis-light/Nord/g' ~/.gtkrc-2.0
     sed -i "s/Orchis-light/Nord/g" ~/.config/gtk-3.0/settings.ini

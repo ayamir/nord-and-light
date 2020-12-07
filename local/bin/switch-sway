@@ -6,26 +6,31 @@ then
     cp ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome-light.css ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome.css
     cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
-    feh --bg-fill /home/mir/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
-    # Xmobar
-    sed -i "s/2E3440/D8DEE9/g" ~/.config/xmobar/xmobarrc0
-    sed -i "s/ECEFF4/3B4252/g" ~/.config/xmobar/xmobarrc0
-    # Trayer
-    killall -o 1s trayer
-    nohup trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --transparent true --alpha 0 --tint 0xD8DEE9  --height 22 &
-    # Xmonad
-    sed -i "s/D8DEE9/2E3440/g" ~/.xmonad/xmonad.hs
-    sed -i "s/3B4252/ECEFF4/g" ~/.xmonad/xmonad.hs
-    xmonad --restart
-    # Dunst
-    cp ~/.config/dunst/dunstrc-light ~/.config/dunst/dunstrc
-    killall dunst
-    # Alacritty
-    cp ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
-    # Fish
-    fish -c light
+    sed -i "s/bg ~\/Pictures\/nord\/ign-0001.png fill/bg ~\/Pictures\/Anime\/EQRUXU4WsAYw3kE.jpg fill/g" ~/.config/sway/config
+    # Wofer
+    sed -i "s/#d8dee9/#434c5e/g" ~/wofer/style.css
+    sed -i "s/#2e3440/#eceff4/g" ~/wofer/style.css
+    sed -i "s/rgba(53,59,73,1.0)/rgba(228, 231, 236, 1.0)/g" ~/wofer/style.css
+    # Mako
+    sed -i "s/#4c566a/#e5e9f0/g" ~/.config/mako/config
+    sed -i "s/#434c5e/#eceff4/g" ~/.config/mako/config
+    sed -i "s/#d8dee9/#2e3440/g" ~/.config/mako/config
+    killall mako
+    # Termite
+    cp ~/.config/termite/config-light ~/.config/termite/config
     # Kitty
     sed -i "s/nord/polar/g" ~/.config/kitty/kitty.conf
+    # Fish
+    fish -c light
+    # Sway
+    sed -i "s/#2e3440/#eceff4/g" ~/.config/sway/config
+    sed -i "s/#eceff4/#3b4252/g" ~/.config/sway/config
+    sed -i "s/#4c566a/#e5e9f0/g" ~/.config/sway/config
+    sed -i "s/#d8dee9/#3b4252/g" ~/.config/sway/config
+    sed -i "s/Nord/Orchis-light/g" ~/.config/sway/config
+    # Waybar
+    cp ~/.config/waybar/style-light.css ~/.config/waybar/style.css
+    swaymsg reload
     # Global theme
     sed -i "s/Nord/Orchis-light/g" ~/.gtkrc-2.0
     sed -i "s/Nord/Orchis-light/g" ~/.config/gtk-3.0/settings.ini
@@ -36,7 +41,10 @@ then
     # Rofi
     sed -i "s/nord/light/g" ~/.config/rofi/config.rasi
     cp ~/.config/bspwm/rofi/themes/colors-light.rasi ~/.config/bspwm/rofi/themes/colors.rasi
-    #Vim
+    # Qv2ray
+    sed -i 's/"useDarkTrayIcon": false/"useDarkTrayIcon": true/g' ~/.config/qv2ray/Qv2ray.conf
+    sed -i 's/"useDarkTheme": false/"useDarkTheme": true/g' ~/.config/qv2ray/Qv2ray.conf
+    # Vim
     sed -i "s/colorscheme nord/colorscheme one/g" ~/.vimrc
     sed -i 's/airline_theme=\"nord\"/airline_theme=\"silver\"/g' ~/.vimrc
     # Emacs
@@ -45,38 +53,49 @@ then
     emacsclient -e '(kill-emacs)'
     # Code
     sed -i "s/Nord/Atom One Light/g" ~/.config/Code/User/settings.json
+    # Goland
+    sed -i "s/Nord/Polar/g" ~/.config/JetBrains/GoLand2020.2/options/colors.scheme.xml
+    # CLion
+    sed -i "s/Nord/Polar/g" ~/.config/JetBrains/CLion2020.2/options/colors.scheme.xml
+    # Idea
+    sed -i "s/Nord/Polar/g" ~/.config/JetBrains/IntelliJIdea2020.2/options/colors.scheme.xml
     # Sublime
     sed -i "s/Nord\/Nord.sublime-color-scheme/One Half Color Schemes\/OneHalfLight.tmTheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
     cp ~/.config/zathura/zathurarc-light ~/.config/zathura/zathurarc
     # Daemons
-    sh ~/.local/bin/startdaemon
+    sh ~/.local/bin/startdaemon-sway
 elif [ $1 == "n" ]
 then
     # Firefox
     cp ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome-nord.css ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome.css
     cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
-    feh --bg-fill /home/mir/Pictures/Nord/ign-0001.png
-    # Xmobar
-    sed -i "s/D8DEE9/2E3440/g" ~/.config/xmobar/xmobarrc0
-    sed -i "s/3B4252/ECEFF4/g" ~/.config/xmobar/xmobarrc0
-    # Trayer
-    killall -o 1s trayer
-    trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --transparent true --alpha 0 --tint 0x2E3440  --height 22 &
-    # Xmonad
-    sed -i "s/2E3440/D8DEE9/g" ~/.xmonad/xmonad.hs
-    sed -i "s/ECEFF4/3B4252/g" ~/.xmonad/xmonad.hs
-    xmonad --restart
-    # Dunst
-    cp ~/.config/dunst/dunstrc-nord ~/.config/dunst/dunstrc
-    killall dunst
-    # Alacritty
-    cp ~/.config/alacritty/alacritty-nord.yml ~/.config/alacritty/alacritty.yml
+    sed -i "s/bg ~\/Pictures\/Anime\/EQRUXU4WsAYw3kE.jpg fill/bg ~\/Pictures\/nord\/ign-0001.png fill/g" ~/.config/sway/config
+    # Wofer
+    sed -i "s/#434c5e/#d8dee9/g" ~/wofer/style.css
+    sed -i "s/#eceff4/#2e3440/g" ~/wofer/style.css
+    sed -i "s/rgba(228, 231, 236, 1.0)/rgba(53,59,73,1.0)/g" ~/wofer/style.css
+    # Mako
+    sed -i "s/#e5e9f0/#4c566a/g" ~/.config/mako/config
+    sed -i "s/#eceff4/#434c5e/g" ~/.config/mako/config
+    sed -i "s/#2e3440/#d8dee9/g" ~/.config/mako/config
+    killall mako
+    # Termite
+    cp ~/.config/termite/config-nord ~/.config/termite/config
     # Kitty
     sed -i "s/polar/nord/g" ~/.config/kitty/kitty.conf
     # Fish
     fish -c nord
+    # Sway
+    sed -i "s/#eceff4/#2e3440/g" ~/.config/sway/config
+    sed -i "s/#3b4252/#eceff4/g" ~/.config/sway/config
+    sed -i "s/#e5e9f0/#4c566a/g" ~/.config/sway/config
+    sed -i "s/#3b4252/#d8dee9/g" ~/.config/sway/config
+    sed -i "s/Orchis-light/Nord/g" ~/.config/sway/config
+    # Waybar
+    cp ~/.config/waybar/style-nord.css ~/.config/waybar/style.css
+    swaymsg reload
     # Global theme
     sed -i 's/Orchis-light/Nord/g' ~/.gtkrc-2.0
     sed -i "s/Orchis-light/Nord/g" ~/.config/gtk-3.0/settings.ini
@@ -87,6 +106,9 @@ then
     # Rofi
     sed -i "s/light/nord/g" ~/.config/rofi/config.rasi
     cp ~/.config/bspwm/rofi/themes/colors-nord.rasi ~/.config/bspwm/rofi/themes/colors.rasi
+    # Qv2ray
+    sed -i 's/"useDarkTrayIcon": true/"useDarkTrayIcon": false/g' ~/.config/qv2ray/Qv2ray.conf
+    sed -i 's/"useDarkTheme": true/"useDarkTheme": false/g' ~/.config/qv2ray/Qv2ray.conf
     # Vim
     sed -i 's/colorscheme one/colorscheme nord/g' ~/.vimrc
     sed -i 's/airline_theme=\"silver\"/airline_theme=\"nord\"/g' ~/.vimrc
@@ -96,10 +118,16 @@ then
     emacsclient -e '(kill-emacs)'
     # Code
     sed -i "s/Atom One Light/Nord/g" ~/.config/Code/User/settings.json
+    # Goland
+    sed -i "s/Polar/Nord/g" ~/.config/JetBrains/GoLand2020.2/options/colors.scheme.xml
+    # CLion
+    sed -i "s/Polar/Nord/g" ~/.config/JetBrains/CLion2020.2/options/colors.scheme.xml
+    # CLion
+    sed -i "s/Polar/Nord/g" ~/.config/JetBrains/IntelliJIdea2020.2/options/colors.scheme.xml
     # Sublime
     sed -i "s/One Half Color Schemes\/OneHalfLight.tmTheme/Nord\/Nord.sublime-color-scheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
     cp ~/.config/zathura/zathurarc-nord ~/.config/zathura/zathurarc
     # Daemons
-    sh ~/.local/bin/startdaemon
+    sh ~/.local/bin/startdaemon-sway
 fi

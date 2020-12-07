@@ -17,6 +17,8 @@ then
     # i3
     sed -i "s/4C566A/ECEFF4/g" ~/.config/i3/config
     i3-msg restart
+    # Fish
+    fish -c light
     # Polybar
     cp ~/.config/i3/polybar/colors-light ~/.config/i3/polybar/colors
     sh ~/.config/i3/bin/i3bar
@@ -72,6 +74,8 @@ then
     # i3
     sed -i "s/ECEFF4/4C566A/g" ~/.config/i3/config
     i3-msg restart
+    # Fish
+    fish -c nord
     # Polybar 
     cp ~/.config/i3/polybar/colors-nord ~/.config/i3/polybar/colors
     sh ~/.config/i3/bin/i3bar
