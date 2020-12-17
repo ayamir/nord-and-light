@@ -6,7 +6,7 @@ then
     cp ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome-light.css ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome.css
     cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
-    feh --bg-fill /home/mir/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
+    feh --bg-fill ~/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
     # Dunst
     cp ~/.config/dunst/dunstrc-light ~/.config/dunst/dunstrc
     killall dunst
@@ -28,7 +28,7 @@ then
     # Spotify
     sed -i "s/Nord/Light/g" ~/.config/spicetify/config.ini
     sed -i "s/nord/light/g" ~/.config/spicetify/config.ini
-    /home/mir/spicetify-cli/spicetify apply
+    ~/spicetify-cli/spicetify apply
     # Rofi
     sed -i "s/nord/light/g" ~/.config/rofi/config.rasi
     cp ~/.config/bspwm/rofi/themes/colors-light.rasi ~/.config/bspwm/rofi/themes/colors.rasi
@@ -51,7 +51,7 @@ then
     # Idea
     sed -i "s/Nord/Polar/g" ~/.config/JetBrains/IntelliJIdea2020.2/options/colors.scheme.xml
     # Sublime
-    sed -i "s/Nord\/Nord.sublime-color-scheme/One Half Color Schemes\/OneHalfLight.tmTheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+    sed -i "s/Nord\/Nord.sublime-color-scheme/One Half Color Schemes\/OneHalfLight.tmTheme/g" ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
     cp ~/.config/zathura/zathurarc-light ~/.config/zathura/zathurarc
     # Daemons
@@ -62,7 +62,7 @@ then
     cp ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome-nord.css ~/.mozilla/firefox/5vfs8h51.default-release/chrome/userChrome.css
     cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
-    feh --bg-fill /home/mir/Pictures/Nord/ign-0001.png
+    feh --bg-fill ~/Pictures/Nord/ign-0001.png
     # Dunst
     cp ~/.config/dunst/dunstrc-nord ~/.config/dunst/dunstrc
     killall dunst
@@ -85,7 +85,7 @@ then
     # Spotify
     sed -i "s/Light/Nord/g" ~/.config/spicetify/config.ini
     sed -i "s/light/nord/g" ~/.config/spicetify/config.ini
-    /home/mir/spicetify-cli/spicetify apply
+    ~/spicetify-cli/spicetify apply
     # Rofi
     sed -i "s/light/nord/g" ~/.config/rofi/config.rasi
     cp ~/.config/bspwm/rofi/themes/colors-nord.rasi ~/.config/bspwm/rofi/themes/colors.rasi
@@ -108,7 +108,7 @@ then
     # CLion
     sed -i "s/Polar/Nord/g" ~/.config/JetBrains/IntelliJIdea2020.2/options/colors.scheme.xml
     # Sublime
-    sed -i "s/One Half Color Schemes\/OneHalfLight.tmTheme/Nord\/Nord.sublime-color-scheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+    sed -i "s/One Half Color Schemes\/OneHalfLight.tmTheme/Nord\/Nord.sublime-color-scheme/g" ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
     cp ~/.config/zathura/zathurarc-nord ~/.config/zathura/zathurarc
     # Daemons
