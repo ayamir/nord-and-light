@@ -6,21 +6,36 @@
 super + Return
 	alacritty
 
-super + e
+super + shift + Return
+	kitty -c ~/.config/kitty/kitty-x.conf
+
+super + shift + e
     emacs
 
 super + z
     zathura
 
+super + c
+    firefox-nightly
+
 # program launcher
 super + d
-    sh ~/.config/bspwm/rofi/bin/launcher
+    rofi -show drun
+
+super + shift + d
+    dmenu_run -fn 'xos JetBrainsMono:size=12' -sb '#88C0D0' -nb '#2E3440' -nf '#D8DEE9' -sf '#434C5E'
 
 super + control + l
-    sh ~/.local/bin/switch l
+    sh ~/.local/bin/switch "l" "bspwm"
 
 super + control + n
-    sh ~/.local/bin/switch n
+    sh ~/.local/bin/switch "n" "bspwm"
+
+super + control + e
+    xinput enable 'DELL0828:00 06CB:7E7E Touchpad'
+
+super + control + d
+    xinput disable 'DELL0828:00 06CB:7E7E Touchpad'
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -33,10 +48,10 @@ super + n
     nmd
 
 super + c
-    firefox
+    firefox-nightly
 
 super + shift + m
-    alacritty --class kitty-music -e musicbox
+    feeluown
 
 super + shift + s
     flameshot gui
@@ -63,12 +78,24 @@ XF86AudioNext
 XF86AudioPrev
     playerctl previous
 
+super + control + p
+    mpc toggle
+
+super + control + Right
+    mpc next
+
+super + control + Left
+    mpc prev
+
 Print
 	scrot 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
 	
 # Take a screenshot in 5 second
 alt + Print	
 	scrot -d 3 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
+
+control + Print
+    scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
 
 # Brighness control
 XF86MonBrightnessUp
@@ -82,8 +109,11 @@ XF86MonBrightnessDown
 #
 
 # restart and quit bspwm
-super + shift + {Escape, r}
-	bspc {quit,wm -r}
+super + shift + Escape
+	sh $HOME/.config/sxhkd/reset.sh && bspc quit
+
+super + shift + r
+    bspc wm -r
 
 # close and kill
 super + {_,shift + }q
@@ -194,6 +224,7 @@ alt shift + l
 # for automatic layout
 alt + shift + a
     bspc config automatic_scheme first_child
+
 
 # restart polybar
 alt + p

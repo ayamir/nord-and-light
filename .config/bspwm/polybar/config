@@ -55,11 +55,11 @@ font-0 = "LiterationMono Nerd Font:size=13;3"
 font-1 = "LiterationMono Nerd Font:size=12;3"
 font-2 = NotoColorEmoji:pixelsize=8;1:fontformat=truetype:scale=10:antialias=true;3
 font-3 = Weather Icons:style=Regular:size=10;3
-font-4 = WenQuanYiMicroHei:size=12
+font-4 = NotoSansCJK:size=12;2
 
 
-modules-left = mod bspwm network 
-modules-center = date
+modules-left = mod bspwm network
+modules-center = date  
 modules-right = cpu memory volume backlight battery 
 
 separator =
@@ -208,7 +208,14 @@ label = " %mb_used%"
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
+[module/title]
+type = internal/xwindow
+format-foreground = ${color.WHITE}
+format-background = ${color.BACKGROUND}
+format-padding = 2
 
+label-maxlen = 30
+label-empty = 
 
 [module/volume]
 type = internal/pulseaudio
@@ -473,17 +480,17 @@ format-paused = <label-song> <toggle>
 format-offline = <label-offline>
 label-offline = "Offline"
 
-label-song =  "%title% | %artist%"
-label-song-maxlen = 40
+label-song =  " %title% "
+label-song-maxlen = 20
 label-song-ellipsis = true
 
-icon-play = 
+icon-play = " "
 icon-play-font = 2
 icon-play-foreground = ${color.GREEN}
-icon-pause = 
+icon-pause = " "
 icon-pause-font = 2
 icon-pause-foreground = ${color.YELLOW}
-icon-stop = 
+icon-stop = " "
 icon-stop-foreground = ${color.RED}
 icon-prev = 玲
 icon-prev-font = 2
