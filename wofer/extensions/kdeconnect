@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DEVICE=$( kdeconnect-cli -l | wofi --dmenu -i -c ~/wofer/style.css -s ~/wofer/style.css | sed '$ s/.*: //' | sed 's/ .*//' )
+
+if [[ "$1" != "" ]]; then
+  kdeconnect-cli --share "$1" -d "$DEVICE"
+fi
+
+

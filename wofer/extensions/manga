@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Manga library directory
+DIR=$HOME/.mangas
+
+cd $DIR
+
+lsi () {
+  if [[ $(pwd) =~ mangas ]]; then
+    echo "   .."
+	fi
+	ls -d */ | sort -n | while read entry; do
+    echo "   $(echo $entry | sed "s|/$||" )"
+	done
+}
+
+library () {
+    while :
+    do
+    stdout=$( lsi | wofi -i -c ~/wofer/config -s ~/wofer/style.css | grep -o ' .*' | sed 's| *||')
+    if [[ $(pwd) == $DIR ]]; then
+      if [[ $stdout =~ \.\. || $stdout == "" ]]; then
+        exit
+      fi
+      cd "$stdout"
+    elif [[ $(pwd) =~ $DIR/.+ ]]; then
+      if [[ $stdout =~ \.\. ]]; then
+        cd ..
+      else
+        cd "$stdout"; ls ./ | sort -n |  imv_config=~/.config/imv/manga imv
+        exit
+      fi
+    else
+      exit
+    fi
+    done
+}
+
+library
