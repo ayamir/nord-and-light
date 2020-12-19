@@ -1,0 +1,205 @@
+#!/usr/bin/env bash
+
+if [ $1 == "l" ]
+then
+    # Firefox
+    cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
+    # Wallpaper
+    feh --bg-fill /home/mir/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
+    sed -i "s/bg ~\/Pictures\/nord\/ign-0001.png fill/bg ~\/Pictures\/wallpapers\/fuji.jpg fill/g" ~/.config/sway/config
+    # Wofer
+    sed -i "s/#d8dee9/#434c5e/g" ~/wofer/style.css
+    sed -i "s/#2e3440/#eceff4/g" ~/wofer/style.css
+    sed -i "s/rgba(53,59,73,1.0)/rgba(228, 231, 236, 1.0)/g" ~/wofer/style.css
+    # Dunst
+    cp ~/.config/dunst/dunstrc-light ~/.config/dunst/dunstrc
+    # Mako
+    sed -i "s/#4c566a/#e5e9f0/g" ~/.config/mako/config
+    sed -i "s/#434c5e/#eceff4/g" ~/.config/mako/config
+    sed -i "s/#d8dee9/#2e3440/g" ~/.config/mako/config
+    if [ $2 == "sway" ]
+    then
+        killall mako
+    else
+        killall dunst
+    fi
+    # i3
+    sed -i "s/4C566A/ECEFF4/g" ~/.config/i3/config
+    # Xmobar
+    sed -i "s/2E3440/D8DEE9/g" ~/.config/xmobar/xmobarrc0
+    sed -i "s/ECEFF4/3B4252/g" ~/.config/xmobar/xmobarrc0
+    # Xmonad
+    sed -i "s/D8DEE9/2E3440/g" ~/.xmonad/xmonad.hs
+    sed -i "s/3B4252/ECEFF4/g" ~/.xmonad/xmonad.hs
+    # Sway
+    sed -i "s/#2e3440/#eceff4/g" ~/.config/sway/config
+    sed -i "s/#eceff4/#3b4252/g" ~/.config/sway/config
+    sed -i "s/#4c566a/#e5e9f0/g" ~/.config/sway/config
+    sed -i "s/#d8dee9/#3b4252/g" ~/.config/sway/config
+    sed -i "s/Nord/Orchis-light/g" ~/.config/sway/config
+    # Waybar
+    cp ~/.config/waybar/style-light.css ~/.config/waybar/style.css
+    # Spectrwm Bar
+    sed -i "s/bar_border  		= rgb:2e\/34\/40/bar_border  		= rgb:d8\/de\/e9/g" ~/.config/spectrwm/spectrwm.conf
+    sed -i "s/bar_color   		= rgb:2e\/34\/40/bar_color   		= rgb:d8\/de\/e9/g" ~/.config/spectrwm/spectrwm.conf
+    sed -i "s/bar_font_color      = rgb:d8\/de\/e9, rg/bar_font_color      = rgb:2e\/34\/40, rg/g" ~/.config/spectrwm/spectrwm.conf
+    if [ $2 == "sway" ]
+    then
+        swaymsg reload
+    elif [ $2 == "xmonad" ]
+    then
+        xmonad --restart
+    elif [ $2 == "i3" ]
+    then
+         i3-msg restart
+    fi
+    # Alacritty
+    cp ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
+    # Kitty
+    sed -i "s/nord/polar/g" ~/.config/kitty/kitty.conf
+    sed -i "s/nord/polar/g" ~/.config/kitty/kitty-w.conf
+    # Fish
+    fish -c light
+    # Polybar
+    cp ~/.config/i3/polybar/colors-light ~/.config/i3/polybar/colors
+    cp ~/.config/bspwm/polybar/colors-light ~/.config/bspwm/polybar/colors
+    if [ $2 == "i3" ]
+    then
+        sh ~/.config/i3/bin/i3bar
+    elif [ $2 == "bspwm" ]
+    then
+        sh ~/.config/bspwm/bin/bspbar
+    fi
+    # Global theme
+    sed -i "s/Nord/Orchis-light/g" ~/.gtkrc-2.0
+    sed -i "s/Nord/Orchis-light/g" ~/.config/gtk-3.0/settings.ini
+    # Spotify
+    sed -i "s/Nord/Light/g" ~/.config/spicetify/config.ini
+    sed -i "s/nord/light/g" ~/.config/spicetify/config.ini
+    /home/mir/spicetify-cli/spicetify apply
+    # Rofi
+    sed -i "s/nord/light/g" ~/.config/rofi/config.rasi
+    # Vim
+    sed -i "s/colorscheme nord/colorscheme one/g" ~/.vimrc
+    sed -i 's/airline_theme=\"nord\"/airline_theme=\"silver\"/g' ~/.vimrc
+    # Emacs
+    sed -i "s/doom-nord)/doom-nord-light)/g" ~/.doom.d/config.el
+    sh ~/.emacs.d/bin/doom sync
+    emacsclient -e '(kill-emacs)'
+    # Code
+    sed -i "s/Nord/Atom One Light/g" ~/.config/Code/User/settings.json
+    # Sublime
+    sed -i "s/Nord\/Nord.sublime-color-scheme/One Half Color Schemes\/OneHalfLight.tmTheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+    # Zathura
+    cp ~/.config/zathura/zathurarc-light ~/.config/zathura/zathurarc
+    # Daemons
+    if [ $2 == "sway" ]
+    then
+        sh ~/.local/bin/startdaemon-sway
+    else
+        sh ~/.local/bin/startdaemon
+    fi
+    # Notify
+    notify-send "Switch to Light Now!" -i ~/Pictures/nord.png -t 3000
+elif [ $1 == "n" ]
+then
+    # Firefox
+    cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
+    # Wallpaper
+    feh --bg-fill /home/mir/Pictures/nord/ign-0001.png
+    sed -i "s/bg ~\/Pictures\/wallpapers\/fuji.jpg fill/bg ~\/Pictures\/nord\/ign-0001.png fill/g" ~/.config/sway/config
+    # Dunst
+    cp ~/.config/dunst/dunstrc-nord ~/.config/dunst/dunstrc
+    # Mako
+    sed -i "s/#e5e9f0/#4c566a/g" ~/.config/mako/config
+    sed -i "s/#eceff4/#434c5e/g" ~/.config/mako/config
+    sed -i "s/#2e3440/#d8dee9/g" ~/.config/mako/config
+    if [ $2 == "sway" ]
+    then
+        killall mako
+    else
+        killall dunst
+    fi
+    # Wofer
+    sed -i "s/#434c5e/#d8dee9/g" ~/wofer/style.css
+    sed -i "s/#eceff4/#2e3440/g" ~/wofer/style.css
+    sed -i "s/rgba(228, 231, 236, 1.0)/rgba(53,59,73,1.0)/g" ~/wofer/style.css
+    # Sway
+    sed -i "s/#eceff4/#2e3440/g" ~/.config/sway/config
+    sed -i "s/#3b4252/#eceff4/g" ~/.config/sway/config
+    sed -i "s/#e5e9f0/#4c566a/g" ~/.config/sway/config
+    sed -i "s/#3b4252/#d8dee9/g" ~/.config/sway/config
+    sed -i "s/Orchis-light/Nord/g" ~/.config/sway/config
+    # Waybar
+    cp ~/.config/waybar/style-nord.css ~/.config/waybar/style.css
+    # i3
+    sed -i "s/ECEFF4/4C566A/g" ~/.config/i3/config
+    # Xmobar
+    sed -i "s/D8DEE9/2E3440/g" ~/.config/xmobar/xmobarrc0
+    sed -i "s/3B4252/ECEFF4/g" ~/.config/xmobar/xmobarrc0
+    # Xmonad
+    sed -i "s/2E3440/D8DEE9/g" ~/.xmonad/xmonad.hs
+    sed -i "s/ECEFF4/3B4252/g" ~/.xmonad/xmonad.hs
+    # Spectrwm Bar
+    sed -i "s/bar_border  		= rgb:d8\/de\/e9/bar_border  		= rgb:2e\/34\/40/g" ~/.config/spectrwm/spectrwm.conf
+    sed -i "s/bar_color   		= rgb:d8\/de\/e9/bar_color   		= rgb:2e\/34\/40/g" ~/.config/spectrwm/spectrwm.conf
+    sed -i "s/bar_font_color      = rgb:2e\/34\/40, rg/bar_font_color      = rgb:d8\/de\/e9, rg/g" ~/.config/spectrwm/spectrwm.conf
+    if [ $2 == "sway" ]
+    then
+        swaymsg reload
+    elif [ $2 == "xmonad" ]
+    then
+        xmonad --restart
+    elif [ $2 == "i3" ]
+    then
+        i3-msg restart
+    fi
+    # Alacritty
+    cp ~/.config/alacritty/alacritty-nord.yml ~/.config/alacritty/alacritty.yml
+    # Kitty
+    sed -i "s/polar/nord/g" ~/.config/kitty/kitty.conf
+    sed -i "s/polar/nord/g" ~/.config/kitty/kitty-w.conf
+    # Fish
+    fish -c nord
+    # Polybar 
+    cp ~/.config/i3/polybar/colors-nord ~/.config/i3/polybar/colors
+    cp ~/.config/bspwm/polybar/colors-nord ~/.config/bspwm/polybar/colors
+    if [ $2 == "i3" ]
+    then
+        sh ~/.config/i3/bin/i3bar
+    elif [ $2 == "bspwm" ]
+    then
+        sh ~/.config/bspwm/bin/bspbar
+    fi
+    # Global theme
+    sed -i 's/Orchis-light/Nord/g' ~/.gtkrc-2.0
+    sed -i "s/Orchis-light/Nord/g" ~/.config/gtk-3.0/settings.ini
+    # Spotify
+    sed -i "s/Light/Nord/g" ~/.config/spicetify/config.ini
+    sed -i "s/light/nord/g" ~/.config/spicetify/config.ini
+    /home/mir/spicetify-cli/spicetify apply
+    # Rofi
+    sed -i "s/light/nord/g" ~/.config/rofi/config.rasi
+    # Vim
+    sed -i 's/colorscheme one/colorscheme nord/g' ~/.vimrc
+    sed -i 's/airline_theme=\"silver\"/airline_theme=\"nord\"/g' ~/.vimrc
+    # Emacs
+    sed -i 's/doom-nord-light)/doom-nord)/g' ~/.doom.d/config.el
+    sh ~/.emacs.d/bin/doom sync
+    emacsclient -e '(kill-emacs)'
+    # Code
+    sed -i "s/Atom One Light/Nord/g" ~/.config/Code/User/settings.json
+    # Sublime
+    sed -i "s/One Half Color Schemes\/OneHalfLight.tmTheme/Nord\/Nord.sublime-color-scheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+    # Zathura
+    cp ~/.config/zathura/zathurarc-nord ~/.config/zathura/zathurarc
+    # Daemons
+    if [ $2 == "sway" ]
+    then
+        sh ~/.local/bin/startdaemon-sway
+    else
+        sh ~/.local/bin/startdaemon
+    fi
+    # Notify
+    notify-send "Switch to Nord Now!" -i ~/Pictures/nord.png -t 3000
+fi
