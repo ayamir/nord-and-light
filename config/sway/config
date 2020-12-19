@@ -1,0 +1,367 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+# Autostart
+exec emacsc --daemon
+exec mako
+#exec oguri
+exec autotiling
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob --border-color '#ff5e81ac' --background-color '#cc2e3440' --bar-color '#ff5e81ac'
+exec copyq
+exec fcitx5
+exec xfce4-power-manager
+exec qv2ray
+exec xdman
+exec nutstore
+
+# exec syncthing -no-browser
+# exec fish -c update_mangas
+
+# Dynamic Wallpaper
+# exec oguri -c ~/.config/oguri/config
+# exec dwall -s flcl &
+
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Orchis-light'
+    gsettings set $gnome-schema icon-theme 'Material-Originals-dark'
+    gsettings set $gnome-schema cursor-theme 'WhiteSur-cursors'
+    gsettings set $gnome-schema font-name 'Sarasa UI SC 11'
+}
+
+# Windows Rules 
+for_window [class="(?i)ark"] floating enable
+for_window [class="(?i)mpv"] floating enable
+for_window [app_id="imv"] floating enable, border pixel 3
+for_window [app_id="pavucontrol"] floating enable, sticky enable, resize set width 550 px height 600px, move position cursor, move down 330
+for_window [title=".*sharing"] floating enable, move to scratchpad
+for_window [title="Copying"] floating enable
+for_window [title="Discord Updater"] floating enable
+for_window [title="File Already Exist"] floating enable
+for_window [class="xdman-Main"] floating enable
+for_window [class="java-lang-Thread"] floating enable
+for_window [class="VirtualBox Manager"] floating enable
+for_window [class="Qq"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Qalculate-gtk"] floating enable
+for_window [class="Nitrogen"] floating enable
+for_window [class="Steam"] floating enable
+for_window [class="words-picker"] floating enable
+
+set $opacity 0.9
+for_window [class="kitty"] opacity $opacity
+for_window [class="Alacritty"] opacity $opacity
+for_window [class="zathura"] opacity $opacity
+for_window [class="Emacs"] opacity $opacity
+for_window [class="foot"] opacity $opacity
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+set $mod1 Mod1
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term kitty -c ~/.config/kitty/kitty-w.conf
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+#
+
+# Disable titlebar
+default_border pixel 2
+
+# Font
+font pango:ProductSansMedium 13px 
+
+# Window decoration
+# class                 border  backgr. text    indicator child_border
+client.focused          #5e81ac #5e81ac #3b4252 #3b4252   #5e81ac
+client.focused_inactive #e5e9f0 #e5e9f0 #3b4252 #e5e9f0   #434c5e
+client.unfocused        #e5e9f0 #e5e9f0 #3b4252 #e5e9f0   #434c5e
+client.urgent           #7c818c #bf616a #3b4252 #900000   #bf616a
+client.placeholder      #000000 #0c0c0c #3b4252 #000000   #0c0c0c
+
+#Asignments
+#assign [app_id="lutris"] 4
+#assign [app_id="gamehub"] 4
+#assign [app_id="steam"] 5
+#assign [app_id="virt-manager"] 6
+#assign [app_id="virtualbox"] 6
+#assign [app_id="Signal"] 5
+#assign [title="Signal"] 5
+#assign [app_id="discord"] 5
+#assign [title="discord"] 5
+#assign [title="Wine System Tray"] scratchpad
+#assign [class="libreoffice"] $ws1
+#assign [class="jetbrains-toolbox"] $ws2
+#assign [class="jetbrains-goland"] $ws2
+#assign [class="jetbrains-idea"] $ws2
+#assign [class="jetbrains-pycharm"] $ws2
+#assign [class="jetbrains-clion"] $ws2
+#assign [class="jetbrains-datagrip"] $ws2
+#assign [class="jetbrains-webstorm"] $ws2
+#assign [class="Chromium"] $ws3
+
+#assign [class="FirefoxNightly"] $ws3
+#assign [class="Microsoft-edge-dev"] $ws3
+#assign [class="Nightly"] $ws3
+
+#assign [class="FeelUOwn"] $ws4
+#assign [class="VirtualBox Machine"] $ws6
+#assign [class="Thunderbird"] $ws8
+#assign [class="Qq"] $ws8
+#assign [class="TelegramDesktop"] $ws8
+
+
+# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
+gaps inner 10
+gaps outer 5
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# output "*" bg ~/wallpapers/1.jpg fill
+# swaybg_command -
+#
+# Example configuration:
+#
+  output eDP-1 {
+    pos 0 0
+    res 1920x1080
+    adaptive_sync off
+    scale 1
+    bg ~/Pictures/wallpapers/fuji.jpg fill
+  }
+  # output HDMI-A-1 resolution 2560x1440 position 0,0 scale
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Idle configuration
+#
+# Example configuration:
+#
+exec swayidle -w\
+    timeout 1070 'swaylock -f -C ~/.config/swaylock/config'\
+    timeout 770 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -C ~/.config/swaylock/config'
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+bindsym $mod+f1 exec ~/.config/sway/lockman.sh
+bindsym $mod+f12 exec ~/.config/sway/lockman.sh
+
+# Screenshot with grim and swappy
+bindsym $mod+shift+s exec grim -g "$(slurp)" - | swappy -f -
+bindsym Shift+print exec grim - | swappy -f -
+
+### Input configuration
+#
+# Example configuration:
+#
+   input "1739:32382:DELL0828:00_06CB:7E7E_Touchpad" {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
+       middle_emulation enabled
+   }
+
+   input "type:keyboard" {
+       xkb_options "ctrl:swapcaps"
+   }
+
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+### Key bindings
+#
+# Basics:
+#
+    floating_modifier $mod normal
+
+    bindsym $mod+return exec $term
+    bindsym $mod1+c exec code
+
+    bindsym $mod+ctrl+p exec mpc toggle
+    bindsym $mod+ctrl+right exec mpc next
+    bindsym $mod+ctrl+left exec mpc prev
+
+    bindsym $mod+backspace exec fish -c wofer
+    bindsym $mod+d exec wofi --show=drun -I
+    bindsym $mod+tab exec wofi --show=run
+
+    bindsym $mod+c exec firefox-nightly
+    bindsym $mod+z exec zathura
+    bindsym $mod+n exec nmd
+
+    bindsym $mod+shift+e exec emacs
+    bindsym $mod+shift+n exec thunar
+    bindsym $mod+shift+m exec feeluown
+    bindsym $mod+shift+v exec VBoxManage startvm "WinDev2008Eval" --type gui
+
+    bindsym $mod+ctrl+n exec switch "n" "sway"
+    bindsym $mod+ctrl+l exec switch "l" "sway"
+    bindsym $mod+ctrl+h exec $term -e htop
+    bindsym $mod+ctrl+r exec wf-recorder
+
+    bindsym $mod+q kill
+    bindsym $mod+shift+q exec xkill
+
+    bindsym $mod+Shift+r reload
+    bindsym $mod+Shift+Escape exec wlogout -p layer-shell
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
+
+    bindsym $mod+bracketleft workspace prev
+    bindsym $mod+bracketright workspace next
+
+#
+# Layout stuff:
+#
+    focus_wrapping no
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+semicolon splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+shift+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+    bindsym $mod+x focus child
+
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+set $ides "[a]ndroid [i]dea [c]lion [g]oland [p]ycharm [d]atagrip [w]ebstorm"
+bindsym $mod+i mode $ides
+mode $ides {
+  bindsym a exec "swaymsg 'workspace 2; exec --no-startup-id $HOME/.local/bin/studio; mode \\"default\\"'"
+  bindsym i exec "swaymsg 'workspace 2; exec --no-startup-id $HOME/.local/bin/idea; mode \\"default\\"'"
+  bindsym c exec "swaymsg 'workspace 2; exec --no-startup-id $HOME/.local/bin/clion; mode \\"default\\"'"
+  bindsym g exec "swaymsg 'workspace 2; exec --no-startup-id $HOME/.local/bin/goland; mode \\"default\\"'"
+  bindsym p exec "swaymsg 'workspace 2; exec --no-startup-id $HOME/.local/bin/pycharm; mode \\"default\\"'"
+  bindsym d exec "swaymsg 'workspace 2; exec --no-startup-id $HOME/.local/bin/datagrip; mode \\"default\\"'"
+  bindsym w exec "swaymsg 'workspace 2; exec --no-startup-id $HOME/.local/bin/webstorm; mode \\"default\\"'"
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+   swaybar_command waybar
+}
+
+include /etc/sway/config.d/*
+
+# Special keys
+# /usr/include/xkbcommon/xkbcommon-keysyms.h
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +3%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -3%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
