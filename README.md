@@ -22,13 +22,24 @@
 
 ## Shot
 
-![img](./Pictures/shot/dark.png)
+### bspwm
 
-![img](./Pictures/shot/light.png)
+![img](./Pictures/shot/bspwm.png)
 
-![img](./Pictures/shot/nord-firefox.png)
+### i3
+![img](./Pictures/shot/i3.png)
 
-![img](./Pictures/shot/light-firefox.png)
+### spectrwm
+![img](./Pictures/shot/spectrwm.png)
+
+### xmonad
+![img](./Pictures/shot/xmonad.png)
+
+### sway
+![img](./Pictures/shot/sway.png)
+
+### firefox
+![img](./Pictures/shot/firefox.png)
 
 
 <a id="org5114522"></a>
