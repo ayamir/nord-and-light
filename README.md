@@ -158,6 +158,4 @@ You can view more details in itself.
 
 ## TODO
 
--   [ ] Auto switch theme according to Time
--   [ ] Auto switch theme according to Backlight
-
+-   [ ] Add Dwm support
