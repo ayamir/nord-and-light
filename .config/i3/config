@@ -14,7 +14,7 @@ set $mod1 Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: Input Nerd Font 9
+font pango: Sarasa UI SC 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -26,7 +26,7 @@ font pango: Input Nerd Font 9
 title_align center
 show_marks yes
 
-for_window [class=".*"] title_format "%title"
+for_window [class=".*"] border pixel 0
 
 # Theme colors
 client.focused     #4C566A      #5E81AC     #E5E9F0    #E5E9F0       #ECECEC
@@ -35,31 +35,28 @@ client.unfocused   #4C566A      #4C566A    #171717     #ECECEC       #ECECEC
 client.urgent           #BF616A            #BF616A        #ffffff        #268BD2
 client.placeholder      #4C566A            #909090        #FFFFFF        #268BD2
 
-new_window pixel 0
-new_float pixel 0
+smart_borders on
 
 gaps inner 10
 gaps outer 0
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xautolock -time 5 -locker '/usr/bin/betterlockscreen -l' -corners ---- -cornersize 30 &
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id setxkbmap -option "ctrl:swapcaps"
-exec --no-startup-id fcitx5
+exec_always --no-startup-id autotiling
 exec --no-startup-id dunst
+exec --no-startup-id fcitx5
+exec --no-startup-id redshift-gtk
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id qv2ray
 exec --no-startup-id xdman
 exec --no-startup-id nutstore
 exec --no-startup-id copyq
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id redshift-gtk
-exec --no-startup-id words-picker
+exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id picom -b
-exec --no-startup-id /home/mir/.config/i3/bin/i3bar
+exec --no-startup-id $HOME/.config/i3/bin/i3bar
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -79,7 +76,6 @@ floating_modifier $mod
 # assign
 assign [class="libreoffice"] $ws1
 
-assign [class="Code"] $ws2
 assign [class="jetbrains-toolbox"] $ws2
 assign [class="jetbrains-goland"] $ws2
 assign [class="jetbrains-idea"] $ws2
@@ -88,10 +84,13 @@ assign [class="jetbrains-clion"] $ws2
 assign [class="jetbrains-datagrip"] $ws2
 assign [class="jetbrains-webstorm"] $ws2
 
+assign [class="firefox"] $ws3
 assign [class="FirefoxNightly"] $ws3
+assign [class="Microsoft-edge-dev"] $ws3
 assign [class="Nightly"] $ws3
 
 assign [class="netease-cloud-music"] $ws4
+assign [class="FeelUOwn"] $ws4
 
 assign [class="Steam"] $ws5
 
@@ -104,7 +103,6 @@ assign [class="TelegramDesktop"] $ws8
 # for_window floating settings
 for_window [class="xdman-Main"] floating enable
 for_window [class="java-lang-Thread"] floating enable
-for_window [class="deepin-system-monitor"] floating enable
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="Qq"] floating enable
 for_window [class="Lxappearance"] floating enable
@@ -114,46 +112,56 @@ for_window [class="Steam"] floating enable
 for_window [class="words-picker"] floating enable
 
 # start a terminal
-bindsym $mod+Return exec alacritty
-bindsym $mod+shift+Return exec kitty
+bindsym $mod+Return exec --no-startup-id kitty
 
 # Switch theme
-bindsym $mod+control+l exec "$HOME/.local/bin/switch-i3 l"
-bindsym $mod+control+n exec "$HOME/.local/bin/switch-i3 n"
+bindsym $mod+control+l exec "~/.local/bin/switch 'l' 'i3'"
+bindsym $mod+control+n exec "~/.local/bin/switch 'n' 'i3'"
+
+# Control mpd
+bindsym $mod+control+p exec mpc toggle
+bindsym $mod+control+Right exec mpc next
+bindsym $mod+control+Left exec mpc prev
 
 # Polybar reload
 bindsym $mod1+p exec "$HOME/.config/i3/bin/i3bar"
 
 # start specific application
-bindsym $mod+c exec firefox-nightly
-bindsym $mod+shift+s exec flameshot gui
-bindsym $mod+shift+e exec emacs
-bindsym $mod+z exec zathura
-bindsym $mod+shift+w exec wps
-bindsym $mod+shift+n exec thunar
-bindsym $mod+shift+m exec netease-cloud-music
-bindsym $mod+shift+v exec VBoxManage startvm "WinDev2008Eval" --type gui
-bindsym $mod1+ctrl+Delete exec betterlockscreen -l
+bindsym $mod+c exec --no-startup-id chromium
+bindsym $mod1+c exec --no-startup-id code
+bindsym $mod+shift+s exec --no-startup-id flameshot gui
+bindsym $mod+shift+e exec --no-startup-id emacs
+bindsym $mod+z exec --no-startup-id zathura
+bindsym $mod+n exec --no-startup-id nmd
+bindsym $mod+shift+w exec --no-startup-id wps
+bindsym $mod+shift+n exec --no-startup-id thunar
+bindsym $mod+shift+m exec --no-startup-id feeluown
+bindsym $mod+shift+v exec --no-startup-id VBoxManage startvm "WinDev2008Eval" --type gui
+bindsym $mod1+ctrl+Delete exec --no-startup-id betterlockscreen -l
 
 # Screenshot config
 # Take a full screenshot store in file
-bindsym Print exec "scrot 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'"
-# Take a screenshot after 3 seconds
-bindsym $mod+Print exec "scrot -d 3 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'"
+bindsym Print exec --no-startup-id "scrot 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'"
+# Take a screenshot after 5 seconds
+bindsym $mod+Print exec --no-startup-id "scrot -d 5 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'"
 # Take a full screenshot to clipboard(need xclip installed)
-bindsym control+Print exec "scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
+bindsym control+Print exec --no-startup-id "scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
+
+# enable and disable touchpad
+# reference: https://wiki.archlinux.org/index.php/Libinput#Disable_touchpad
+bindsym $mod+control+e exec --no-startup-id "xinput enable 'DELL0828:00 06CB:7E7E Touchpad'"
+bindsym $mod+control+d exec --no-startup-id "xinput disable 'DELL0828:00 06CB:7E7E Touchpad'"
 
 # IDEs start bindsym
-set $ides "[c]ode [i]dea c[l]ion [g]oland [d]atagrip"
+set $ides "[i]dea [c]lion [g]oland [p]ycharm [d]atagrip"
 bindsym $mod+i mode $ides
 mode $ides {
-  bindsym c exec --no-startup-id "i3-msg 'workspace 2; exec code; mode \\"default\\"'"
-  bindsym i exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/idea; mode \\"default\\"'"
-  bindsym g exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/goland; mode \\"default\\"'"
-  bindsym p exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/pycharm; mode \\"default\\"'"
-  bindsym l exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/clion; mode \\"default\\"'"
-  bindsym w exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/webstorm; mode \\"default\\"'"
-  bindsym d exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/datagrip; mode \\"default\\"'"
+  bindsym i exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/idea; mode \\"default\\"'"
+  bindsym g exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/goland; mode \\"default\\"'"
+  bindsym p exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/pycharm; mode \\"default\\"'"
+  bindsym c exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/clion; mode \\"default\\"'"
+  bindsym w exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/webstorm; mode \\"default\\"'"
+  bindsym d exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/datagrip; mode \\"default\\"'"
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -179,6 +187,7 @@ mode "$mode_redshift" {
 
 # kill focused window
 bindsym $mod+q kill
+bindsym --release $mod1+q exec --no-startup-id xkill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show drun
@@ -188,6 +197,7 @@ bindsym $mod+Tab exec rofi -show run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+focus_wrapping no
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -237,7 +247,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+x focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -249,6 +259,11 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
+set $ws9 "9"
+
+# Move to prev and next workspace
+bindsym $mod+bracketleft workspace prev
+bindsym $mod+bracketright workspace next
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -259,6 +274,7 @@ bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -269,6 +285,7 @@ bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -285,16 +302,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
