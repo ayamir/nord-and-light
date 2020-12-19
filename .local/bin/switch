@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+    echo "Usage:"
+    echo "switch <mode> <wmname>"
+    echo "<mode>: l: light, n: nord"
+    echo "<wmname>: bspwm, i3, xmonad, spectrwm, sway"
+
 if [ $1 == "l" ]
 then
     # Firefox
@@ -43,8 +48,7 @@ then
     sed -i "s/bar_border  		= rgb:2e\/34\/40/bar_border  		= rgb:d8\/de\/e9/g" ~/.config/spectrwm/spectrwm.conf
     sed -i "s/bar_color   		= rgb:2e\/34\/40/bar_color   		= rgb:d8\/de\/e9/g" ~/.config/spectrwm/spectrwm.conf
     sed -i "s/bar_font_color      = rgb:d8\/de\/e9, rg/bar_font_color      = rgb:2e\/34\/40, rg/g" ~/.config/spectrwm/spectrwm.conf
-    # You need restart spectrwm manually to see effect.
-
+    # You need to restart spectrwm manually.
     if [ $2 == "sway" ]
     then
         swaymsg reload
@@ -146,8 +150,7 @@ then
     sed -i "s/bar_border  		= rgb:d8\/de\/e9/bar_border  		= rgb:2e\/34\/40/g" ~/.config/spectrwm/spectrwm.conf
     sed -i "s/bar_color   		= rgb:d8\/de\/e9/bar_color   		= rgb:2e\/34\/40/g" ~/.config/spectrwm/spectrwm.conf
     sed -i "s/bar_font_color      = rgb:2e\/34\/40, rg/bar_font_color      = rgb:d8\/de\/e9, rg/g" ~/.config/spectrwm/spectrwm.conf
-    # You need restart spectrwm manually to see effect.
-
+    # You need to restart spectrwm manually.
     if [ $2 == "sway" ]
     then
         swaymsg reload
