@@ -1,0 +1,12 @@
+#! /bin/bash 
+picom -b
+sh ~/.fehbg
+dwmblocks &
+qv2ray &
+xfce4-power-manager &
+copyq &
+redshift-gtk &
+fcitx5 &
+nutstore &
+dunst &
+xdman &

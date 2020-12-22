@@ -21,22 +21,18 @@
 <a id="org6ecd7c5"></a>
 
 ## Shot
-
 ### bspwm
-
 ![img](./Pictures/shot/bspwm.png)
-
 ### i3
 ![img](./Pictures/shot/i3.png)
-
 ### spectrwm
 ![img](./Pictures/shot/spectrwm.png)
-
 ### xmonad
 ![img](./Pictures/shot/xmonad.png)
-
 ### sway
 ![img](./Pictures/shot/sway.png)
+### dwm
+![img](./Pictures/shot/dwm.png)
 
 ### firefox
 ![img](./Pictures/shot/firefox.png)
@@ -158,4 +154,4 @@ You can view more details in itself.
 
 ## TODO
 
--   [ ] Add Dwm support
+-   [X] Add Dwm support

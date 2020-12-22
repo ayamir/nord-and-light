@@ -1,0 +1,4 @@
+#!/bin/bash
+
+doas rm -f ./config.h
+doas make clean install
