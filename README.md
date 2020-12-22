@@ -110,9 +110,14 @@ In my case, I put it in \`~/.local/bin/\`
 
 You can view more details in itself.
 
-### Note
-Dwm and Spectrwm need to restart manually to see the effect.
+#### Note
+*Dwm* and *Spectrwm* need to restart manually to see the effect.
 
+The recompile script in `.dwm/` dir need `doas` package. 
+
+And you should configure your user can execute `doas` command without password.
+
+You can see how to configure it on [Doas Gentoo Wiki](https://wiki.gentoo.org/wiki/Doas)
 
 <a id="org56ea59c"></a>
 
