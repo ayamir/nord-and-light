@@ -3,7 +3,7 @@ static const Block blocks[] = {
 	/*Icon*/	/*Command*/	 	/*Update Interval*/	/*Update Signal*/
     {"   ", "~/.dwmblocks/scripts/kernel",		    360,		        2},
 
-	{" 🔺 ", "~/.dwmblocks/scripts/upt",		        60,		            2},
+	{"   ", "~/.dwmblocks/scripts/upt",		        60,		            2},
 
 	{"   ", "~/.dwmblocks/scripts/pacupdate",		360,		        9},
 	
