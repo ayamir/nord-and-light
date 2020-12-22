@@ -33,7 +33,6 @@
 ![img](./Pictures/shot/sway.png)
 ### dwm
 ![img](./Pictures/shot/dwm.png)
-
 ### firefox
 ![img](./Pictures/shot/firefox.png)
 
@@ -49,8 +48,10 @@
 
 -   feh
 -   dunst
--   alacritty
+-   mako(wayland)
+-   alacritty/kitty
 -   rofi
+-   wofi(wayland)
 -   zathura
 -   Global GTK2/3 theme
     -   [Nordic](https://www.gnome-look.org/p/1267246/)
@@ -109,6 +110,9 @@ In my case, I put it in \`~/.local/bin/\`
 
 You can view more details in itself.
 
+### Note
+Dwm and Spectrwm need to restart manually to see the effect.
+
 
 <a id="org56ea59c"></a>
 
@@ -155,3 +159,4 @@ You can view more details in itself.
 ## TODO
 
 -   [X] Add Dwm support
+-   [ ] Restart Dwm&Spectrwm automatically
