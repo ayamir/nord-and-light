@@ -1,3 +1,5 @@
+#include <X11/XF86keysym.h>
+
 /* See LICENSE file for copyright and license details. */
 #define nord0 #2E3440
 #define nord1 #3B4252
@@ -106,6 +108,10 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[]    = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
+static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+3%",     NULL };
+static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-3%",     NULL };
+static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
@@ -132,7 +138,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 
-        /* My Own App Start Ways */
+    /* My Own App Start Ways */
     { Mod1Mask,               XK_c,    spawn,          CMD("code") },
     { MODKEY,                 XK_c,    spawn,          CMD("firefox-nightly") },
     { MODKEY,                 XK_z,    spawn,          CMD("zathura") },
@@ -142,6 +148,15 @@ static Key keys[] = {
     { MODKEY|ShiftMask,       XK_e,    spawn,          CMD("emacs") },
     { MODKEY|ShiftMask,       XK_v,    spawn,          CMD("VBoxManage startvm 'WinDev2008Eval' --type gui") },
     { Mod1Mask|ControlMask,   XK_Delete,    spawn,     CMD("betterlockscreen -l") },
+
+    /* Switch nord and light */
+    { MODKEY|ControlMask,     XK_n,    spawn,     CMD("sh ~/.local/bin/switch n dwm") },
+    { MODKEY|ControlMask,     XK_l,    spawn,     CMD("sh ~/.local/bin/switch l dwm") },
+
+    /* XF86Keys */
+	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
+	{ 0,                       XF86XK_AudioMute, spawn, {.v = mutevol } },
+	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
 
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
