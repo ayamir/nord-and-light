@@ -112,6 +112,7 @@ You can view more details in itself.
 
 #### Note
 *Dwm* and *Spectrwm* need to restart manually to see the effect.
+(If you use my keybind, the way is `Mod4`+`Shift`+`r`)
 
 The recompile script in `.dwm/` dir need `doas` package. 
 
