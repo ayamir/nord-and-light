@@ -1,3 +1,5 @@
+#include <X11/XF86keysym.h>
+
 /* See LICENSE file for copyright and license details. */
 #define nord0 #2E3440
 #define nord1 #3B4252
@@ -27,17 +29,24 @@ static const char *fonts[]     = {"RobotoMono:size=9:antialias=true:autohint=tru
                                   "Sarasa UI SC:size=8:antialias=true:autohint=true",
                                   "JoyPixels:size=10:antialias=true:autohint=true"
 						     	};
+/*
 static const char dmenufont[]       = "RobotoMono:size=10";
-static char normbgcolor[]           = "#2e3440";
-static char normbordercolor[]       = "#2e3440";
-static char normfgcolor[]           = "#d8dee9";
-static char selfgcolor[]            = "#eceff4";
-static char selbordercolor[]        = "#5e81ac";
-static char selbgcolor[]            = "#5e81ac";
-static char *colors[][3] = {
-       /*               fg           bg           border   */
-       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+static const char col_gray1[]       = "#2e3440";
+static const char col_gray2[]       = "#2e3440";
+static const char col_gray3[]       = "#d8dee9";
+static const char col_gray4[]       = "#eceff4";
+static const char col_cyan[]        = "#5e81ac";
+*/
+static const char col_gray1[]       = "#ECEFF4";
+static const char col_gray2[]       = "#D8DEE9";
+static const char col_gray3[]       = "#2E3440";
+static const char col_gray4[]       = "#3B4252";
+static const char col_cyan[]        = "#88C0D0";
+
+static const char *colors[][3]      = {
+	/*               fg         bg         border   */
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
 static const unsigned int baralpha = 0xd0;
@@ -99,26 +108,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[]    = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
- 
-/*
-+ * Xresources preferences to load at startup
-+ */
-ResourcePref resources[] = {
-		{ "normbgcolor",        STRING,  &normbgcolor },
-		{ "normbordercolor",    STRING,  &normbordercolor },
-		{ "normfgcolor",        STRING,  &normfgcolor },
-		{ "selbgcolor",         STRING,  &selbgcolor },
-		{ "selbordercolor",     STRING,  &selbordercolor },
-		{ "selfgcolor",         STRING,  &selfgcolor },
-		{ "borderpx",          	INTEGER, &borderpx },
-		{ "snap",          		INTEGER, &snap },
-		{ "showbar",          	INTEGER, &showbar },
-		{ "topbar",          	INTEGER, &topbar },
-		{ "nmaster",          	INTEGER, &nmaster },
-		{ "resizehints",       	INTEGER, &resizehints },
-		{ "mfact",      	 	FLOAT,   &mfact },
-};
-
+static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+3%",     NULL };
+static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-3%",     NULL };
+static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -146,7 +138,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 
-        /* My Own App Start Ways */
+    /* My Own App Start Ways */
     { Mod1Mask,               XK_c,    spawn,          CMD("code") },
     { MODKEY,                 XK_c,    spawn,          CMD("firefox-nightly") },
     { MODKEY,                 XK_z,    spawn,          CMD("zathura") },
@@ -156,6 +148,15 @@ static Key keys[] = {
     { MODKEY|ShiftMask,       XK_e,    spawn,          CMD("emacs") },
     { MODKEY|ShiftMask,       XK_v,    spawn,          CMD("VBoxManage startvm 'WinDev2008Eval' --type gui") },
     { Mod1Mask|ControlMask,   XK_Delete,    spawn,     CMD("betterlockscreen -l") },
+
+    /* Switch nord and light */
+    { MODKEY|ControlMask,     XK_n,    spawn,     CMD("sh ~/.local/bin/switch n dwm") },
+    { MODKEY|ControlMask,     XK_l,    spawn,     CMD("sh ~/.local/bin/switch l dwm") },
+
+    /* XF86Keys */
+	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
+	{ 0,                       XF86XK_AudioMute, spawn, {.v = mutevol } },
+	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
 
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
