@@ -1,0 +1,142 @@
+From 2761ad72b4b8a80e434e7eba1a24676119ab666d Mon Sep 17 00:00:00 2001
+From: Daniel Bylinka <daniel.bylinka@gmail.com>
+Date: Sat, 18 Apr 2020 01:41:03 +0200
+Subject: [PATCH] statuscmd: run shell commands based on mouse button and
+ position when clicking statusbar
+
+---
+ config.def.h |  8 +++++++-
+ dwm.c        | 47 ++++++++++++++++++++++++++++++++++++++++++++---
+ 2 files changed, 51 insertions(+), 4 deletions(-)
+
+diff --git a/config.def.h b/config.def.h
+index 1c0b587..5cd7efa 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -59,6 +59,10 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn()
+ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+ static const char *termcmd[]  = { "st", NULL };
+ 
++/* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
++static char *statuscmds[] = { "notify-send Mouse$BUTTON" };
++static char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
++
+ static Key keys[] = {
+ 	/* modifier                     key        function        argument */
+ 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+@@ -103,7 +107,9 @@ static Button buttons[] = {
+ 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
+ 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+ 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
+-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
++	{ ClkStatusText,        0,              Button1,        spawn,          {.v = statuscmd } },
++	{ ClkStatusText,        0,              Button2,        spawn,          {.v = statuscmd } },
++	{ ClkStatusText,        0,              Button3,        spawn,          {.v = statuscmd } },
+ 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+ 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+ 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+diff --git a/dwm.c b/dwm.c
+index 4465af1..d35d173 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -156,6 +156,7 @@ static void clientmessage(XEvent *e);
+ static void configure(Client *c);
+ static void configurenotify(XEvent *e);
+ static void configurerequest(XEvent *e);
++static void copyvalidchars(char *text, char *rawtext);
+ static Monitor *createmon(void);
+ static void destroynotify(XEvent *e);
+ static void detach(Client *c);
+@@ -237,6 +238,9 @@ static void zoom(const Arg *arg);
+ /* variables */
+ static const char broken[] = "broken";
+ static char stext[256];
++static char rawstext[256];
++static int statuscmdn;
++static char lastbutton[] = "-";
+ static int screen;
+ static int sw, sh;           /* X display screen geometry width, height */
+ static int bh, blw = 0;      /* bar geometry */
+@@ -421,6 +425,7 @@ buttonpress(XEvent *e)
+ 	Client *c;
+ 	Monitor *m;
+ 	XButtonPressedEvent *ev = &e->xbutton;
++	*lastbutton = '0' + ev->button;
+ 
+ 	click = ClkRootWin;
+ 	/* focus monitor if necessary */
+@@ -439,9 +444,26 @@ buttonpress(XEvent *e)
+ 			arg.ui = 1 << i;
+ 		} else if (ev->x < x + blw)
+ 			click = ClkLtSymbol;
+-		else if (ev->x > selmon->ww - TEXTW(stext))
++		else if (ev->x > (x = selmon->ww - TEXTW(stext) + lrpad)) {
+ 			click = ClkStatusText;
+-		else
++
++			char *text = rawstext;
++			int i = -1;
++			char ch;
++			statuscmdn = 0;
++			while (text[++i]) {
++				if ((unsigned char)text[i] < ' ') {
++					ch = text[i];
++					text[i] = '\0';
++					x += TEXTW(text) - lrpad;
++					text[i] = ch;
++					text += i+1;
++					i = -1;
++					if (x >= ev->x) break;
++					if (ch <= LENGTH(statuscmds)) statuscmdn = ch - 1;
++				}
++			}
++		} else
+ 			click = ClkWinTitle;
+ 	} else if ((c = wintoclient(ev->window))) {
+ 		focus(c);
+@@ -627,6 +649,19 @@ configurerequest(XEvent *e)
+ 	XSync(dpy, False);
+ }
+ 
++void
++copyvalidchars(char *text, char *rawtext)
++{
++	int i = -1, j = 0;
++
++	while(rawtext[++i]) {
++		if ((unsigned char)rawtext[i] >= ' ') {
++			text[j++] = rawtext[i];
++		}
++	}
++	text[j] = '\0';
++}
++
+ Monitor *
+ createmon(void)
+ {
+@@ -1641,6 +1676,10 @@ spawn(const Arg *arg)
+ {
+ 	if (arg->v == dmenucmd)
+ 		dmenumon[0] = '0' + selmon->num;
++	else if (arg->v == statuscmd) {
++		statuscmd[2] = statuscmds[statuscmdn];
++		setenv("BUTTON", lastbutton, 1);
++	}
+ 	if (fork() == 0) {
+ 		if (dpy)
+ 			close(ConnectionNumber(dpy));
+@@ -1987,8 +2026,10 @@ updatesizehints(Client *c)
+ void
+ updatestatus(void)
+ {
+-	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
++	if (!gettextprop(root, XA_WM_NAME, rawstext, sizeof(rawstext)))
+ 		strcpy(stext, "dwm-"VERSION);
++	else
++		copyvalidchars(stext, rawstext);
+ 	drawbar(selmon);
+ }
+ 
+-- 
+2.26.1
+
