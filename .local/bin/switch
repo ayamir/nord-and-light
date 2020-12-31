@@ -10,7 +10,7 @@ then
     # Firefox
     cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
-    feh --bg-fill /home/mir/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
+    feh --bg-fill ~/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
     sed -i "s/bg ~\/Pictures\/nord\/ign-0001.png fill/bg ~\/Pictures\/wallpapers\/fuji.jpg fill/g" ~/.config/sway/config
     # Wofer
     sed -i "s/#d8dee9/#434c5e/g" ~/wofer/style.css
@@ -94,7 +94,7 @@ then
     # Spotify
     sed -i "s/Nord/Light/g" ~/.config/spicetify/config.ini
     sed -i "s/nord/light/g" ~/.config/spicetify/config.ini
-    /home/mir/spicetify-cli/spicetify apply
+    ~/spicetify-cli/spicetify apply
     # Rofi
     sed -i "s/nord/light/g" ~/.config/rofi/config.rasi
     # Vim
@@ -106,7 +106,7 @@ then
     # Code
     sed -i "s/Nord/Atom One Light/g" ~/.config/Code/User/settings.json
     # Sublime
-    sed -i "s/Nord\/Nord.sublime-color-scheme/One Half Color Schemes\/OneHalfLight.tmTheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+    sed -i "s/Nord\/Nord.sublime-color-scheme/One Half Color Schemes\/OneHalfLight.tmTheme/g" ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
     cp ~/.config/zathura/zathurarc-light ~/.config/zathura/zathurarc
     # Daemons
@@ -123,7 +123,7 @@ then
     # Firefox
     cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
-    feh --bg-fill /home/mir/Pictures/nord/ign-0001.png
+    feh --bg-fill ~/Pictures/nord/ign-0001.png
     sed -i "s/bg ~\/Pictures\/wallpapers\/fuji.jpg fill/bg ~\/Pictures\/nord\/ign-0001.png fill/g" ~/.config/sway/config
     # Dunst
     cp ~/.config/dunst/dunstrc-nord ~/.config/dunst/dunstrc
@@ -207,7 +207,7 @@ then
     # Spotify
     sed -i "s/Light/Nord/g" ~/.config/spicetify/config.ini
     sed -i "s/light/nord/g" ~/.config/spicetify/config.ini
-    /home/mir/spicetify-cli/spicetify apply
+    ~/spicetify-cli/spicetify apply
     # Rofi
     sed -i "s/light/nord/g" ~/.config/rofi/config.rasi
     # Vim
@@ -219,7 +219,7 @@ then
     # Code
     sed -i "s/Atom One Light/Nord/g" ~/.config/Code/User/settings.json
     # Sublime
-    sed -i "s/One Half Color Schemes\/OneHalfLight.tmTheme/Nord\/Nord.sublime-color-scheme/g" /home/mir/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+    sed -i "s/One Half Color Schemes\/OneHalfLight.tmTheme/Nord\/Nord.sublime-color-scheme/g" ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
     cp ~/.config/zathura/zathurarc-nord ~/.config/zathura/zathurarc
     # Daemons
