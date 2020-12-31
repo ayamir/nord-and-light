@@ -66,6 +66,7 @@ then
     elif [ $2 == "dwm" ]
     then
         source ~/.config/fish/functions/dwm_recompile.fish
+        pkill -1 dwm
     elif [ $2 == "spectrwm" ]
     then
         pkill -1 spectrwm
@@ -178,6 +179,7 @@ then
     elif [ $2 == "dwm" ]
     then
         source ~/.config/fish/functions/dwm_recompile.fish
+        pkill -1 dwm
     elif [ $2 == "spectrwm" ]
     then
         pkill -1 spectrwm
