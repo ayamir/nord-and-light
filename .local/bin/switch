@@ -3,7 +3,7 @@
     echo "Usage:"
     echo "switch <mode> <wmname>"
     echo "<mode>: l: light, n: nord"
-    echo "<wmname>: bspwm, i3, xmonad, spectrwm, sway"
+    echo "<wmname>: bspwm, i3, xmonad, spectrwm, sway, dwm"
 
 if [ $1 == "l" ]
 then
@@ -48,7 +48,12 @@ then
     sed -i "s/bar_border  		= rgb:2e\/34\/40/bar_border  		= rgb:d8\/de\/e9/g" ~/.config/spectrwm/spectrwm.conf
     sed -i "s/bar_color   		= rgb:2e\/34\/40/bar_color   		= rgb:d8\/de\/e9/g" ~/.config/spectrwm/spectrwm.conf
     sed -i "s/bar_font_color      = rgb:d8\/de\/e9, rg/bar_font_color      = rgb:2e\/34\/40, rg/g" ~/.config/spectrwm/spectrwm.conf
-    # You need to restart spectrwm manually.
+    # Dwm
+    sed -i "s/col_gray1\[\]       \= \"\#2E3440\"/col_gray1\[\]       \= \"\#ECEFF4\"/g" ~/.dwm/config.def.h
+    sed -i "s/col_gray2\[\]       \= \"\#3B4252\"/col_gray2\[\]       \= \"\#D8DEE9\"/g" ~/.dwm/config.def.h
+    sed -i "s/col_gray3\[\]       \= \"\#ECEFF4\"/col_gray3\[\]       \= \"\#2E3440\"/g" ~/.dwm/config.def.h
+    sed -i "s/col_gray4\[\]       \= \"\#D8DEE9\"/col_gray4\[\]       \= \"\#3B4252\"/g" ~/.dwm/config.def.h
+    sed -i "s/col_cyan\[\]        \= \"\#5E81AC\"/col_cyan\[\]        \= \"\#88C0D0\"/g" ~/.dwm/config.def.h
     if [ $2 == "sway" ]
     then
         swaymsg reload
@@ -58,6 +63,12 @@ then
     elif [ $2 == "i3" ]
     then
          i3-msg restart
+    elif [ $2 == "dwm" ]
+    then
+        source ~/.config/fish/functions/dwm_recompile.fish
+    elif [ $2 == "spectrwm" ]
+    then
+        pkill -1 spectrwm
     fi
     # Alacritty
     cp ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
@@ -90,7 +101,6 @@ then
     sed -i 's/airline_theme=\"nord\"/airline_theme=\"silver\"/g' ~/.vimrc
     # Emacs
     sed -i "s/doom-nord)/doom-nord-light)/g" ~/.doom.d/config.el
-    sh ~/.emacs.d/bin/doom sync
     emacsclient -e '(kill-emacs)'
     # Code
     sed -i "s/Nord/Atom One Light/g" ~/.config/Code/User/settings.json
@@ -150,7 +160,12 @@ then
     sed -i "s/bar_border  		= rgb:d8\/de\/e9/bar_border  		= rgb:2e\/34\/40/g" ~/.config/spectrwm/spectrwm.conf
     sed -i "s/bar_color   		= rgb:d8\/de\/e9/bar_color   		= rgb:2e\/34\/40/g" ~/.config/spectrwm/spectrwm.conf
     sed -i "s/bar_font_color      = rgb:2e\/34\/40, rg/bar_font_color      = rgb:d8\/de\/e9, rg/g" ~/.config/spectrwm/spectrwm.conf
-    # You need to restart spectrwm manually.
+    # Dwm
+    sed -i "s/col_gray1\[\]       \= \"\#ECEFF4\"/col_gray1\[\]       = \"\#2E3440\"/g" ~/.dwm/config.def.h
+    sed -i "s/col_gray2\[\]       \= \"\#D8DEE9\"/col_gray2\[\]       = \"\#3B4252\"/g" ~/.dwm/config.def.h
+    sed -i "s/col_gray3\[\]       \= \"\#2E3440\"/col_gray3\[\]       = \"\#ECEFF4\"/g" ~/.dwm/config.def.h
+    sed -i "s/col_gray4\[\]       \= \"\#3B4252\"/col_gray4\[\]       = \"\#D8DEE9\"/g" ~/.dwm/config.def.h
+    sed -i "s/col_cyan\[\]        \= \"\#88C0D0\"/col_cyan\[\]        = \"\#5E81AC\"/g" ~/.dwm/config.def.h
     if [ $2 == "sway" ]
     then
         swaymsg reload
@@ -160,6 +175,12 @@ then
     elif [ $2 == "i3" ]
     then
         i3-msg restart
+    elif [ $2 == "dwm" ]
+    then
+        source ~/.config/fish/functions/dwm_recompile.fish
+    elif [ $2 == "spectrwm" ]
+    then
+        pkill -1 spectrwm
     fi
     # Alacritty
     cp ~/.config/alacritty/alacritty-nord.yml ~/.config/alacritty/alacritty.yml
@@ -192,7 +213,6 @@ then
     sed -i 's/airline_theme=\"silver\"/airline_theme=\"nord\"/g' ~/.vimrc
     # Emacs
     sed -i 's/doom-nord-light)/doom-nord)/g' ~/.doom.d/config.el
-    sh ~/.emacs.d/bin/doom sync
     emacsclient -e '(kill-emacs)'
     # Code
     sed -i "s/Atom One Light/Nord/g" ~/.config/Code/User/settings.json

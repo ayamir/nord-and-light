@@ -165,4 +165,4 @@ You can see how to configure it on [Doas Gentoo Wiki](https://wiki.gentoo.org/wi
 ## TODO
 
 -   [X] Add Dwm support
--   [ ] Restart Dwm&Spectrwm automatically
+-   [X] Restart Dwm&Spectrwm automatically
