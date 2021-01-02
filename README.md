@@ -21,6 +21,16 @@
 <a id="org6ecd7c5"></a>
 
 ## Shot
+Dynamic Switch With Dynamic Window Manager!
+
+Light-to-Nord:
+
+![img](./Pictures/shot/light-to-nord.gif)
+
+Nord-to-Light:
+
+![img](./Pictures/shot/nord-to-light.gif)
+
 ### bspwm
 ![img](./Pictures/shot/bspwm.png)
 ### i3
@@ -46,6 +56,7 @@
 
 ### Must
 
+-   xsettingsd
 -   feh
 -   dunst
 -   mako(wayland)
