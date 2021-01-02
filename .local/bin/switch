@@ -54,6 +54,7 @@ then
     sed -i "s/col_gray3\[\]       \= \"\#ECEFF4\"/col_gray3\[\]       \= \"\#2E3440\"/g" ~/.dwm/config.def.h
     sed -i "s/col_gray4\[\]       \= \"\#D8DEE9\"/col_gray4\[\]       \= \"\#3B4252\"/g" ~/.dwm/config.def.h
     sed -i "s/col_cyan\[\]        \= \"\#5E81AC\"/col_cyan\[\]        \= \"\#88C0D0\"/g" ~/.dwm/config.def.h
+    source ~/.config/fish/functions/dwm_recompile.fish
     if [ $2 == "sway" ]
     then
         swaymsg reload
@@ -65,7 +66,6 @@ then
          i3-msg restart
     elif [ $2 == "dwm" ]
     then
-        source ~/.config/fish/functions/dwm_recompile.fish
         pkill -1 dwm
     elif [ $2 == "spectrwm" ]
     then
@@ -89,8 +89,10 @@ then
         sh ~/.config/bspwm/bin/bspbar
     fi
     # Global theme
+    sed -i "s/Nord/Orchis-light/g" ~/.config/xsettingsd/xsettingsd.conf
     sed -i "s/Nord/Orchis-light/g" ~/.gtkrc-2.0
     sed -i "s/Nord/Orchis-light/g" ~/.config/gtk-3.0/settings.ini
+    pkill -1 xsettingsd
     # Spotify
     sed -i "s/Nord/Light/g" ~/.config/spicetify/config.ini
     sed -i "s/nord/light/g" ~/.config/spicetify/config.ini
@@ -167,6 +169,8 @@ then
     sed -i "s/col_gray3\[\]       \= \"\#2E3440\"/col_gray3\[\]       = \"\#ECEFF4\"/g" ~/.dwm/config.def.h
     sed -i "s/col_gray4\[\]       \= \"\#3B4252\"/col_gray4\[\]       = \"\#D8DEE9\"/g" ~/.dwm/config.def.h
     sed -i "s/col_cyan\[\]        \= \"\#88C0D0\"/col_cyan\[\]        = \"\#5E81AC\"/g" ~/.dwm/config.def.h
+    source ~/.config/fish/functions/dwm_recompile.fish
+
     if [ $2 == "sway" ]
     then
         swaymsg reload
@@ -178,7 +182,6 @@ then
         i3-msg restart
     elif [ $2 == "dwm" ]
     then
-        source ~/.config/fish/functions/dwm_recompile.fish
         pkill -1 dwm
     elif [ $2 == "spectrwm" ]
     then
@@ -202,8 +205,10 @@ then
         sh ~/.config/bspwm/bin/bspbar
     fi
     # Global theme
+    sed -i "s/Orchis-light/Nord/g" ~/.config/xsettingsd/xsettingsd.conf
     sed -i 's/Orchis-light/Nord/g' ~/.gtkrc-2.0
     sed -i "s/Orchis-light/Nord/g" ~/.config/gtk-3.0/settings.ini
+    pkill -1 xsettingsd
     # Spotify
     sed -i "s/Light/Nord/g" ~/.config/spicetify/config.ini
     sed -i "s/light/nord/g" ~/.config/spicetify/config.ini
