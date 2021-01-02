@@ -41,11 +41,11 @@ static const char col_gray3[]       = "#d8dee9";
 static const char col_gray4[]       = "#eceff4";
 static const char col_cyan[]        = "#5e81ac";
 */
-static const char col_gray1[]       = "#ECEFF4";
-static const char col_gray2[]       = "#D8DEE9";
-static const char col_gray3[]       = "#2E3440";
-static const char col_gray4[]       = "#3B4252";
-static const char col_cyan[]        = "#88C0D0";
+static const char col_gray1[]       = "#2E3440";
+static const char col_gray2[]       = "#3B4252";
+static const char col_gray3[]       = "#ECEFF4";
+static const char col_gray4[]       = "#D8DEE9";
+static const char col_cyan[]        = "#5E81AC";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -75,16 +75,20 @@ static const Rule rules[] = {
 	{ "Gimp",               NULL,       NULL,       0,            1,           -1 },
 	{ "FirefoxNightly",     NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "Nightly",            NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "Alacritty",        "kitty-music",       NULL,       1 << 3,       0,           -1 },
 	{ "kitty-music",        NULL,       NULL,       1 << 3,       0,           -1 },
+	{ "qqmusic",            NULL,       NULL,       1 << 3,       0,           -1 },
 	{ "Steam",              NULL,       NULL,       1 << 4,       0,           -1 },
 	{ "VirtualBox Machine", NULL,       NULL,       1 << 5,       0,           -1 },
 	{ "Navigator",  "Nightly",       NULL,       1 << 2,       0,           -1 },
 	{ "jetbrains-*",  "JetBrains Toolbox",       NULL,       1 << 1,       1,           -1 },
-	{ "jetbrains-*",  "jetbrains-*",       NULL,       1 << 1,       0,           -1 },
+	{ "jetbrains-*",  "sun-awt-X11-XFramePeer",       NULL,       1 << 1,       0,           -1 },
 	{ "jetbrains-*",  "jetbrains-*",       "win0",       1 << 1,       1,           -1 },
-	{ "jetbrains-*",  "jetbrains-*",       "Welcome to*",       1 << 1,       1,           -1 },
+	{ "jetbrains-*",  NULL,       "Welcome to*",       1 << 1,       1,           -1 },
 	{ "TelegramDesktop",  NULL,       NULL,       1 << 7,       0,           -1 },
 	{ "xdman-Main",  NULL,       NULL,       0,       1,           -1 },
+	{ "nitrogen",    NULL,       NULL,       0,       1,           -1 },
+	{ "lxappearance",    NULL,       NULL,       0,       1,           -1 },
 	{ "qv2ray",      NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -93,11 +97,13 @@ static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
+#include "layouts.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "HHH",      grid },
 };
 
 /* key definitions */
@@ -115,7 +121,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "rofi", "-show", "drun", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+3%",     NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-3%",     NULL };
@@ -142,6 +148,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -159,8 +166,8 @@ static Key keys[] = {
     { MODKEY|ShiftMask,       XK_q,    spawn,          CMD("xkill") },
     { MODKEY|ShiftMask,       XK_s,    spawn,          CMD("flameshot gui") },
     { MODKEY|ShiftMask,       XK_n,    spawn,          CMD("thunar") },
-    { MODKEY|ShiftMask,       XK_m,    spawn,          CMD("kitty --class kitty-music -e ncmpcpp") },
-    { MODKEY|ShiftMask,       XK_h,    spawn,          CMD("kitty -e htop") },
+    { MODKEY|ShiftMask,       XK_m,    spawn,          CMD("alacritty --class kitty-music -e ncmpcpp") },
+    { MODKEY|ShiftMask,       XK_h,    spawn,          CMD("alacritty -e htop") },
     { MODKEY|ShiftMask,       XK_e,    spawn,          CMD("emacs") },
     { MODKEY|ShiftMask,       XK_v,    spawn,          CMD("VBoxManage startvm 'WinDev2008Eval' --type gui") },
     { Mod1Mask|ControlMask,   XK_Delete,    spawn,     CMD("betterlockscreen -l") },
