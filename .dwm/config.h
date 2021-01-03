@@ -41,11 +41,11 @@ static const char col_gray3[]       = "#d8dee9";
 static const char col_gray4[]       = "#eceff4";
 static const char col_cyan[]        = "#5e81ac";
 */
-static const char col_gray1[]       = "#2E3440";
-static const char col_gray2[]       = "#3B4252";
-static const char col_gray3[]       = "#ECEFF4";
-static const char col_gray4[]       = "#D8DEE9";
-static const char col_cyan[]        = "#5E81AC";
+static const char col_gray1[]       = "#ECEFF4";
+static const char col_gray2[]       = "#D8DEE9";
+static const char col_gray3[]       = "#2E3440";
+static const char col_gray4[]       = "#3B4252";
+static const char col_cyan[]        = "#88C0D0";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -136,6 +136,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+    { MODKEY|ControlMask,           XK_m,      focusmaster,    {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
