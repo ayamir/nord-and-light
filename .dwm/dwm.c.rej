@@ -1,31 +1,10 @@
 --- dwm.c
 +++ dwm.c
-@@ -444,9 +449,26 @@ buttonpress(XEvent *e)
- 			arg.ui = 1 << i;
- 		} else if (ev->x < x + blw)
- 			click = ClkLtSymbol;
--		else if (ev->x > selmon->ww - TEXTW(stext))
-+		else if (ev->x > (x = selmon->ww - TEXTW(stext) + lrpad)) {
- 			click = ClkStatusText;
--		else
-+
-+			char *text = rawstext;
-+			int i = -1;
-+			char ch;
-+			statuscmdn = 0;
-+			while (text[++i]) {
-+				if ((unsigned char)text[i] < ' ') {
-+					ch = text[i];
-+					text[i] = '\0';
-+					x += TEXTW(text) - lrpad;
-+					text[i] = ch;
-+					text += i+1;
-+					i = -1;
-+					if (x >= ev->x) break;
-+					if (ch <= LENGTH(statuscmds)) statuscmdn = ch - 1;
-+				}
-+			}
-+		} else
- 			click = ClkWinTitle;
- 	} else if ((c = wintoclient(ev->window))) {
- 		focus(c);
+@@ -262,6 +264,7 @@ static void (*handler[LASTEvent]) (XEvent *) = {
+ 	[UnmapNotify] = unmapnotify
+ };
+ static Atom wmatom[WMLast], netatom[NetLast];
++static int restart = 0;
+ static int running = 1;
+ static Cur *cursor[CurLast];
+ static Clr **scheme;

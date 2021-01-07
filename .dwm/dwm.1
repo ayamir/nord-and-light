@@ -20,14 +20,22 @@ layout applied.
 Windows are grouped by tags. Each window can be tagged with one or multiple
 tags. Selecting certain tags displays all windows with these tags.
 .P
-Each screen contains a small status bar which displays all available tags, the
-layout, the title of the focused window, and the text read from the root window
-name property, if the screen is focused. A floating window is indicated with an
-empty square and a maximised floating window is indicated with a filled square
-before the windows title.  The selected tags are indicated with a different
-color. The tags of the focused window are indicated with a filled square in the
-top left corner.  The tags which are applied to one or more windows are
-indicated with an empty square in the top left corner.
+Each screen contains two small status bars.
+.P
+One bar displays all available tags, the layout, the title of the focused
+window, and the text read from the root window name property, if the screen is
+focused. A floating window is indicated with an empty square and a maximised
+floating window is indicated with a filled square before the windows title.  The
+selected tags are indicated with a different color. The tags of the focused
+window are indicated with a filled square in the top left corner.  The tags
+which are applied to one or more windows are indicated with an empty square in
+the top left corner.
+.P
+Another bar contains a tab for each window of the current view and allows
+navigation between windows, especially in the monocle mode. The different
+display modes of this bar are described under the Mod1\-w Keybord command
+section.  When a single tag is selected, this tag is indicated in the left corner
+of the tab bar.
 .P
 dwm draws a small border around windows to indicate the focus state.
 .P
@@ -52,7 +60,8 @@ command.
 .TP
 .B Button1
 click on a tag label to display all windows with that tag, click on the layout
-label toggles between tiled and floating layout.
+label toggles between tiled and floating layout, click on a window name in the
+tab bar brings focus to that window.
 .TP
 .B Button3
 click on a tag label adds/removes all windows with that tag to/from the view.
@@ -117,6 +126,12 @@ Increase master area size.
 .TP
 .B Mod1\-h
 Decrease master area size.
+.TP
+.B Mod1\-w
+Cycle over the tab bar display modes: never displayed, always displayed,
+displayed only in monocle mode when the view contains more than one window (auto
+mode). Some display modes can be disabled in the configuration, config.h. In
+the default configuration only "never" and "auto" display modes are enabled.
 .TP
 .B Mod1\-Return
 Zooms/cycles focused window to/from master area (tiled layouts only).
