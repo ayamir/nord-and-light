@@ -1,22 +1,6 @@
 #include <X11/XF86keysym.h>
 
 /* See LICENSE file for copyright and license details. */
-#define nord0 #2E3440
-#define nord1 #3B4252
-#define nord2 #434C5E
-#define nord3 #4C566A
-#define nord4 #D8DEE9
-#define nord5 #E5E9F0
-#define nord6 #ECEFF4
-#define nord7 #8FBCBB
-#define nord8 #88C0D0
-#define nord9 #81A1C1
-#define nord10 #5E81AC
-#define nord11 #BF616A
-#define nord12 #D08770
-#define nord13 #EBCB8B
-#define nord14 #A3BE8C
-#define nord15 #B48EAD
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -33,19 +17,12 @@ static const char *fonts[]     = {"RobotoMono:size=9:antialias=true:autohint=tru
                                   "Sarasa UI SC:size=8:antialias=true:autohint=true",
                                   "JoyPixels:size=10:antialias=true:autohint=true"
 						     	};
-/*
 static const char dmenufont[]       = "RobotoMono:size=10";
-static const char col_gray1[]       = "#2e3440";
-static const char col_gray2[]       = "#2e3440";
-static const char col_gray3[]       = "#d8dee9";
-static const char col_gray4[]       = "#eceff4";
-static const char col_cyan[]        = "#5e81ac";
-*/
-static const char col_gray1[]       = "#ECEFF4";
-static const char col_gray2[]       = "#D8DEE9";
-static const char col_gray3[]       = "#2E3440";
-static const char col_gray4[]       = "#3B4252";
-static const char col_cyan[]        = "#88C0D0";
+static const char col_gray1[]       = "#2E3440";
+static const char col_gray2[]       = "#3B4252";
+static const char col_gray3[]       = "#ECEFF4";
+static const char col_gray4[]       = "#D8DEE9";
+static const char col_cyan[]        = "#5E81AC";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -75,9 +52,12 @@ static const Rule rules[] = {
 	{ "Gimp",               NULL,       NULL,       0,            1,           -1 },
 	{ "FirefoxNightly",     NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "Nightly",            NULL,       NULL,       1 << 2,       0,           -1 },
+	{ NULL,            NULL,       "Android Emulator - Pixel_3a_API_30_x86:5554",       1 << 1,       0,           -1 },
 	{ "Alacritty",        "kitty-music",       NULL,       1 << 3,       0,           -1 },
 	{ "kitty-music",        NULL,       NULL,       1 << 3,       0,           -1 },
 	{ "qqmusic",            NULL,       NULL,       1 << 3,       0,           -1 },
+	{ "Freechat",           "freechat",       NULL,       1 << 6,       0,           -1 },
+	{ "netease-cloud-music",            NULL,       NULL,       1 << 3,       0,           -1 },
 	{ "Steam",              NULL,       NULL,       1 << 4,       0,           -1 },
 	{ "VirtualBox Machine", NULL,       NULL,       1 << 5,       0,           -1 },
 	{ "Navigator",  "Nightly",       NULL,       1 << 2,       0,           -1 },
@@ -172,6 +152,13 @@ static Key keys[] = {
     { MODKEY|ShiftMask,       XK_e,    spawn,          CMD("emacs") },
     { MODKEY|ShiftMask,       XK_v,    spawn,          CMD("VBoxManage startvm 'WinDev2008Eval' --type gui") },
     { Mod1Mask|ControlMask,   XK_Delete,    spawn,     CMD("betterlockscreen -l") },
+
+    /*IDE start*/
+    { Mod1Mask,               XK_i,    spawn,          CMD("idea") },
+    { Mod1Mask,               XK_l,    spawn,          CMD("clion") },
+    { Mod1Mask,               XK_p,    spawn,          CMD("pycharm") },
+    { Mod1Mask,               XK_a,    spawn,          CMD("flatpak run com.google.AndroidStudio") },
+    { Mod1Mask,               XK_g,    spawn,          CMD("goland") },
 
     /* Switch nord and light */
     { MODKEY|ControlMask,     XK_n,    spawn,     CMD("sh ~/.local/bin/switch n dwm") },
