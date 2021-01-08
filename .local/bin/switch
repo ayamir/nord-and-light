@@ -10,7 +10,7 @@ then
     # Firefox
     cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
-    feh --bg-fill ~/Pictures/Anime/EQRUXU4WsAYw3kE.jpg
+    feh --bg-fill ~/Pictures/Background/NordDay.png
     sed -i "s/bg ~\/Pictures\/nord\/ign-0001.png fill/bg ~\/Pictures\/wallpapers\/fuji.jpg fill/g" ~/.config/sway/config
     # Wofer
     sed -i "s/#d8dee9/#434c5e/g" ~/wofer/style.css
@@ -125,7 +125,7 @@ then
     # Firefox
     cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
-    feh --bg-fill ~/Pictures/nord/ign-0001.png
+    feh --bg-fill ~/Pictures/Background/NordNight.png
     sed -i "s/bg ~\/Pictures\/wallpapers\/fuji.jpg fill/bg ~\/Pictures\/nord\/ign-0001.png fill/g" ~/.config/sway/config
     # Dunst
     cp ~/.config/dunst/dunstrc-nord ~/.config/dunst/dunstrc
