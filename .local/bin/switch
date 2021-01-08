@@ -11,7 +11,7 @@ then
     cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
     feh --bg-fill ~/Pictures/Background/NordDay.png
-    sed -i "s/bg ~\/Pictures\/nord\/ign-0001.png fill/bg ~\/Pictures\/wallpapers\/fuji.jpg fill/g" ~/.config/sway/config
+    sed -i "s/bg ~\/Pictures\/Background\/NordNight.png fill/bg ~\/Pictures\/Background\/NordDay.png fill/g" ~/.config/sway/config
     # Wofer
     sed -i "s/#d8dee9/#434c5e/g" ~/wofer/style.css
     sed -i "s/#2e3440/#eceff4/g" ~/wofer/style.css
@@ -126,7 +126,7 @@ then
     cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
     feh --bg-fill ~/Pictures/Background/NordNight.png
-    sed -i "s/bg ~\/Pictures\/wallpapers\/fuji.jpg fill/bg ~\/Pictures\/nord\/ign-0001.png fill/g" ~/.config/sway/config
+    sed -i "s/bg ~\/Pictures\/Background\/NordDay.png fill/bg ~\/Pictures\/Background\/NordNight.png fill/g" ~/.config/sway/config
     # Dunst
     cp ~/.config/dunst/dunstrc-nord ~/.config/dunst/dunstrc
     # Mako
