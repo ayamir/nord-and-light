@@ -2,6 +2,10 @@
 
 * My Own Dwm Config
 
+** Color Scheme
+
+Nord and Light
+
 ** Patches
 
 You can see all of 8 patches I have applied in `./patches` dir.

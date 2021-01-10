@@ -1,21 +1,29 @@
 
 # Table of Contents
 
-1.  [My Own Dwm Config](#org04eba78)
-    1.  [Patches](#orgb2a561c)
-    2.  [Keybinding](#orgcd297ca)
-    3.  [Other](#orgaf90d04)
-        1.  [Xsessions config](#org9bb9bb5)
-        2.  [Recompile](#orgbb6e95d)
+1.  [My Own Dwm Config](#org27716e3)
+    1.  [Color Scheme](#org4976554)
+    2.  [Patches](#org2026491)
+    3.  [Keybinding](#orgdf423ab)
+    4.  [Other](#org1958ae2)
+        1.  [Xsessions config](#org1745859)
+        2.  [Recompile](#org3f8fde8)
 
 
 
-<a id="org04eba78"></a>
+<a id="org27716e3"></a>
 
 # My Own Dwm Config
 
 
-<a id="orgb2a561c"></a>
+<a id="org4976554"></a>
+
+## Color Scheme
+
+Nord and Light
+
+
+<a id="org2026491"></a>
 
 ## Patches
 
@@ -54,26 +62,26 @@ You can see all of 8 patches I have applied in \`./patches\` dir.
     gap appears only two or more windows appear
 
 
-<a id="orgcd297ca"></a>
+<a id="orgdf423ab"></a>
 
 ## Keybinding
 
 You can all of keybindings in &rsquo;./config.def.h&rsquo; clearly.
 
 
-<a id="orgaf90d04"></a>
+<a id="org1958ae2"></a>
 
 ## Other
 
 
-<a id="org9bb9bb5"></a>
+<a id="org1745859"></a>
 
 ### Xsessions config
 
 \`sudo ln -s /usr/local/share/xsession/dwm.desktop /usr/share/xsessions/dwm.desktop\`
 
 
-<a id="orgbb6e95d"></a>
+<a id="org3f8fde8"></a>
 
 ### Recompile
 
