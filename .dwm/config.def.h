@@ -25,11 +25,11 @@ static const char *fonts[]     = {"RobotoMono:size=9:antialias=true:autohint=tru
                                   "JoyPixels:size=10:antialias=true:autohint=true"
 						     	};
 static const char dmenufont[]       = "RobotoMono:size=10";
-static const char col_gray1[]       = "#2E3440";
-static const char col_gray2[]       = "#3B4252";
-static const char col_gray3[]       = "#ECEFF4";
-static const char col_gray4[]       = "#D8DEE9";
-static const char col_cyan[]        = "#5E81AC";
+static const char col_gray1[]       = "#ECEFF4";
+static const char col_gray2[]       = "#D8DEE9";
+static const char col_gray3[]       = "#2E3440";
+static const char col_gray4[]       = "#3B4252";
+static const char col_cyan[]        = "#88C0D0";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -61,6 +61,7 @@ static const Rule rules[] = {
 	{ "netease-cloud-music",            NULL,                       NULL,               1 << 3,       0,           -1 },
 	{ "Steam",                          NULL,                       NULL,               1 << 4,       0,           -1 },
 	{ "VirtualBox Machine",             NULL,                       NULL,               1 << 5,       0,           -1 },
+	{ "Qq",                             "qq",                       NULL,               1 << 6,       1,           -1 },
 	{ "Freechat",                       "freechat",                 NULL,               1 << 6,       0,           -1 },
 	{ "TelegramDesktop",                NULL,                       NULL,               1 << 7,       0,           -1 },
 	{ "qv2ray",                         NULL,                       NULL,               1 << 8,       0,           -1 },
@@ -98,8 +99,9 @@ static const Layout layouts[] = {
 
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]    = { "rofi", "-show", "drun", NULL };
+static char dmenumon[3] = "0"; /* component of dmenucmd, manipulated in spawn() */
+static const char *clipmenucmd[]    = { "clipmenu", "-i", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray4, "-sb", col_cyan, "-sf", col_gray2, NULL};
+static const char *dmenucmd[]    = { "dmenu_run_history", "-fn", dmenufont, "-sb", col_cyan, "-nb", col_gray1, "-nf", col_gray4, "-sf", col_gray2, NULL};
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+3%",     NULL };
@@ -109,6 +111,7 @@ static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "togg
 static Key keys[] = {
 	/* modifier                     key             function        argument */
 	{ MODKEY,                       XK_d,           spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_c,           spawn,          {.v = clipmenucmd } },
 	{ MODKEY,                       XK_Return,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,           togglebar,      {0} },
     { MODKEY|ControlMask,           XK_m,           focusmaster,    {0} },
@@ -136,7 +139,7 @@ static Key keys[] = {
 
     /* My Own App Start Ways */
     { Mod1Mask,                     XK_c,           spawn,          CMD("code") },
-    { MODKEY,                       XK_c,           spawn,          CMD("firefox-nightly") },
+    { MODKEY,                       XK_w,           spawn,          CMD("firefox-nightly") },
     { MODKEY,                       XK_z,           spawn,          CMD("zathura") },
     { MODKEY,                       XK_n,           spawn,          CMD("nmd") },
     { MODKEY|ShiftMask,             XK_Return,      spawn,          CMD("kitty") },

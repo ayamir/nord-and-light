@@ -2,7 +2,7 @@
 
 sh ~/.fehbg
 
-arr=("picom" "dwmblocks" "qv2ray" "xfce4-power-manager" "copyq" "redshift-gtk" "fcitx5" "nutstore" "dunst" "xdman")
+arr=("picom" "dwmblocks" "qv2ray" "xfce4-power-manager" "clipmenud" "redshift-gtk" "fcitx5" "nutstore" "dunst" "xdman")
 
 for value in ${arr[@]}
 do
