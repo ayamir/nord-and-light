@@ -27,11 +27,11 @@ Nord and Light
 
 ## Patches
 
-You can see all of 8 patches I have applied in \`./patches\` dir.
+You can see all of 8 patches I have applied in `./patches` dir.
 
 -   dwm-00-regex-rules.diff
     
-    to enable \`config.def.h\`&rsquo;s regex rules
+    to enable `config.def.h` 's regex rules
 
 -   dwm-gridmode-20170909-ceac8c9.diff
     
@@ -66,7 +66,7 @@ You can see all of 8 patches I have applied in \`./patches\` dir.
 
 ## Keybinding
 
-You can all of keybindings in &rsquo;./config.def.h&rsquo; clearly.
+You can see all of keybindings in &rsquo;./config.def.h&rsquo; clearly.
 
 
 <a id="org1958ae2"></a>
@@ -78,16 +78,16 @@ You can all of keybindings in &rsquo;./config.def.h&rsquo; clearly.
 
 ### Xsessions config
 
-\`sudo ln -s /usr/local/share/xsession/dwm.desktop /usr/share/xsessions/dwm.desktop\`
+`sudo ln -s /usr/local/share/xsession/dwm.desktop /usr/share/xsessions/dwm.desktop`
 
 
 <a id="org3f8fde8"></a>
 
 ### Recompile
 
-The script called \`recompile\` need \`doas\` package and is used to recompile dwm.
+The script called `recompile` need `doas` package and is used to recompile dwm.
 
-You should configure your user can execute \`doas\` command without password.
+You should configure your user can execute `doas` command without password.
 
 All of details about it can be found in [Doas Gentoo Wiki](https://wiki.gentoo.org/wiki/Doas)
 
