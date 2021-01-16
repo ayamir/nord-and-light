@@ -113,7 +113,7 @@ Nord-to-Light:
 
 <a id="org3d0cd34"></a>
 
-## Switch
+## Usage
 
 `ln -s ./.local/bin/switch ~/.local/bin/switch`
 
