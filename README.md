@@ -3,19 +3,20 @@
 
 1.  [Nord and Customized-light themes](#orga92410c)
     1.  [Shot](#org6ecd7c5)
-    2.  [Dependency](#org5114522)
+    2.  [Introduction](#introduction)
+    3.  [Dependency](#org5114522)
         1.  [Must](#org8050841)
         2.  [Optional](#orge85932f)
-    3.  [Switch](#org3d0cd34)
-    4.  [About Firefox](#org56ea59c)
+    4.  [Usage](#org3d0cd34)
+    5.  [About Firefox](#org56ea59c)
         1.  [Prerequisites](#orgb2ce2d0)
         2.  [Installation](#org5951695)
-    5.  [TODO](#orgfec7e81)
+    6.  [TODO](#orgfec7e81)
 
 
 <a id="orga92410c"></a>
 
-# Nord and Customized-light themes
+# Nord and Light themes
 
 
 <a id="org6ecd7c5"></a>
@@ -46,6 +47,15 @@ Nord-to-Light:
 ### firefox
 ![img](./Pictures/shot/firefox.png)
 
+<a id="introduction"></a>
+
+## Introduction
+
+This repo collects all of my private configurations about 6 tiling window managers and a lot of applications using Nord theme.
+
+You can hack all of them to satisfy your taste.
+
+***If your window manager is not here, feel free to give me pull request!***
 
 <a id="org5114522"></a>
 
@@ -81,6 +91,7 @@ Nord-to-Light:
     -   Light
         
         Costomized light theme follow Nord/Snow palette
+    
 -   vim
     -   Dark
         
@@ -88,6 +99,7 @@ Nord-to-Light:
     -   Light
         
         One vim theme and silver airline theme
+    
 -   doom emacs
     -   Dark
         
@@ -95,6 +107,7 @@ Nord-to-Light:
     -   Light
         
         doom-nord-light theme
+    
 -   vscode
     -   Dark
         
@@ -102,13 +115,28 @@ Nord-to-Light:
     -   Light
         
         Atom one light theme
+    
 -   sublime
-    -   Dark
-        
-        Nord theme
-    -   Light
-        
-        OneHalfLight theme
+    
+    - Dark
+    
+      Nord theme
+    
+    - Light
+    
+      OneHalfLight theme
+    
+- fcitx5
+
+  - Dark
+
+    Nord theme
+
+  - Light
+
+    Costomized light theme follow Nord/Snow palette
+
+  
 
 
 <a id="org3d0cd34"></a>
