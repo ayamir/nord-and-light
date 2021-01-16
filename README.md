@@ -55,7 +55,7 @@ This repo collects all of my private configurations about 6 tiling window manage
 
 You can hack all of them to satisfy your taste.
 
-***If your window manager is not here, feel free to give me pull request!***
+***Feel free to give me pull request if your window manager is not here***
 
 <a id="org5114522"></a>
 
