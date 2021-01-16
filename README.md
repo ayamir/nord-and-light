@@ -173,7 +173,7 @@ You can see how to configure it on [Doas Gentoo Wiki](https://wiki.gentoo.org/wi
     3.  Confirm the option is set to true
 
 -   Make sure that you have the Default theme enabled
-    1.  Go to the address about:addons
+    1.  Go to the address `about:addons`
     
     2.  Enable the Default theme if not already enabled
 
@@ -182,16 +182,16 @@ You can see how to configure it on [Doas Gentoo Wiki](https://wiki.gentoo.org/wi
 
 ### Installation
 
-1.  You should find you user directory. In my case, it&rsquo;s \`~/.mozilla/firefox/3ccio4xn.default-nightly/\`
+1.  You should find you user directory. In my case, it's `~/.mozilla/firefox/3ccio4xn.default-nightly/`
 
 2.  Backup your old config if you have.
 
-3.  cp chrome/ dir to your firefox user directory.
+3.  cp `chrome/` dir to your firefox user directory.
 
-4.  for the web page&rsquo;s nord theme
-    1.  add a addon called \`Midnight Lizard\`
+4.  for the web page's nord theme
+    1.  add a addon called `Midnight Lizard`
     
-    2.  add Nord theme to it&rsquo;s color schemes
+    2.  add Nord theme to it's color schemes
     
     3.  apply Nord theme
 
