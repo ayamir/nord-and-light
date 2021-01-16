@@ -115,11 +115,11 @@ Nord-to-Light:
 
 ## Switch
 
-You can use the &rsquo;switch&rsquo; script to switch between the two themes.
+`ln -s ./.local/bin/switch ~/.local/bin/switch`
 
-In my case, I put it in \`~/.local/bin/\`
+`ln -s ./.local/bin/startdaemon ~/.local/bin/startdaemon`
 
-You can view more details in itself.
+`ln -s ./.local/bin/startdaemon-sway ~/.local/bin/startdaemon-sway`
 
 #### Note
 The recompile script in `.dwm/` dir need `doas` package. 
@@ -138,9 +138,9 @@ You can see how to configure it on [Doas Gentoo Wiki](https://wiki.gentoo.org/wi
 ### Prerequisites
 
 -   Verify that the user stylesheets (userChrome) option is enabled:
-    1.  Go to the address \`about:config\` in Firefox
+    1.  Go to the address `about:config` in Firefox
     
-    2.  Search for \`toolkit.legacyUserProfileCustomizations.stylesheets\`
+    2.  Search for `toolkit.legacyUserProfileCustomizations.stylesheets`
     
     3.  Confirm the option is set to true
 
