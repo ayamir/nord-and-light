@@ -24,12 +24,12 @@ static const char *fonts[]     = {"RobotoMono:size=9:antialias=true:autohint=tru
                                   "Sarasa UI SC:size=8:antialias=true:autohint=true",
                                   "JoyPixels:size=10:antialias=true:autohint=true"
 						     	};
-static const char dmenufont[]       = "RobotoMono:size=10";
-static const char col_gray1[]       = "#ECEFF4";
-static const char col_gray2[]       = "#D8DEE9";
-static const char col_gray3[]       = "#2E3440";
-static const char col_gray4[]       = "#3B4252";
-static const char col_cyan[]        = "#88C0D0";
+static const char dmenufont[]       = "Sarasa UI SC:size=10:antialias=true:autohint=true";
+static const char col_gray1[]       = "#2E3440";
+static const char col_gray2[]       = "#3B4252";
+static const char col_gray3[]       = "#ECEFF4";
+static const char col_gray4[]       = "#D8DEE9";
+static const char col_cyan[]        = "#5E81AC";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -51,6 +51,7 @@ static const Rule rules[] = {
 	{ "jetbrains-*",                    "sun-awt-X11-XFramePeer",   NULL,               1 << 1,       0,           -1 },
 	{ "jetbrains-*",                    "jetbrains-*",              "win0",             1 << 1,       1,           -1 },
 	{ "jetbrains-*",                    NULL,                       "Welcome to*",      1 << 1,       1,           -1 },
+	{ "Vivaldi-stable",                 "vivaldi-stable",           NULL,               1 << 2,       0,           -1 },
 	{ "FirefoxNightly",                 NULL,                       NULL,               1 << 2,       0,           -1 },
 	{ "Nightly",                        NULL,                       NULL,               1 << 2,       0,           -1 },
 	{ "Navigator",                      "Nightly",                  NULL,               1 << 2,       0,           -1 },
@@ -67,7 +68,7 @@ static const Rule rules[] = {
 	{ "qv2ray",                         NULL,                       NULL,               1 << 8,       0,           -1 },
 
 	{ "xdman-Main",                     NULL,                       NULL,               0,            1,           -1 },
-	{ "nitrogen",                       NULL,                       NULL,               0,            1,           -1 },
+	{ "Nitrogen",                       NULL,                       NULL,               0,            1,           -1 },
 	{ "lxappearance",                   NULL,                       NULL,               0,            1,           -1 },
 };
 
@@ -101,8 +102,9 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[3] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *clipmenucmd[]    = { "clipmenu", "-i", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray4, "-sb", col_cyan, "-sf", col_gray2, NULL};
-static const char *dmenucmd[]    = { "dmenu_run_history", "-fn", dmenufont, "-sb", col_cyan, "-nb", col_gray1, "-nf", col_gray4, "-sf", col_gray2, NULL};
-static const char *termcmd[]  = { "alacritty", NULL };
+//static const char *dmenucmd[]    = { "dmenu_run_history", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray4, "-sb", col_cyan, "-sf", col_gray2, NULL};
+static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+3%",     NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-3%",     NULL };
@@ -139,10 +141,10 @@ static Key keys[] = {
 
     /* My Own App Start Ways */
     { Mod1Mask,                     XK_c,           spawn,          CMD("code") },
-    { MODKEY,                       XK_w,           spawn,          CMD("firefox-nightly") },
+    { MODKEY,                       XK_w,           spawn,          CMD("vivaldi-stable") },
     { MODKEY,                       XK_z,           spawn,          CMD("zathura") },
     { MODKEY,                       XK_n,           spawn,          CMD("nmd") },
-    { MODKEY|ShiftMask,             XK_Return,      spawn,          CMD("kitty") },
+    { MODKEY|ShiftMask,             XK_Return,      spawn,          CMD("alacritty") },
     { MODKEY|ShiftMask,             XK_q,           spawn,          CMD("xkill") },
     { MODKEY|ShiftMask,             XK_s,           spawn,          CMD("flameshot gui") },
     { MODKEY|ShiftMask,             XK_n,           spawn,          CMD("thunar") },
@@ -155,11 +157,11 @@ static Key keys[] = {
     { Mod1Mask|ControlMask,         XK_s,           spawn,          CMD("systemctl suspend") },
 
     /*IDE start*/
-    { Mod1Mask,                     XK_i,           spawn,          CMD("idea") },
-    { Mod1Mask,                     XK_l,           spawn,          CMD("clion") },
-    { Mod1Mask,                     XK_p,           spawn,          CMD("pycharm") },
+    //{ Mod1Mask,                     XK_i,           spawn,          CMD("idea") },
+    //{ Mod1Mask,                     XK_l,           spawn,          CMD("clion") },
+    //{ Mod1Mask,                     XK_p,           spawn,          CMD("pycharm") },
     { Mod1Mask,                     XK_a,           spawn,          CMD("flatpak run com.google.AndroidStudio") },
-    { Mod1Mask,                     XK_g,           spawn,          CMD("goland") },
+    //{ Mod1Mask,                     XK_g,           spawn,          CMD("goland") },
 
     /* Switch nord and light */
     { MODKEY|ControlMask,           XK_n,           spawn,          CMD("sh ~/.local/bin/switch n dwm") },
