@@ -12,7 +12,6 @@ do
         if [[ $value = "picom" ]]
         then
             exec `"$value" -b`
-            exec `doas pacman -S archlinuxcn-keyring`
         else
             exec "$value" &
         fi
