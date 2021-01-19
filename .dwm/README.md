@@ -88,13 +88,15 @@ or
 
 `sudo vim /usr/share/xsessions/dwm.desktop`
 
-`[Desktop Entry]
+```shell
+[Desktop Entry]
 Encoding=UTF-8
 Name=Dwm
 Comment=Dynamic window manager
 Exec=dwm
 Icon=dwm
-Type=XSession`
+Type=XSession
+```
 
 <a id="org3f8fde8"></a>
 
