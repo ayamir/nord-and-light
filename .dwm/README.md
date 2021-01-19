@@ -66,7 +66,7 @@ You can see all of 8 patches I have applied in `./patches` dir.
 
 ## Keybinding
 
-You can see all of keybindings in &rsquo;./config.def.h&rsquo; clearly.
+You can see all of keybindings in `./config.def.h` clearly.
 
 
 <a id="org1958ae2"></a>
@@ -78,8 +78,23 @@ You can see all of keybindings in &rsquo;./config.def.h&rsquo; clearly.
 
 ### Xsessions config
 
+Execute `recompile` script first.
+
+Then
+
 `sudo ln -s /usr/local/share/xsession/dwm.desktop /usr/share/xsessions/dwm.desktop`
 
+or
+
+`sudo vim /usr/share/xsessions/dwm.desktop`
+
+`[Desktop Entry]
+Encoding=UTF-8
+Name=Dwm
+Comment=Dynamic window manager
+Exec=dwm
+Icon=dwm
+Type=XSession`
 
 <a id="org3f8fde8"></a>
 
