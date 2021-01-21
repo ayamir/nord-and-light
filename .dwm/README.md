@@ -49,10 +49,6 @@ You can see all of 8 patches I have applied in `./patches` dir.
     
     enable autostart apps when dwm start or restart(my script ensures apps only start when dwm starts for the first time)
 
--   dwm-systray-6.2.diff
-    
-    add systray for dwm bar
-
 -   dwm-focusmaster-20200717-bb2e722.diff
     
     let you can focus master window through a shortcut
@@ -81,10 +77,6 @@ You can see all of keybindings in `./config.def.h` clearly.
 Execute `recompile` script first.
 
 Then
-
-`sudo ln -s /usr/local/share/xsession/dwm.desktop /usr/share/xsessions/dwm.desktop`
-
-or
 
 `sudo vim /usr/share/xsessions/dwm.desktop`
 
