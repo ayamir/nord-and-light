@@ -6,10 +6,6 @@
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayspacing = 2;   /* systray spacing */
-static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 /*  Display modes of the tab bar: never shown, always shown, shown only in  */
@@ -102,8 +98,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[3] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *clipmenucmd[]    = { "clipmenu", "-i", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray4, "-sb", col_cyan, "-sf", col_gray2, NULL};
-//static const char *dmenucmd[]    = { "dmenu_run_history", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray4, "-sb", col_cyan, "-sf", col_gray2, NULL};
-static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
+static const char *dmenucmd[]    = { "dmenu_run_history", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray4, "-sb", col_cyan, "-sf", col_gray2, NULL};
+//static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+3%",     NULL };
@@ -143,25 +139,24 @@ static Key keys[] = {
     { Mod1Mask,                     XK_c,           spawn,          CMD("code") },
     { MODKEY,                       XK_w,           spawn,          CMD("vivaldi-stable") },
     { MODKEY,                       XK_z,           spawn,          CMD("zathura") },
-    { MODKEY,                       XK_n,           spawn,          CMD("nmd") },
     { MODKEY|ShiftMask,             XK_Return,      spawn,          CMD("alacritty") },
     { MODKEY|ShiftMask,             XK_q,           spawn,          CMD("xkill") },
     { MODKEY|ShiftMask,             XK_s,           spawn,          CMD("flameshot gui") },
     { MODKEY|ShiftMask,             XK_n,           spawn,          CMD("thunar") },
-    { MODKEY|ShiftMask,             XK_m,           spawn,          CMD("alacritty --class kitty-music -e ncmpcpp") },
+    { MODKEY|ShiftMask,             XK_m,           spawn,          CMD("kitty --class kitty-music -e musicbox") },
     { MODKEY|ShiftMask,             XK_h,           spawn,          CMD("alacritty -e htop") },
     { MODKEY|ShiftMask,             XK_e,           spawn,          CMD("emacs") },
-    { MODKEY|ShiftMask,             XK_v,           spawn,          CMD("VBoxManage startvm 'WinDev2008Eval' --type gui") },
+    { MODKEY|ShiftMask,             XK_v,           spawn,          CMD("VBoxManage startvm 'Windows7' --type gui") },
 
     { Mod1Mask|ControlMask,         XK_Delete,      spawn,          CMD("betterlockscreen -l") },
     { Mod1Mask|ControlMask,         XK_s,           spawn,          CMD("systemctl suspend") },
 
     /*IDE start*/
-    //{ Mod1Mask,                     XK_i,           spawn,          CMD("idea") },
-    //{ Mod1Mask,                     XK_l,           spawn,          CMD("clion") },
-    //{ Mod1Mask,                     XK_p,           spawn,          CMD("pycharm") },
-    { Mod1Mask,                     XK_a,           spawn,          CMD("flatpak run com.google.AndroidStudio") },
-    //{ Mod1Mask,                     XK_g,           spawn,          CMD("goland") },
+    { Mod1Mask,                     XK_i,           spawn,          CMD("idea") },
+    { Mod1Mask,                     XK_l,           spawn,          CMD("clion") },
+    { Mod1Mask,                     XK_p,           spawn,          CMD("pycharm") },
+    { Mod1Mask,                     XK_a,           spawn,          CMD("studio") },
+    { Mod1Mask,                     XK_g,           spawn,          CMD("goland") },
 
     /* Switch nord and light */
     { MODKEY|ControlMask,           XK_n,           spawn,          CMD("sh ~/.local/bin/switch n dwm") },
