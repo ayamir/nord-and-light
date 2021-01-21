@@ -7,11 +7,16 @@
 
 if [ $1 == "l" ]
 then
+    # Fcitx5
+    sed -i "s/nord-dark/nord-light/g" ~/.config/fcitx5/conf/classicui.conf
+    killall fcitx5
     # Firefox
     cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
-    feh --bg-fill ~/Pictures/Background/NordDay.png
-    sed -i "s/bg ~\/Pictures\/Background\/NordNight.png fill/bg ~\/Pictures\/Background\/NordDay.png fill/g" ~/.config/sway/config
+    #feh --bg-fill ~/Pictures/Background/NordDay.png
+    #sed -i "s/bg ~\/Pictures\/Background\/NordNight.png fill/bg ~\/Pictures\/Background\/NordDay.png fill/g" ~/.config/sway/config
+    # Nmd
+    cp ~/.config/rofi/default/colors-light.rasi ~/.config/rofi/default/colors.rasi
     # Wofer
     sed -i "s/#d8dee9/#434c5e/g" ~/wofer/style.css
     sed -i "s/#2e3440/#eceff4/g" ~/wofer/style.css
@@ -76,6 +81,7 @@ then
     # Kitty
     sed -i "s/nord/polar/g" ~/.config/kitty/kitty.conf
     sed -i "s/nord/polar/g" ~/.config/kitty/kitty-w.conf
+    source ~/.config/fish/functions/kitty_reload.fish
     # Fish
     fish -c light
     # Polybar
@@ -122,11 +128,16 @@ then
     notify-send "Switch to Light Now!" -i ~/Pictures/nord.png -t 3000
 elif [ $1 == "n" ]
 then
+    # Fcitx5
+    sed -i "s/nord-light/nord-dark/g" ~/.config/fcitx5/conf/classicui.conf
+    killall fcitx5
     # Firefox
     cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
-    feh --bg-fill ~/Pictures/Background/NordNight.png
-    sed -i "s/bg ~\/Pictures\/Background\/NordDay.png fill/bg ~\/Pictures\/Background\/NordNight.png fill/g" ~/.config/sway/config
+    #feh --bg-fill ~/Pictures/nord/ign-0001.png
+    #sed -i "s/bg ~\/Pictures\/Background\/NordDay.png fill/bg ~\/Pictures\/Background\/NordNight.png fill/g" ~/.config/sway/config
+    # Nmd
+    cp ~/.config/rofi/default/colors-nord.rasi ~/.config/rofi/default/colors.rasi
     # Dunst
     cp ~/.config/dunst/dunstrc-nord ~/.config/dunst/dunstrc
     # Mako
@@ -192,6 +203,7 @@ then
     # Kitty
     sed -i "s/polar/nord/g" ~/.config/kitty/kitty.conf
     sed -i "s/polar/nord/g" ~/.config/kitty/kitty-w.conf
+    source ~/.config/fish/functions/kitty_reload.fish
     # Fish
     fish -c nord
     # Polybar 

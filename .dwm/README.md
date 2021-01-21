@@ -78,6 +78,10 @@ Execute `recompile` script first.
 
 Then
 
+`sudo ln -s /usr/local/share/xsession/dwm.desktop /usr/share/xsessions/dwm.desktop`
+
+or
+
 `sudo vim /usr/share/xsessions/dwm.desktop`
 
 ```shell

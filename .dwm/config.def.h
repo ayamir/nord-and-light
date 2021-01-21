@@ -47,6 +47,7 @@ static const Rule rules[] = {
 	{ "jetbrains-*",                    "sun-awt-X11-XFramePeer",   NULL,               1 << 1,       0,           -1 },
 	{ "jetbrains-*",                    "jetbrains-*",              "win0",             1 << 1,       1,           -1 },
 	{ "jetbrains-*",                    NULL,                       "Welcome to*",      1 << 1,       1,           -1 },
+    { "Google-chrome",                 "google-chrome",             NULL,               1 << 2,       0,           -1 },
 	{ "Vivaldi-stable",                 "vivaldi-stable",           NULL,               1 << 2,       0,           -1 },
 	{ "FirefoxNightly",                 NULL,                       NULL,               1 << 2,       0,           -1 },
 	{ "Nightly",                        NULL,                       NULL,               1 << 2,       0,           -1 },
@@ -100,7 +101,7 @@ static char dmenumon[3] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *clipmenucmd[]    = { "clipmenu", "-i", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray4, "-sb", col_cyan, "-sf", col_gray2, NULL};
 static const char *dmenucmd[]    = { "dmenu_run_history", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray4, "-sb", col_cyan, "-sf", col_gray2, NULL};
 //static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "kitty", "--single-instance", NULL };
 
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+3%",     NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-3%",     NULL };
@@ -137,7 +138,7 @@ static Key keys[] = {
 
     /* My Own App Start Ways */
     { Mod1Mask,                     XK_c,           spawn,          CMD("code") },
-    { MODKEY,                       XK_w,           spawn,          CMD("vivaldi-stable") },
+    { MODKEY,                       XK_w,           spawn,          CMD("google-chrome-stable") },
     { MODKEY,                       XK_z,           spawn,          CMD("zathura") },
     { MODKEY|ShiftMask,             XK_Return,      spawn,          CMD("alacritty") },
     { MODKEY|ShiftMask,             XK_q,           spawn,          CMD("xkill") },
