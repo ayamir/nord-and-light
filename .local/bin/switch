@@ -242,7 +242,7 @@ fi
 
 if [ $2 == "sway" ]
 then
-    source ~/.config/fish/functions/kitty_reload_w.fish
+    kitty --single-instance -e kitty_reload_w
 else
-    source ~/.config/fish/functions/kitty_reload_x.fish
+    kitty --single-instance -e kitty_reload_x
 fi
