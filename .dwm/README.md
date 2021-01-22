@@ -98,9 +98,5 @@ Type=XSession
 
 ### Recompile
 
-The script called `recompile` need `doas` package and is used to recompile dwm.
-
-You should configure your user can execute `doas` command without password.
-
-All of details about it can be found in [Doas Gentoo Wiki](https://wiki.gentoo.org/wiki/Doas)
+The script called `recompile` need your user can execute `sudo` command without password.
 

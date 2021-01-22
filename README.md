@@ -66,14 +66,36 @@ You can hack all of them to satisfy your taste.
 
 ### Must
 
--   xsettingsd
--   feh
--   dunst
--   mako(wayland)
--   alacritty/kitty
--   rofi
--   wofi(wayland)
--   zathura
+- xsettingsd: To switch global GTK theme during runtime.
+
+- feh: To set wallpaper
+
+- fish: As your default shell
+
+- dunst: Notification daemon
+
+- mako(wayland): Notification daemon
+
+- alacritty/kitty: Terminal
+
+  Alacritty support apply config file during runtime automatically.
+
+  Kitty also support it but need argument `--single-instance` when start it.
+
+  It's necessary to apply `kitty.conf`'s change by using kitty execute `kitty @ set-colors --all --configured ~/.config/kitty/kitty.conf`.
+
+  If you use kitty be sure that your default shell is fish and `.local/bin/kitty_reload_x`, `.local/bin/kitty_reload_w`, `.config/fish/functions/kitty_reload_x.fish`,
+
+  `.config/fish/functions/kitty_reload_w.fish`
+
+  are copied to corresponding directory.(The suffix called 'w' or 'x' represent 'wayland' or 'xorg'.)
+
+- rofi/dmenu: Program launcher
+
+- wofi(wayland): Program launcher
+
+- zathura: PDF reader
+
 -   Global GTK2/3 theme
     -   [Nordic](https://www.gnome-look.org/p/1267246/)
     
@@ -143,18 +165,7 @@ You can hack all of them to satisfy your taste.
 
 ## Usage
 
-`ln -s ./.local/bin/switch ~/.local/bin/switch`
-
-`ln -s ./.local/bin/startdaemon ~/.local/bin/startdaemon`
-
-`ln -s ./.local/bin/startdaemon-sway ~/.local/bin/startdaemon-sway`
-
-#### Note
-The recompile script in `.dwm/` dir need `doas` package. 
-
-And you should configure your user can execute `doas` command without password.
-
-You can see how to configure it on [Doas Gentoo Wiki](https://wiki.gentoo.org/wiki/Doas)
+Just copy config files what you need to corresponding directory follow this structure.
 
 <a id="org56ea59c"></a>
 
