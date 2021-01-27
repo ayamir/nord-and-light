@@ -10,8 +10,6 @@ then
     # Fcitx5
     sed -i "s/nord-dark/nord-light/g" ~/.config/fcitx5/conf/classicui.conf
     killall fcitx5
-    # Firefox
-    cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-light.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
     #feh --bg-fill ~/Pictures/Background/NordDay.png
     #sed -i "s/bg ~\/Pictures\/Background\/NordNight.png fill/bg ~\/Pictures\/Background\/NordDay.png fill/g" ~/.config/sway/config

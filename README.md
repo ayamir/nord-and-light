@@ -84,9 +84,7 @@ You can hack all of them to satisfy your taste.
 
   It's necessary to apply `kitty.conf`'s change by using kitty execute `kitty @ set-colors --all --configured ~/.config/kitty/kitty.conf`.
 
-  If you use kitty be sure that your default shell is fish and `.local/bin/kitty_reload_x`, `.local/bin/kitty_reload_w`, `.config/fish/functions/kitty_reload_x.fish`,
-
-  `.config/fish/functions/kitty_reload_w.fish`
+  If you use kitty be sure that  `.local/bin/kitty_reload_x`, `.local/bin/kitty_reload_w`, 
 
   are copied to corresponding directory.(The suffix called 'w' or 'x' represent 'wayland' or 'xorg'.)
 
@@ -166,6 +164,8 @@ You can hack all of them to satisfy your taste.
 ## Usage
 
 Just copy config files what you need to corresponding directory follow this structure.
+
+You can see all of `switch` details in it.
 
 <a id="org56ea59c"></a>
 
