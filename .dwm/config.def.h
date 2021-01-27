@@ -61,6 +61,7 @@ static const Rule rules[] = {
 	{ "VirtualBox Machine",             NULL,                       NULL,               1 << 5,       0,           -1 },
 	{ "Qq",                             "qq",                       NULL,               1 << 6,       1,           -1 },
 	{ "Freechat",                       "freechat",                 NULL,               1 << 6,       0,           -1 },
+	{ "Alacritty",                      "Alacritty",                NULL,               1 << 6,       0,           -1 },
 	{ "TelegramDesktop",                NULL,                       NULL,               1 << 7,       0,           -1 },
 	{ "qv2ray",                         NULL,                       NULL,               1 << 8,       0,           -1 },
 
@@ -144,7 +145,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_q,           spawn,          CMD("xkill") },
     { MODKEY|ShiftMask,             XK_s,           spawn,          CMD("flameshot gui") },
     { MODKEY|ShiftMask,             XK_n,           spawn,          CMD("thunar") },
-    { MODKEY|ShiftMask,             XK_m,           spawn,          CMD("kitty --class kitty-music -e musicbox") },
+    { MODKEY|ShiftMask,             XK_m,           spawn,          CMD("alacritty --class kitty-music -e ncmpcpp") },
     { MODKEY|ShiftMask,             XK_h,           spawn,          CMD("alacritty -e htop") },
     { MODKEY|ShiftMask,             XK_e,           spawn,          CMD("emacs") },
     { MODKEY|ShiftMask,             XK_v,           spawn,          CMD("VBoxManage startvm 'Windows7' --type gui") },
@@ -160,8 +161,8 @@ static Key keys[] = {
     { Mod1Mask,                     XK_g,           spawn,          CMD("goland") },
 
     /* Switch nord and light */
-    { MODKEY|ControlMask,           XK_n,           spawn,          CMD("sh ~/.local/bin/switch n dwm") },
-    { MODKEY|ControlMask,           XK_l,           spawn,          CMD("sh ~/.local/bin/switch l dwm") },
+    { MODKEY|ControlMask,           XK_n,           spawn,          CMD("sh ~/.local/bin/switch-nord n dwm") },
+    { MODKEY|ControlMask,           XK_l,           spawn,          CMD("sh ~/.local/bin/switch-nord l dwm") },
 
     /* Mpd control */
     { MODKEY|ControlMask,           XK_p,           spawn,          CMD("mpc toggle") },
