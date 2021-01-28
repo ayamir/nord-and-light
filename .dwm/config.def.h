@@ -21,11 +21,11 @@ static const char *fonts[]     = {"RobotoMono:size=9:antialias=true:autohint=tru
                                   "JoyPixels:size=10:antialias=true:autohint=true"
 						     	};
 static const char dmenufont[]       = "Sarasa UI SC:size=10:antialias=true:autohint=true";
-static const char col_gray1[]       = "#2E3440";
-static const char col_gray2[]       = "#3B4252";
-static const char col_gray3[]       = "#ECEFF4";
-static const char col_gray4[]       = "#D8DEE9";
-static const char col_cyan[]        = "#5E81AC";
+static const char col_gray1[]       = "#ECEFF4";
+static const char col_gray2[]       = "#D8DEE9";
+static const char col_gray3[]       = "#2E3440";
+static const char col_gray4[]       = "#3B4252";
+static const char col_cyan[]        = "#88C0D0";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
