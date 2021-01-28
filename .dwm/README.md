@@ -57,10 +57,6 @@ You can see all of 8 patches I have applied in `./patches` dir.
     
     gap appears only two or more windows appear
 
--   dwm-focusonnetactive-6.2.diff
-
-    automatically swith to urgency window
-
 
 <a id="orgdf423ab"></a>
 
