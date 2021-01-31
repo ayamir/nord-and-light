@@ -27,7 +27,7 @@ Nord and Light
 
 ## Patches
 
-You can see all of 8 patches I have applied in `./patches` dir.
+You can see all of 12 patches I have applied in `./patches` dir.
 
 -   dwm-00-regex-rules.diff
     
@@ -60,6 +60,22 @@ You can see all of 8 patches I have applied in `./patches` dir.
 -   dwm-focusonnetactive-6.2.diff
 
     automatically switch to urgent window
+
+-   dwm-pertag-perseltag-6.2.diff 
+
+    maintain layout for pertag
+
+-   dwm-status2d-6.2.diff
+
+    allow color on dwm status
+
+-   dwm-status2d-xrdb-6.2.diff
+
+    status2d work with xrdb
+
+-   dwm-xrdb-6.2.diff
+
+    reload dwm color through `~/.Xresources`
 
 <a id="orgdf423ab"></a>
 

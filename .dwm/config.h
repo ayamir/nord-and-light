@@ -21,21 +21,55 @@ static const char *fonts[]     = {"RobotoMono:size=9:antialias=true:autohint=tru
                                   "JoyPixels:size=10:antialias=true:autohint=true"
 						     	};
 static const char dmenufont[]       = "Sarasa UI SC:size=10:antialias=true:autohint=true";
-static const char col_gray1[]       = "#2E3440";
-static const char col_gray2[]       = "#3B4252";
-static const char col_gray3[]       = "#ECEFF4";
-static const char col_gray4[]       = "#D8DEE9";
-static const char col_cyan[]        = "#5E81AC";
-
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+static char normbgcolor[]           = "#2E3440";
+static char normbordercolor[]       = "#3B4252";
+static char normfgcolor[]           = "#ECEFF4";
+static char selfgcolor[]            = "#D8DEE9";
+static char selbordercolor[]        = "#5E81AC";
+static char selbgcolor[]            = "#B48EAD";
+static char termcol0[] = "#3b4252"; /* black   */
+static char termcol1[] = "#bf616a"; /* red     */
+static char termcol2[] = "#a3be8c"; /* green   */
+static char termcol3[] = "#ebcb8b"; /* yellow  */
+static char termcol4[] = "#81a1c1"; /* blue    */
+static char termcol5[] = "#b48ead"; /* magenta */
+static char termcol6[] = "#88c0d0"; /* cyan    */
+static char termcol7[] = "#e5e9f0"; /* white   */
+static char termcol8[]  = "#4c566a"; /* black   */
+static char termcol9[]  = "#bf616a"; /* red     */
+static char termcol10[] = "#a3be8c"; /* green   */
+static char termcol11[] = "#ebcb8b"; /* yellow  */
+static char termcol12[] = "#81a1c1"; /* blue    */
+static char termcol13[] = "#b48ead"; /* magenta */
+static char termcol14[] = "#8fbcbb"; /* cyan    */
+static char termcol15[] = "#eceff4"; /* white   */
+static char *termcolor[] = {
+  termcol0,
+  termcol1,
+  termcol2,
+  termcol3,
+  termcol4,
+  termcol5,
+  termcol6,
+  termcol7,
+  termcol8,
+  termcol9,
+  termcol10,
+  termcol11,
+  termcol12,
+  termcol13,
+  termcol14,
+  termcol15,
+};
+static char *colors[][3] = {
+       /*               fg           bg           border   */
+       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
 };
 
 /* tagging */
 //static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -47,22 +81,30 @@ static const Rule rules[] = {
 	{ "jetbrains-*",                    "sun-awt-X11-XFramePeer",   NULL,               1 << 1,       0,           -1 },
 	{ "jetbrains-*",                    "jetbrains-*",              "win0",             1 << 1,       1,           -1 },
 	{ "jetbrains-*",                    NULL,                       "Welcome to*",      1 << 1,       1,           -1 },
+
     { "Google-chrome",                 "google-chrome",             NULL,               1 << 2,       0,           -1 },
 	{ "Vivaldi-stable",                 "vivaldi-stable",           NULL,               1 << 2,       0,           -1 },
 	{ "FirefoxNightly",                 NULL,                       NULL,               1 << 2,       0,           -1 },
 	{ "Nightly",                        NULL,                       NULL,               1 << 2,       0,           -1 },
 	{ "Navigator",                      "Nightly",                  NULL,               1 << 2,       0,           -1 },
-	{ "Alacritty",                      "kitty-music",              NULL,               1 << 3,       0,           -1 },
+
 	{ "kitty-music",                    NULL,                       NULL,               1 << 3,       0,           -1 },
+	{ NULL,                             "SoundConverter",           NULL,               1 << 3,       0,           -1 },
 	{ "qqmusic",                        NULL,                       NULL,               1 << 3,       0,           -1 },
 	{ "Spotify",                        "spotify",                  NULL,               1 << 3,       0,           -1 },
+	{ "YesPlayMusic",                   NULL,                       NULL,               1 << 3,       0,           -1 },
 	{ "netease-cloud-music",            NULL,                       NULL,               1 << 3,       0,           -1 },
+
 	{ "Steam",                          NULL,                       NULL,               1 << 4,       0,           -1 },
+
 	{ "VirtualBox Machine",             NULL,                       NULL,               1 << 5,       0,           -1 },
+
 	{ "Qq",                             "qq",                       NULL,               1 << 6,       1,           -1 },
 	{ "Freechat",                       "freechat",                 NULL,               1 << 6,       0,           -1 },
 	{ "Alacritty",                      "Alacritty",                NULL,               1 << 6,       0,           -1 },
+
 	{ "TelegramDesktop",                NULL,                       NULL,               1 << 7,       0,           -1 },
+
 	{ "qv2ray",                         NULL,                       NULL,               1 << 8,       0,           -1 },
 
 	{ "xdman-Main",                     NULL,                       NULL,               0,            1,           -1 },
@@ -98,11 +140,16 @@ static const Layout layouts[] = {
 
 
 /* commands */
-static char dmenumon[3] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *windowswitchcmd[] = { "rofi", "-show", "window", NULL };
-static const char *clipmenucmd[]    = { "clipmenu", "-i", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray4, "-sb", col_cyan, "-sf", col_gray2, NULL};
-static const char *dmenucmd[]    = { "dmenu_run_history", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray4, "-sb", col_cyan, "-sf", col_gray2, NULL};
+static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *termcmd[]  = { "kitty", "--single-instance", NULL };
+
+static const char *rofidruncmd[] = { "rofi", "-show", "drun", NULL };
+static const char *windowswitchcmd[] = { "rofi", "-show", "window", NULL };
+
+static const char *dmenucmd[]    = { "dmenu_run_history", NULL};
+static const char *clipmenucmd[]    = { "clipmenu", NULL};
+static const char *searchmenucmd[]    = { "searchmenu", NULL};
+static const char *recordmenucmd[]    = { "recordmenu", NULL};
 
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+3%",     NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-3%",     NULL };
@@ -110,10 +157,14 @@ static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "togg
 
 static Key keys[] = {
 	/* modifier                     key             function        argument */
-	{ MODKEY,                       XK_d,           spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_c,           spawn,          {.v = clipmenucmd } },
 	{ MODKEY,                       XK_Return,      spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_d,           spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,           spawn,          {.v = rofidruncmd } },
+	{ MODKEY,                       XK_c,           spawn,          {.v = clipmenucmd } },
+	{ MODKEY,                       XK_s,           spawn,          {.v = searchmenucmd } },
+	{ MODKEY,                       XK_r,           spawn,          {.v = recordmenucmd } },
 	{ MODKEY,                       XK_w,           spawn,          {.v = windowswitchcmd } },
+
 	{ MODKEY,                       XK_b,           togglebar,      {0} },
     { MODKEY|ControlMask,           XK_m,           focusmaster,    {0} },
 	{ MODKEY,                       XK_j,           focusstack,     {.i = +1 } },
@@ -137,9 +188,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period,      focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,       tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,      tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_F5,          xrdb,           {.v = NULL } },
+
 
     /* My Own App Start Ways */
-    { Mod1Mask,                     XK_c,           spawn,          CMD("code") },
+    { Mod1Mask,                     XK_c,           spawn,          CMD("visual-studio-code") },
     { MODKEY,                       XK_e,           spawn,          CMD("google-chrome-stable") },
     { MODKEY,                       XK_z,           spawn,          CMD("zathura") },
     { MODKEY|ShiftMask,             XK_Return,      spawn,          CMD("alacritty") },
@@ -152,7 +205,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_v,           spawn,          CMD("VBoxManage startvm 'Windows7' --type gui") },
 
     { Mod1Mask|ControlMask,         XK_Delete,      spawn,          CMD("betterlockscreen -l") },
-    { Mod1Mask|ControlMask,         XK_s,           spawn,          CMD("systemctl suspend") },
+    { Mod1Mask|ControlMask,         XK_s,           spawn,          CMD("loginctl suspend") },
 
     /*IDE start*/
     { Mod1Mask,                     XK_i,           spawn,          CMD("idea") },
