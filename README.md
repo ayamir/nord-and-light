@@ -8,10 +8,11 @@
         1.  [Must](#org8050841)
         2.  [Optional](#orge85932f)
     4.  [Usage](#org3d0cd34)
-    5.  [About Firefox](#org56ea59c)
+    5.  [StartPage](#startpage)
+    6.  [About Firefox](#org56ea59c)
         1.  [Prerequisites](#orgb2ce2d0)
         2.  [Installation](#org5951695)
-    6.  [TODO](#orgfec7e81)
+    7.  [TODO](#orgfec7e81)
 
 
 <a id="orga92410c"></a>
@@ -24,13 +25,7 @@
 ## Shot
 Dynamic Switch With Dynamic Window Manager!
 
-Light-to-Nord:
-
-![img](./Pictures/shot/light-to-nord.gif)
-
-Nord-to-Light:
-
-![img](./Pictures/shot/nord-to-light.gif)
+![img](./Pictures/shot/switch.gif)
 
 ### bspwm
 ![img](./Pictures/shot/bspwm.png)
@@ -166,6 +161,14 @@ You can hack all of them to satisfy your taste.
 Just copy config files what you need to corresponding directory follow this structure.
 
 You can see all of `switch` details in it.
+
+<a id="startpage"></a>
+
+## StartPage
+
+It's my custom theme from [Bento](https://github.com/MiguelRAvila/Bento)
+
+So more details can be seen here.
 
 <a id="org56ea59c"></a>
 
