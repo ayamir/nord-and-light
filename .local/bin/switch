@@ -170,8 +170,8 @@ then
     sed -i "s/selbordercolor\[\]        \= \"\#88C0D0\"/selbordercolor\[\]        \= \"\#5E81AC\"/g" ~/.dwm/config.def.h
     source ~/.config/fish/functions/dwm_recompile.fish
     # Dmenu
-    sed -i "s/\[SchemeNorm\] \= {\"\#2E3440\"\, \"\#ECEFF4\"/\[SchemeNorm\] \= { \"\#ECEFF4\"\, \"\#2E3440\"/g" ~/.dmenu/config.def.h
-    sed -i "s/\[SchemeSel\] \= {\"\#3B4252\"\, \"\#88C0D0\"/\[SchemeSel\] \= { \"\#D8DEE9\"\, \"\#5E81AC\"/g" ~/.dmenu/config.def.h
+    sed -i "s/\[SchemeNorm\] \= {\"\#2E3440\"\, \"\#ECEFF4\"/\[SchemeNorm\] \= {\"\#ECEFF4\"\, \"\#2E3440\"/g" ~/.dmenu/config.def.h
+    sed -i "s/\[SchemeSel\] \= {\"\#3B4252\"\, \"\#88C0D0\"/\[SchemeSel\] \= {\"\#D8DEE9\"\, \"\#5E81AC\"/g" ~/.dmenu/config.def.h
     source ~/.config/fish/functions/dmenu_recompile.fish
 
     if [ $2 == "sway" ]
