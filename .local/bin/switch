@@ -11,16 +11,10 @@ then
     sed -i "s/nord-dark/nord-light/g" ~/.config/fcitx5/conf/classicui.conf
     killall fcitx5
     # Wallpaper
-    #feh --bg-fill ~/Pictures/Background/NordDay.png
-    #sed -i "s/bg ~\/Pictures\/Background\/NordNight.png fill/bg ~\/Pictures\/Background\/NordDay.png fill/g" ~/.config/sway/config
-    # Nmd
-    cp ~/.config/rofi/default/colors-light.rasi ~/.config/rofi/default/colors.rasi
-    # Wofer
-    sed -i "s/#d8dee9/#434c5e/g" ~/wofer/style.css
-    sed -i "s/#2e3440/#eceff4/g" ~/wofer/style.css
-    sed -i "s/rgba(53,59,73,1.0)/rgba(228, 231, 236, 1.0)/g" ~/wofer/style.css
+    feh --bg-fill ~/Pictures/Background/NordDay.png
+    sed -i "s/bg ~\/Pictures\/Background\/NordNight.png fill/bg ~\/Pictures\/Background\/NordDay.png fill/g" ~/.config/sway/config
     # Dunst
-    cp ~/.config/dunst/dunstrc-light ~/.config/dunst/dunstrc
+    cp ~/.config/dunst/dunstrc-nord-light ~/.config/dunst/dunstrc
     # Mako
     sed -i "s/#4c566a/#e5e9f0/g" ~/.config/mako/config
     sed -i "s/#434c5e/#eceff4/g" ~/.config/mako/config
@@ -52,12 +46,17 @@ then
     sed -i "s/bar_color   		= rgb:2e\/34\/40/bar_color   		= rgb:d8\/de\/e9/g" ~/.config/spectrwm/spectrwm.conf
     sed -i "s/bar_font_color      = rgb:d8\/de\/e9, rg/bar_font_color      = rgb:2e\/34\/40, rg/g" ~/.config/spectrwm/spectrwm.conf
     # Dwm
-    sed -i "s/col_gray1\[\]       \= \"\#2E3440\"/col_gray1\[\]       \= \"\#ECEFF4\"/g" ~/.dwm/config.def.h
-    sed -i "s/col_gray2\[\]       \= \"\#3B4252\"/col_gray2\[\]       \= \"\#D8DEE9\"/g" ~/.dwm/config.def.h
-    sed -i "s/col_gray3\[\]       \= \"\#ECEFF4\"/col_gray3\[\]       \= \"\#2E3440\"/g" ~/.dwm/config.def.h
-    sed -i "s/col_gray4\[\]       \= \"\#D8DEE9\"/col_gray4\[\]       \= \"\#3B4252\"/g" ~/.dwm/config.def.h
-    sed -i "s/col_cyan\[\]        \= \"\#5E81AC\"/col_cyan\[\]        \= \"\#88C0D0\"/g" ~/.dwm/config.def.h
+    sed -i "s/normbgcolor\[\]           \= \"\#2E3440\"/normbgcolor\[\]           \= \"\#ECEFF4\"/g" ~/.dwm/config.def.h
+    sed -i "s/normbordercolor\[\]       \= \"\#3B4252\"/normbordercolor\[\]       \= \"\#D8DEE9\"/g" ~/.dwm/config.def.h
+    sed -i "s/normfgcolor\[\]           \= \"\#ECEFF4\"/normfgcolor\[\]           \= \"\#2E3440\"/g" ~/.dwm/config.def.h
+    sed -i "s/selfgcolor\[\]            \= \"\#D8DEE9\"/selfgcolor\[\]            \= \"\#3B4252\"/g" ~/.dwm/config.def.h
+    sed -i "s/selbordercolor\[\]        \= \"\#5E81AC\"/selbordercolor\[\]        \= \"\#88C0D0\"/g" ~/.dwm/config.def.h
     source ~/.config/fish/functions/dwm_recompile.fish
+    # Dmenu
+    sed -i "s/\[SchemeNorm\] \= {\"\#ECEFF4\"\, \"\#2E3440\"/\[SchemeNorm\] \= {\"\#2E3440\"\, \"\#ECEFF4\"/g" ~/.dmenu/config.def.h
+    sed -i "s/\[SchemeSel\] \= {\"\#D8DEE9\"\, \"\#5E81AC\"/\[SchemeSel\] \= {\"\#3B4252\"\, \"\#88C0D0\"/g" ~/.dmenu/config.def.h
+    source ~/.config/fish/functions/dmenu_recompile.fish
+
     if [ $2 == "sway" ]
     then
         swaymsg reload
@@ -75,12 +74,12 @@ then
         pkill -1 spectrwm
     fi
     # Alacritty
-    cp ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
+    cp ~/.config/alacritty/alacritty-nord-light.yml ~/.config/alacritty/alacritty.yml
     # Kitty
-    sed -i "s/nord/polar/g" ~/.config/kitty/kitty.conf
-    sed -i "s/nord/polar/g" ~/.config/kitty/kitty-w.conf
+    sed -i "s/dark/light/g" ~/.config/kitty/kitty.conf
+    sed -i "s/dark/light/g" ~/.config/kitty/kitty-w.conf
     # Fish
-    fish -c light
+    fish -c nord-light
     # Polybar
     cp ~/.config/i3/polybar/colors-light ~/.config/i3/polybar/colors
     cp ~/.config/bspwm/polybar/colors-light ~/.config/bspwm/polybar/colors
@@ -97,7 +96,7 @@ then
     sed -i "s/Nord/Orchis-light/g" ~/.config/gtk-3.0/settings.ini
     pkill -1 xsettingsd
     # Rofi
-    sed -i "s/nord/light/g" ~/.config/rofi/config.rasi
+    sed -i "s/dark/light/g" ~/.config/rofi/config.rasi
     # Vim
     sed -i "s/colorscheme nord/colorscheme one/g" ~/.vimrc
     sed -i 's/airline_theme=\"nord\"/airline_theme=\"silver\"/g' ~/.vimrc
@@ -109,7 +108,7 @@ then
     # Sublime
     sed -i "s/Nord\/Nord.sublime-color-scheme/One Half Color Schemes\/OneHalfLight.tmTheme/g" ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
-    cp ~/.config/zathura/zathurarc-light ~/.config/zathura/zathurarc
+    cp ~/.config/zathura/zathurarc-nord-light ~/.config/zathura/zathurarc
     # Daemons
     if [ $2 == "sway" ]
     then
@@ -124,15 +123,11 @@ then
     # Fcitx5
     sed -i "s/nord-light/nord-dark/g" ~/.config/fcitx5/conf/classicui.conf
     killall fcitx5
-    # Firefox
-    cp ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome-nord.css ~/.mozilla/firefox/3ccio4xn.default-nightly/chrome/userChrome.css
     # Wallpaper
-    #feh --bg-fill ~/Pictures/nord/ign-0001.png
-    #sed -i "s/bg ~\/Pictures\/Background\/NordDay.png fill/bg ~\/Pictures\/Background\/NordNight.png fill/g" ~/.config/sway/config
-    # Nmd
-    cp ~/.config/rofi/default/colors-nord.rasi ~/.config/rofi/default/colors.rasi
+    feh --bg-fill ~/Pictures/Background/NordNight.png
+    sed -i "s/bg ~\/Pictures\/Background\/NordDay.png fill/bg ~\/Pictures\/Background\/NordNight.png fill/g" ~/.config/sway/config
     # Dunst
-    cp ~/.config/dunst/dunstrc-nord ~/.config/dunst/dunstrc
+    cp ~/.config/dunst/dunstrc-nord-dark ~/.config/dunst/dunstrc
     # Mako
     sed -i "s/#e5e9f0/#4c566a/g" ~/.config/mako/config
     sed -i "s/#eceff4/#434c5e/g" ~/.config/mako/config
@@ -168,12 +163,16 @@ then
     sed -i "s/bar_color   		= rgb:d8\/de\/e9/bar_color   		= rgb:2e\/34\/40/g" ~/.config/spectrwm/spectrwm.conf
     sed -i "s/bar_font_color      = rgb:2e\/34\/40, rg/bar_font_color      = rgb:d8\/de\/e9, rg/g" ~/.config/spectrwm/spectrwm.conf
     # Dwm
-    sed -i "s/col_gray1\[\]       \= \"\#ECEFF4\"/col_gray1\[\]       = \"\#2E3440\"/g" ~/.dwm/config.def.h
-    sed -i "s/col_gray2\[\]       \= \"\#D8DEE9\"/col_gray2\[\]       = \"\#3B4252\"/g" ~/.dwm/config.def.h
-    sed -i "s/col_gray3\[\]       \= \"\#2E3440\"/col_gray3\[\]       = \"\#ECEFF4\"/g" ~/.dwm/config.def.h
-    sed -i "s/col_gray4\[\]       \= \"\#3B4252\"/col_gray4\[\]       = \"\#D8DEE9\"/g" ~/.dwm/config.def.h
-    sed -i "s/col_cyan\[\]        \= \"\#88C0D0\"/col_cyan\[\]        = \"\#5E81AC\"/g" ~/.dwm/config.def.h
+    sed -i "s/normbgcolor\[\]           \= \"\#ECEFF4\"/normbgcolor\[\]           \= \"\#2E3440\"/g" ~/.dwm/config.def.h
+    sed -i "s/normbordercolor\[\]       \= \"\#D8DEE9\"/normbordercolor\[\]       \= \"\#3B4252\"/g" ~/.dwm/config.def.h
+    sed -i "s/normfgcolor\[\]           \= \"\#2E3440\"/normfgcolor\[\]           \= \"\#ECEFF4\"/g" ~/.dwm/config.def.h
+    sed -i "s/selfgcolor\[\]            \= \"\#3B4252\"/selfgcolor\[\]            \= \"\#D8DEE9\"/g" ~/.dwm/config.def.h
+    sed -i "s/selbordercolor\[\]        \= \"\#88C0D0\"/selbordercolor\[\]        \= \"\#5E81AC\"/g" ~/.dwm/config.def.h
     source ~/.config/fish/functions/dwm_recompile.fish
+    # Dmenu
+    sed -i "s/\[SchemeNorm\] \= { \"\#2E3440\"\, \"\#ECEFF4\"/\[SchemeNorm\] \= { \"\#ECEFF4\"\, \"\#2E3440\"/g" ~/.dmenu/config.def.h
+    sed -i "s/\[SchemeSel\] \= { \"\#3B4252\"\, \"\#88C0D0\"/\[SchemeSel\] \= { \"\#D8DEE9\"\, \"\#5E81AC\"/g" ~/.dmenu/config.def.h
+    source ~/.config/fish/functions/dmenu_recompile.fish
 
     if [ $2 == "sway" ]
     then
@@ -192,12 +191,12 @@ then
         pkill -1 spectrwm
     fi
     # Alacritty
-    cp ~/.config/alacritty/alacritty-nord.yml ~/.config/alacritty/alacritty.yml
+    cp ~/.config/alacritty/alacritty-nord-dark.yml ~/.config/alacritty/alacritty.yml
     # Kitty
-    sed -i "s/polar/nord/g" ~/.config/kitty/kitty.conf
-    sed -i "s/polar/nord/g" ~/.config/kitty/kitty-w.conf
+    sed -i "s/light/dark/g" ~/.config/kitty/kitty.conf
+    sed -i "s/light/dark/g" ~/.config/kitty/kitty-w.conf
     # Fish
-    fish -c nord
+    fish -c nord-dark
     # Polybar 
     cp ~/.config/i3/polybar/colors-nord ~/.config/i3/polybar/colors
     cp ~/.config/bspwm/polybar/colors-nord ~/.config/bspwm/polybar/colors
@@ -214,7 +213,7 @@ then
     sed -i "s/Orchis-light/Nord/g" ~/.config/gtk-3.0/settings.ini
     pkill -1 xsettingsd
     # Rofi
-    sed -i "s/light/nord/g" ~/.config/rofi/config.rasi
+    sed -i "s/light/dark/g" ~/.config/rofi/config.rasi
     # Vim
     sed -i 's/colorscheme one/colorscheme nord/g' ~/.vimrc
     sed -i 's/airline_theme=\"silver\"/airline_theme=\"nord\"/g' ~/.vimrc
@@ -226,7 +225,7 @@ then
     # Sublime
     sed -i "s/One Half Color Schemes\/OneHalfLight.tmTheme/Nord\/Nord.sublime-color-scheme/g" ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
     # Zathura
-    cp ~/.config/zathura/zathurarc-nord ~/.config/zathura/zathurarc
+    cp ~/.config/zathura/zathurarc-nord-dark ~/.config/zathura/zathurarc
     # Daemons
     if [ $2 == "sway" ]
     then
@@ -240,7 +239,7 @@ fi
 
 if [ $2 == "sway" ]
 then
-    kitty --single-instance -e kitty_reload_w
+    kitty --single-instance -e ~/.local/bin/kitty_reload_w
 else
-    kitty --single-instance -e kitty_reload_x
+    kitty --single-instance -e ~/.local/bin/kitty_reload_x
 fi
