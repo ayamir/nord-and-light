@@ -13,6 +13,7 @@
         1.  [Prerequisites](#orgb2ce2d0)
         2.  [Installation](#org5951695)
     7.  [TODO](#orgfec7e81)
+    8.  [Credits](#credits)
 
 
 <a id="orga92410c"></a>
@@ -216,3 +217,9 @@ So more details can be seen here.
 
 -   [X] Add Dwm support
 -   [X] Restart Dwm&Spectrwm automatically
+
+<a id="credits"></a>
+
+## Credits
+
++ [Bento](https://github.com/MiguelRAvila/Bento) as my start page's template.
