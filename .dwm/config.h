@@ -13,19 +13,18 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 /*  Modes after showtab_nmodes are disabled.                                */
 enum showtab_modes { showtab_never, showtab_auto, showtab_nmodes, showtab_always};
 static const int showtab			= showtab_auto;        /* Default tab bar show mode */
-static const int toptab				= False;               /* False means bottom tab bar */
+static const int toptab				= True;               /* False means bottom tab bar */
 
-static const char *fonts[]     = {"RobotoMono:size=9:antialias=true:autohint=true",
-                                  "Hack Nerd Font:size=8:antialias=true:autohint=true",
+static const char *fonts[]     = {"SF Mono Nerd Font:size=9:antialias=true:autohint=true",
                                   "Sarasa UI SC:size=8:antialias=true:autohint=true",
                                   "JoyPixels:size=10:antialias=true:autohint=true"
 						     	};
 static const char dmenufont[]       = "Sarasa UI SC:size=10:antialias=true:autohint=true";
-static char normbgcolor[]           = "#2E3440";
-static char normbordercolor[]       = "#3B4252";
-static char normfgcolor[]           = "#ECEFF4";
-static char selfgcolor[]            = "#D8DEE9";
-static char selbordercolor[]        = "#5E81AC";
+static char normbgcolor[]           = "#ECEFF4";
+static char normbordercolor[]       = "#D8DEE9";
+static char normfgcolor[]           = "#2E3440";
+static char selfgcolor[]            = "#3B4252";
+static char selbordercolor[]        = "#88C0D0";
 static char selbgcolor[]            = "#B48EAD";
 static char termcol0[] = "#3b4252"; /* black   */
 static char termcol1[] = "#bf616a"; /* red     */
@@ -88,7 +87,7 @@ static const Rule rules[] = {
 	{ "Nightly",                        NULL,                       NULL,               1 << 2,       0,           -1 },
 	{ "Navigator",                      "Nightly",                  NULL,               1 << 2,       0,           -1 },
 
-	{ "kitty-music",                    NULL,                       NULL,               1 << 3,       0,           -1 },
+	{ NULL,                             "kitty-music",              NULL,               1 << 3,       0,           -1 },
 	{ NULL,                             "SoundConverter",           NULL,               1 << 3,       0,           -1 },
 	{ "qqmusic",                        NULL,                       NULL,               1 << 3,       0,           -1 },
 	{ "Spotify",                        "spotify",                  NULL,               1 << 3,       0,           -1 },
@@ -101,11 +100,11 @@ static const Rule rules[] = {
 
 	{ "Qq",                             "qq",                       NULL,               1 << 6,       1,           -1 },
 	{ "Freechat",                       "freechat",                 NULL,               1 << 6,       0,           -1 },
-	{ "Alacritty",                      "Alacritty",                NULL,               1 << 6,       0,           -1 },
 
 	{ "TelegramDesktop",                NULL,                       NULL,               1 << 7,       0,           -1 },
 
 	{ "qv2ray",                         NULL,                       NULL,               1 << 8,       0,           -1 },
+	{ "Alacritty",                      "Alacritty",                NULL,               1 << 8,       0,           -1 },
 
 	{ "xdman-Main",                     NULL,                       NULL,               0,            1,           -1 },
 	{ "Nitrogen",                       NULL,                       NULL,               0,            1,           -1 },
@@ -118,12 +117,17 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 #include "layouts.c"
+#include "tcl.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "HHH",      grid },
+	{ "|||",      tcl },
+   	{ "TTT",      bstack },
+	{ "===",      bstackhoriz },
+
 };
 
 /* key definitions */
@@ -169,8 +173,8 @@ static Key keys[] = {
     { MODKEY|ControlMask,           XK_m,           focusmaster,    {0} },
 	{ MODKEY,                       XK_j,           focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,           focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,           incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_o,           incnmaster,     {.i = -1 } },
+//	{ MODKEY,                       XK_i,           incnmaster,     {.i = +1 } },
+//	{ MODKEY,                       XK_o,           incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,           setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,           setmfact,       {.f = +0.05} },
 	{ MODKEY|ControlMask,           XK_Return,      zoom,           {0} },
@@ -180,6 +184,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,           setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,           setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_g,           setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_u,           setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_i,           setlayout,      {.v = &layouts[5]} },
+	{ MODKEY,                       XK_o,           setlayout,      {.v = &layouts[6]} },
 	{ MODKEY,                       XK_space,       setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,       togglefloating, {0} },
 	{ MODKEY,                       XK_0,           view,           {.ui = ~0 } },
@@ -199,7 +206,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_q,           spawn,          CMD("xkill") },
     { MODKEY|ShiftMask,             XK_s,           spawn,          CMD("flameshot gui") },
     { MODKEY|ShiftMask,             XK_n,           spawn,          CMD("thunar") },
-    { MODKEY|ShiftMask,             XK_m,           spawn,          CMD("alacritty --class kitty-music -e ncmpcpp") },
+    { MODKEY|ShiftMask,             XK_m,           spawn,          CMD("kitty --class kitty-music -e ncmpcpp") },
     { MODKEY|ShiftMask,             XK_h,           spawn,          CMD("alacritty -e htop") },
     { MODKEY|ShiftMask,             XK_e,           spawn,          CMD("emacs") },
     { MODKEY|ShiftMask,             XK_v,           spawn,          CMD("VBoxManage startvm 'Windows7' --type gui") },

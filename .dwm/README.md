@@ -27,11 +27,19 @@ Nord and Light
 
 ## Patches
 
-You can see all of 12 patches I have applied in `./patches` dir.
+You can see all of 15 patches I have applied in `./patches` dir.
 
 -   dwm-00-regex-rules.diff
     
     to enable `config.def.h` 's regex rules
+
+-   dwm-attachasideandbelow-20200702-f04cac6.diff
+
+    new windows are spawned on the bottom of the stack
+
+-   dwm-bottomstack-20160719-56a31dc.diff
+
+    add two stack layout that master on top and other windows on bottom
 
 -   dwm-gridmode-20170909-ceac8c9.diff
     
@@ -76,6 +84,10 @@ You can see all of 12 patches I have applied in `./patches` dir.
 -   dwm-xrdb-6.2.diff
 
     reload dwm color through `~/.Xresources`
+
+-   tcl.c
+
+    a new layout with a wide master panel centered on the screen.
 
 <a id="orgdf423ab"></a>
 
