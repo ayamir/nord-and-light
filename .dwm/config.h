@@ -15,16 +15,16 @@ enum showtab_modes { showtab_never, showtab_auto, showtab_nmodes, showtab_always
 static const int showtab			= showtab_auto;        /* Default tab bar show mode */
 static const int toptab				= True;               /* False means bottom tab bar */
 
-static const char *fonts[]     = {"SF Mono Nerd Font:size=9:antialias=true:autohint=true",
+static const char *fonts[]     = {"Liga SFMono Nerd Font:size=9:antialias=true:autohint=true",
                                   "Sarasa UI SC:size=8:antialias=true:autohint=true",
                                   "JoyPixels:size=10:antialias=true:autohint=true"
 						     	};
 static const char dmenufont[]       = "Sarasa UI SC:size=10:antialias=true:autohint=true";
-static char normbgcolor[]           = "#ECEFF4";
-static char normbordercolor[]       = "#D8DEE9";
-static char normfgcolor[]           = "#2E3440";
-static char selfgcolor[]            = "#3B4252";
-static char selbordercolor[]        = "#88C0D0";
+static char normbgcolor[]           = "#2E3440";
+static char normbordercolor[]       = "#3B4252";
+static char normfgcolor[]           = "#ECEFF4";
+static char selfgcolor[]            = "#D8DEE9";
+static char selbordercolor[]        = "#5E81AC";
 static char selbgcolor[]            = "#B48EAD";
 static char termcol0[] = "#3b4252"; /* black   */
 static char termcol1[] = "#bf616a"; /* red     */
@@ -212,7 +212,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_v,           spawn,          CMD("VBoxManage startvm 'Windows7' --type gui") },
 
     { Mod1Mask|ControlMask,         XK_Delete,      spawn,          CMD("betterlockscreen -l") },
-    { Mod1Mask|ControlMask,         XK_s,           spawn,          CMD("loginctl suspend") },
+    { Mod1Mask|ControlMask,         XK_s,           spawn,          CMD("sh /usr/local/bin/suspend") },
 
     /*IDE start*/
     { Mod1Mask,                     XK_i,           spawn,          CMD("idea") },
