@@ -22,16 +22,22 @@
 
 Nord and Light
 
+This directory use polybar as default bar which config is in `../.config/polybar`.
+
 
 <a id="org2026491"></a>
 
 ## Patches
 
-You can see all of 15 patches I have applied in `./patches` dir.
+You can see all of 18 patches I have applied in `./patches` dir.
 
 -   dwm-00-regex-rules.diff
     
     to enable `config.def.h` 's regex rules
+
+-   dwm-anybar-polybar-tray-fix-20200810-bb2e722.diff
+
+    use polybar as default bar
 
 -   dwm-attachasideandbelow-20200702-f04cac6.diff
 
@@ -44,6 +50,10 @@ You can see all of 15 patches I have applied in `./patches` dir.
 -   dwm-gridmode-20170909-ceac8c9.diff
     
     add a grid layout
+
+-   dwm-ipc-20201106-f04cac6.diff
+
+    make polybar communicate with dwm
 
 -   dwm-6.2-tab-v2b.diff
     
@@ -80,6 +90,10 @@ You can see all of 15 patches I have applied in `./patches` dir.
 -   dwm-status2d-xrdb-6.2.diff
 
     status2d work with xrdb
+
+-   dwm-steam-6.2.diff
+
+    with steam games' fix
 
 -   dwm-xrdb-6.2.diff
 
