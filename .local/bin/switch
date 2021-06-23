@@ -100,7 +100,7 @@ then
     sed -i "s/Nord/Orchis-light/g" ~/.config/gtk-3.0/settings.ini
     pkill -1 xsettingsd
     # Rofi
-    sed -i "s/dark/light/g" ~/.config/rofi/config.rasi
+    sed -i "s/nord/light/g" ~/.config/rofi/config.rasi
     # Vim
     sed -i "s/colorscheme nord/colorscheme one/g" ~/.vimrc
     sed -i 's/airline_theme=\"nord\"/airline_theme=\"silver\"/g' ~/.vimrc
@@ -223,7 +223,7 @@ then
     sed -i "s/Orchis-light/Nord/g" ~/.config/gtk-3.0/settings.ini
     pkill -1 xsettingsd
     # Rofi
-    sed -i "s/light/dark/g" ~/.config/rofi/config.rasi
+    sed -i "s/light/nord/g" ~/.config/rofi/config.rasi
     # Vim
     sed -i 's/colorscheme one/colorscheme nord/g' ~/.vimrc
     sed -i 's/airline_theme=\"silver\"/airline_theme=\"nord\"/g' ~/.vimrc
