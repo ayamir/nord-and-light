@@ -78,7 +78,7 @@ then
         pkill -1 spectrwm
     fi
     # Alacritty
-    cp ~/.config/alacritty/alacritty-nord-light.yml ~/.config/alacritty/alacritty.yml
+    cp ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
     # Kitty
     sed -i "s/dark/light/g" ~/.config/kitty/kitty.conf
     sed -i "s/dark/light/g" ~/.config/kitty/kitty-w.conf
@@ -201,7 +201,7 @@ then
         pkill -1 spectrwm
     fi
     # Alacritty
-    cp ~/.config/alacritty/alacritty-nord-dark.yml ~/.config/alacritty/alacritty.yml
+    cp ~/.config/alacritty/alacritty-nord.yml ~/.config/alacritty/alacritty.yml
     # Kitty
     sed -i "s/light/dark/g" ~/.config/kitty/kitty.conf
     sed -i "s/light/dark/g" ~/.config/kitty/kitty-w.conf
