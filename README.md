@@ -1,4 +1,5 @@
 
+
 # Table of Contents
 
 1.  [Nord and Customized-light themes](#orga92410c)
@@ -197,7 +198,7 @@ So more details can be seen here.
 
 ### Installation
 
-1.  You should find you user directory. In my case, it's `~/.mozilla/firefox/3ccio4xn.default-nightly/`
+1.  You should find your user directory. In my case, it's `~/.mozilla/firefox/3ccio4xn.default-nightly/`
 
 2.  Backup your old config if you have.
 
